@@ -27,10 +27,7 @@ fleet_event = {
 		set_global_flag = akx.9000.fired
 		solar_system = {
 			set_star_flag = horizonsignal_system
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_global_event_target_as = horizonsignal_black_hole
 			}
 			save_global_event_target_as = horizonsignal_system
@@ -40,10 +37,7 @@ fleet_event = {
 	option = {
 		name = OK
 		solar_system = {
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				enable_special_project = {
 					name  = HORIZON_SIGNAL_PROJECT
 					location = this
@@ -89,10 +83,7 @@ fleet_event = {
 		set_global_flag = akx.9000.fired
 		solar_system = {
 			set_star_flag = horizonsignal_system
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_global_event_target_as = horizonsignal_black_hole
 			}
 			save_global_event_target_as = horizonsignal_system
@@ -102,10 +93,7 @@ fleet_event = {
 	option = {
 		name = OK
 		from = {
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				enable_special_project = {
 					name  = HORIZON_SIGNAL_PROJECT
 					location = this
@@ -317,10 +305,7 @@ country_event = {
 		name = akx.9010.a.notcollective
 		custom_tooltip = akx.9010.a.tooltip
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_authoritarian
-				has_ethic = ethic_authoritarian
-			}
+			is_authoritarian = no
 		}
 		# Update event chain with PoI
 		hidden_effect = {
@@ -355,10 +340,7 @@ country_event = {
 		name = akx.9010.b.notcollective
 		custom_tooltip = akx.9010.a.tooltip
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_authoritarian
-				has_ethic = ethic_authoritarian
-			}
+			is_authoritarian = no
 		}
 		# Update event chain with PoI
 		hidden_effect = {
@@ -757,10 +739,7 @@ planet_event = {
 		name = akx.9100.neutral.a
 		trigger = {
 			owner = {
-				NOR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_spiritualist
-				}
+				is_spiritualist = no
 			}
 		}
 	}
@@ -785,10 +764,7 @@ planet_event = {
 		custom_tooltip = akx.9101.a.notspiritual.tooltip
 		trigger = {
 			owner = {
-				NOR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_spiritualist
-				}
+				is_spiritualist = no
 			}
 		}
 		add_modifier = {
@@ -1224,16 +1200,13 @@ country_event = {
 		name = akx.9211.b
 		custom_tooltip = akx.9211.b.tooltip
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = yes
 		}
 		hidden_effect = {
 			capital_scope = {
 				while = {
 					limit = {
-						count_owned_pops = {
+						count_owned_pop = {
 							limit = { is_same_species = root }
 							count > 1
 						}
@@ -1403,16 +1376,13 @@ country_event = {
 		name = akx.9221.b
 		custom_tooltip = akx.9221.b.tooltip
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = yes
 		}
 		hidden_effect = {
 			capital_scope = {
 				while = {
 					limit = {
-						count_owned_pops = {
+						count_owned_pop = {
 							limit = { is_same_species = root }
 							count > 1
 						}
@@ -1631,10 +1601,7 @@ country_event = {
 		#is_dialog_only = yes
 		response_text = akx.9310.d.notpacifist.response
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
-			}
+			is_pacifist = no
 		}
 		hidden_effect = {
 			if = {
@@ -1705,10 +1672,7 @@ country_event = {
 		name = akx.9310.e.materialistic
 		response_text = akx.9310.e.materialistic.response
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 		add_monthly_resource_mult = {
 			resource = physics_research
@@ -1733,10 +1697,7 @@ country_event = {
 		name = akx.9310.e.spiritual
 		response_text = akx.9310.e.spiritual.response
 		trigger = {
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = yes
 		}
 		add_monthly_resource_mult = {
 			resource = society_research
@@ -1761,10 +1722,7 @@ country_event = {
 		name = akx.9310.e.militarist
 		response_text = akx.9310.e.militarist.response
 		trigger = {
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = yes
 		}
 		add_monthly_resource_mult = {
 			resource = influence
@@ -1856,8 +1814,7 @@ country_event = {
 
 	immediate = {
 		event_target:syzygy_system = {
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				save_event_target_as = syzygy_spawn_location
 			}
 		}
@@ -2487,11 +2444,7 @@ country_event = {
 		fromfrom = {
 			save_event_target_as = coils_planet
 			every_owned_pop = {
-				limit = {
-					owner = {
-						is_same_value = event_target:coils_planet.owner
-					}
-				}
+				limit = { is_owned_by = event_target:coils_planet.owner }
 				kill_pop = yes
 			}
 			observation_outpost = {
@@ -2575,12 +2528,8 @@ country_event = {
 		}
 		hidden_effect = {
 			event_target:coils_planet = {
-				every_pop = {
-					limit = {
-						owner = {
-							is_same_value = event_target:coils_planet.owner
-						}
-					}
+				every_owned_pop = {
+					limit = { is_owned_by = event_target:coils_planet.owner }
 					kill_pop = yes
 				}
 				observation_outpost = {
@@ -2612,10 +2561,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		NOR = {
-			is_planet_class = pc_habitat
-			is_planet_class = pc_ringworld_habitable
-		}
+		is_artificial = no
 		exists = owner
 		owner = {
 			has_country_flag = worm_events_available
@@ -3019,10 +2965,8 @@ planet_event = {
 		trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
+					is_authoritarian = yes
+					is_xenophobe = yes
 				}
 			}
 		}
@@ -3064,8 +3008,10 @@ planet_event = {
 		every_country = {
 			limit = {
 				has_communications = root.owner
-				NOT = { is_country = root.owner }
-				NOT = { is_same_species = root.owner }
+				NOR = {
+					is_same_empire = root.owner
+					is_same_species = root.owner
+				}
 				NOT = { has_ai_personality_behaviour = purger }
 				OR = {
 					is_country_type = default
@@ -3077,7 +3023,7 @@ planet_event = {
 		every_country = {
 			limit = {
 				has_communications = root.owner
-				NOT = { is_country = root.owner }
+				NOT = { is_same_empire = root.owner }
 				is_same_species = event_target:purged_species
 			}
 			add_opinion_modifier = { who = root.owner modifier = opinion_genocidal_our_species }
@@ -3520,8 +3466,7 @@ fleet_event = {
 
 	immediate = {
 		solar_system = {
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				save_event_target_as = hole_pets
 			}
 		}
@@ -3618,8 +3563,7 @@ planet_event = {
 		name = akx.10010.b
 		hidden_effect = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					save_event_target_as = local_star
 				}
 				create_country = {
@@ -3876,8 +3820,7 @@ planet_event = {
 				change_pc = pc_barren_cold
 				planet_event = { id = crisis.216 }
 			}
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				# explosion ambient object
 				change_pc = pc_black_hole
 			}

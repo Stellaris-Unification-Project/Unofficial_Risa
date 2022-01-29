@@ -52,8 +52,7 @@ star_lifting_system = {
 	}
 
 	init_effect = {
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			create_ambient_object = {
 				type = broken_star_lifting_platform
 			}
@@ -1016,8 +1015,7 @@ hostile_init_void_cloud = {
 
 	init_effect = {
 		create_cloud_country = yes
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			orbital_deposit_tile = {
 				clear_deposits = yes
 				add_dark_matter = yes
@@ -1765,12 +1763,6 @@ primitive_robot_system = {
 					trait = "trait_robotic_1"
 					trait = "trait_mechanical"
 				}
-				pops_can_be_colonizers = no
-				pops_can_migrate = no
-				pops_can_reproduce = no
-				pops_can_join_factions = no
-				pops_can_be_slaves = no
-				can_generate_leaders = no
 				consumer_goods = yes
 				pop_ethics = no
 				#More will not be buildable due to 0 pop growth
@@ -2182,7 +2174,7 @@ collapse_system = {
 						civic = civic_secret_of_fire
 						civic = civic_the_wheel
 					}
-					species = last_created
+					species = last_created_species
 					ethos = {
 						ethic = "ethic_fanatic_pacifist"
 						ethic = "ethic_materialist"
@@ -2225,7 +2217,7 @@ collapse_system = {
 							has_growing_pop = no
 						}
 						create_pop = {
-							species = last_created
+							species = last_created_species
 						}
 					}
 				}
@@ -2337,7 +2329,7 @@ old_foes_system = {
 					civic = civic_secret_of_fire
 					civic = civic_the_wheel
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -2368,7 +2360,7 @@ old_foes_system = {
 				count = 3
 				best_tile_for_pop = {
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -2423,7 +2415,7 @@ old_foes_system = {
 					civic = civic_secret_of_fire
 					civic = civic_the_wheel
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -2454,7 +2446,7 @@ old_foes_system = {
 				count = 3
 				best_tile_for_pop = {
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -3329,8 +3321,7 @@ elderly_tiyanki_system = {
 			limit = { is_star = no }
 			save_event_target_as = new_location
 		}
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			save_event_target_as = start_point
 			event_target:elderly_tiyanki_country = {
 				create_fleet = {
@@ -4663,7 +4654,7 @@ distantstars_init_00 = {
 			type = lgate_base
 			orbit_angle = 225
 			orbit_distance = 30
-			location = solar_system
+			coords_from = solar_system
 		}
 	}
 }
@@ -4882,7 +4873,7 @@ distantstars_init_01 = {
 			type = lgate_base
 			orbit_angle = 225
 			orbit_distance = 360
-			location = solar_system
+			coords_from = solar_system
 		}
 	}
 }

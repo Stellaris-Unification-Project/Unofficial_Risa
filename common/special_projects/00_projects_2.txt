@@ -850,7 +850,7 @@ special_project = {
 						NOT = { exists = space_owner }
 						AND = {
 							exists = space_owner
-							space_owner = { NOT = { is_same_value = root.owner } }
+							space_owner = { NOT = { is_same_empire = root.owner } }
 						}
 					}
 				}

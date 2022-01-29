@@ -54,8 +54,7 @@ can_add_claim = {
 			owner = {
 				NOR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 			}
 		}
@@ -96,9 +95,7 @@ can_add_claim = {
 			NOT = { exists = owner }
 			owner = {
 				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 					has_valid_civic = civic_machine_assimilator
 				}
 			}
@@ -129,14 +126,12 @@ can_get_claim_from_lost_system = {
 		fail_text = CANNOT_ADD_CLAIM_NOT_VALID_EMPIRE 
 		OR = {
 			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
+			is_fallen_empire = yes
 		}
 		root = {
 			OR = {
 				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 			}
 		}
 	}	
@@ -202,7 +197,7 @@ can_auto_migrate_pop = {
 	is_sapient = yes
 	is_enslaved = no
 	is_being_purged = no
-	has_migration_control = no
+	has_migration_control = { value = no country = prev.owner }
 	is_robot_pop = no
 	OR = {
 		NOT = { has_trait = trait_self_modified }
@@ -339,8 +334,10 @@ can_generate_leader_from_pop = {
 #This = species
 can_generate_leader_from_species = {
 	is_sapient = yes
-	NOT = { has_trait = "trait_robotic_1" }
-	NOT = { has_trait = "trait_robotic_2" }
+	NOR = {
+		has_trait = "trait_robotic_1"
+		has_trait = "trait_robotic_2"
+	}
 	OR = {
 		NAND = {
 			NOT = { root = { has_technology = tech_synthetic_leaders } }
@@ -788,7 +785,7 @@ can_resettle_pop_planet = {
 can_pop_procreate = {
 	is_sapient = yes
 	is_being_purged = no
-	has_population_control = no
+	has_population_control = { value = no country = prev.owner }
 	has_culture_shock = no
 	pop_can_reproduce = yes
 	exists = planet
@@ -805,7 +802,7 @@ should_kill_growing_pop = {
 		has_trait = trait_mechanical
 		has_trait = trait_machine_unit
 	}
-	has_population_control = yes
+	has_population_control = { value = yes country = prev.owner }
 }
 
 #This rule is a condition for bombarding planets
@@ -914,9 +911,9 @@ show_notification_for_ground_combat = {
 # this: country
 should_apply_neighbor_rival_modifier = {
 	OR = {
-		has_non_swapped_tradition = tr_supremacy_great_game
-		has_swapped_tradition = tr_supremacy_great_game_machine
-		has_swapped_tradition = tr_supremacy_great_game_hive
+		has_active_tradition = tr_supremacy_great_game
+		has_active_tradition = tr_supremacy_great_game_machine
+		has_active_tradition = tr_supremacy_great_game_hive
 	}
 }
 
@@ -937,7 +934,7 @@ should_colony_be_destroyed_on_pc_change = {
 is_extradimensional_portal = { # is this portal mine
 	is_ship_size = dimensional_portal_ed
 	OR = {
-		owner = { is_same_value = root } # owner is me
+		is_owned_by = root # owner is me
 		OR = {
 			AND = { # portal is unbidden and I am unbidden
 				root = { is_country_type = extradimensional }
@@ -967,7 +964,7 @@ is_extradimensional_anchor = {
 		}
 	}
 	is_ship_size = starbase_exd	#starbase_citadel
-	owner = { is_same_value = root }
+	is_owned_by = root
 }
 
 # Will colonizing this planet tick off a fallen empire?
@@ -1012,8 +1009,10 @@ can_species_have_rights = {
 # root: country
 can_have_robot_pops = {
 	exists = this
-	NOT = { has_authority = auth_hive_mind }
-	NOT = { has_policy_flag = robots_outlawed }
+	NOR = {
+		has_authority = auth_hive_mind
+		has_policy_flag = robots_outlawed
+	}
 }
 
 # Can purge/disassembly be individually stopped by owner

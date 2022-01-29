@@ -183,7 +183,7 @@ country_event = {
 					amount = 0
 				}
 			}
-			add_energy = @shroudcost1
+			add_resource = { energy = @shroudcost1 }
 		}
 		if = {
 			limit = {
@@ -192,7 +192,7 @@ country_event = {
 					amount = 1
 				}
 			}
-			add_energy = @shroudcost2
+			add_resource = { energy = @shroudcost2 }
 		}
 		if = {
 			limit = {
@@ -201,7 +201,7 @@ country_event = {
 					amount = 2
 				}
 			}
-			add_energy = @shroudcost3
+			add_resource = { energy = @shroudcost3 }
 		}
 		if = {
 			limit = {
@@ -210,7 +210,7 @@ country_event = {
 					amount = 3
 				}
 			}
-			add_energy = @shroudcost4
+			add_resource = { energy = @shroudcost4 }
 		}
 		if = {
 			limit = {
@@ -219,7 +219,7 @@ country_event = {
 					amount > 3
 				}
 			}
-			add_energy = @shroudcost5
+			add_resource = { energy = @shroudcost5 }
 		}
 
 		hidden_effect = {
@@ -234,7 +234,7 @@ country_event = {
 				10 = {
 					if = {
 						limit = { 
-							count_owned_ships = {
+							count_owned_ship = {
 								limit = { is_ship_size = psionic_avatar }
 								count < 1
 							}
@@ -3124,8 +3124,10 @@ country_event = {
 		random_country = {
 			limit = {
 				is_country_type = fallen_empire
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = { is_at_war_with = root }
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					is_at_war_with = root
+				}
 				has_communications = root
 			}
 			save_event_target_as = fallen_empire
@@ -4937,10 +4939,10 @@ country_event = {
 		set_global_flag = end_of_the_cycle_complete
 		set_country_flag = end_of_the_cycle_reckoning
 		clear_resources = yes
-		add_minerals = 1000
-		add_energy = 500
-		add_food = 100
-		add_influence = 100
+		add_resource = { minerals = 1000 }
+		add_resource = { energy = 500 }
+		add_resource = { food = 100 }
+		add_resource = { influence = 100 }
 		
 		if = {
 			limit = { NOT = { exists = event_target:shroud_country } }
@@ -4988,13 +4990,13 @@ country_event = {
 						}
 					}
 				}
-				any_planet = {
+				any_system_planet = {
 					has_owner = no
 					is_colonizable = yes
 					habitability = { who = root.species value > 0.2 }				
 				}
 			}
-			random_planet = {
+			random_system_planet = {
 				limit = {
 					has_owner = no
 					is_colonizable = yes
@@ -5008,13 +5010,13 @@ country_event = {
 		random_system = {
 			limit = {
 				root = { NOT = { has_country_flag = exile_world } }
-				any_planet = {
+				any_system_planet = {
 					has_owner = no
 					is_colonizable = yes
 					habitability = { who = root.species value > 0.2 }				
 				}
 			}
-			random_planet = {
+			random_system_planet = {
 				limit = {
 					has_owner = no
 					is_colonizable = yes
@@ -5087,7 +5089,7 @@ country_event = {
 		if = {
 			limit = { has_country_flag = exile_world }		
 			create_leader = {
-				type = ruler
+				class = ruler
 				species = root.owner_species
 				name = random
 				skill = 5
@@ -5097,7 +5099,7 @@ country_event = {
 		every_owned_fleet = { 
 			destroy_fleet = this 
 		}		
-		every_planet = {
+		every_system_planet = {
 			limit = { has_modifier = covenant_shroud_marked }
 			remove_modifier = covenant_shroud_marked
 			remove_all_armies = yes
@@ -5339,7 +5341,7 @@ fleet_event = {
 		event_target:the_end_of_the_cycle = { is_same_value = root }	
 		is_fleet_idle = yes
 		any_system = {
-			any_planet = {
+			any_system_planet = {
 				OR = {
 					is_colonizable = yes
 					has_owner = yes
@@ -5348,7 +5350,7 @@ fleet_event = {
 					NOT = { has_planet_flag = exile_planet }
 					NOT = {
 						any_system = {
-							any_planet = {
+							any_system_planet = {
 								OR = {
 									is_colonizable = yes
 									has_owner = yes
@@ -5370,7 +5372,7 @@ fleet_event = {
 		set_timed_global_flag = { flag = end_of_the_cycle_orders_cooldown days = 30 }
 		closest_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					OR = {
 						is_colonizable = yes
 						has_owner = yes
@@ -5379,7 +5381,7 @@ fleet_event = {
 						NOT = { has_planet_flag = exile_planet }
 						NOT = {
 							any_system = {
-								any_planet = {
+								any_system_planet = {
 									OR = {
 										is_colonizable = yes
 										has_owner = yes
@@ -5401,7 +5403,7 @@ fleet_event = {
 						NOT = { has_planet_flag = exile_planet }
 						NOT = {
 							any_system = {
-								any_planet = {
+								any_system_planet = {
 									OR = {
 										is_colonizable = yes
 										has_owner = yes
@@ -5419,7 +5421,7 @@ fleet_event = {
 			find_closest_system = {
 				trigger = {
 					id = utopia.3323.t1
-					any_planet = {
+					any_system_planet = {
 						is_same_value = event_target:move_to_planet
 					}
 				}
@@ -5915,10 +5917,7 @@ country_event = {
 		any_owned_planet = {
 			is_capital = no
 			num_pops > 5
-			NOR = {
-				is_planet_class = pc_habitat
-				is_planet_class = pc_ringworld_habitable
-			}	
+			is_artificial = no	
 		}
 	}
 	
@@ -5927,10 +5926,7 @@ country_event = {
 			limit = {
 				is_capital = no
 				num_pops > 5
-				NOR = {
-					is_planet_class = pc_habitat
-					is_planet_class = pc_ringworld_habitable
-				}
+				is_artificial = no
 			}
 			save_event_target_as = planet_target
 			change_pc = pc_shrouded
@@ -6169,7 +6165,7 @@ country_event = {
 		}
 		set_leader = event_target:chosen_one
 		hidden_effect = {
-			every_country = {
+			every_playable_country = {
 				limit = {
 					is_ai = no
 					NOT = { is_same_value = root }

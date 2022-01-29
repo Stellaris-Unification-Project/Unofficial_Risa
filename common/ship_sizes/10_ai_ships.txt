@@ -41,7 +41,7 @@ large_ship_ai = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 5
+	icon = ship_size_military_8
 	
 	class = shipclass_military
 	is_designable = no
@@ -184,7 +184,7 @@ construction_ship_ai = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 	
 	is_civilian = yes
 	is_designable = no
@@ -209,7 +209,7 @@ colony_ship_ai = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 
 	is_civilian = yes
 	is_designable = no
@@ -234,7 +234,7 @@ transport_ship_ai = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 	is_designable = no
 	class = shipclass_transport
 	required_component_set = "ftl_components"
@@ -337,7 +337,7 @@ blue_transport_ship_ai = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 	is_designable = no
 	class = shipclass_transport
 	required_component_set = "ftl_components"

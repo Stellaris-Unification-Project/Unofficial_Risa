@@ -95,7 +95,7 @@ special_init_02 = {
 							civic = civic_increasing_urbanization
 							civic = civic_atmospheric_pollution
 						}
-						species = last_created
+						species = last_created_species
 						ethos = random
 						flag = {
 							icon = {
@@ -202,7 +202,7 @@ special_init_02 = {
 					}
 					create_colony = {
 						owner = last_created_country
-						species = last_created
+						species = last_created_species
 						ethos = owner
 					}
 					random_tile = {
@@ -237,7 +237,7 @@ special_init_02 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}	
 					}
@@ -258,7 +258,7 @@ special_init_02 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}						
 					}	
@@ -295,7 +295,7 @@ special_init_02 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}						
 					}	
@@ -347,8 +347,8 @@ special_init_02 = {
 									count = 4
 									create_army = {
 										name = "NAME_Industrial_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "industrial_army"
 									}
 								}
@@ -362,8 +362,8 @@ special_init_02 = {
 									count = 5
 									create_army = {
 										name = "NAME_Industrial_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "industrial_army"
 									}
 								}
@@ -377,8 +377,8 @@ special_init_02 = {
 									count = 4
 									create_army = {
 										name = "NAME_Post-Atomic_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "postatomic_army"
 									}
 								}
@@ -392,8 +392,8 @@ special_init_02 = {
 									count = 5
 									create_army = {
 										name = "NAME_Post-Atomic_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "postatomic_army"
 									}
 								}
@@ -431,7 +431,7 @@ special_init_02 = {
 							civic = civic_landed_nobility
 							civic = civic_flat_world_theory
 						}
-						species = last_created
+						species = last_created_species
 						ethos = random
 						flag = {
 							icon = {
@@ -585,7 +585,7 @@ special_init_02 = {
 					}
 					create_colony = {
 						owner = last_created_country
-						species = last_created
+						species = last_created_species
 						ethos = owner
 					}
 					random_tile = {
@@ -595,7 +595,7 @@ special_init_02 = {
 							has_growing_pop = no
 						}
 						create_pop = {
-							species = last_created
+							species = last_created_species
 						}
 					}
 					if = {
@@ -614,7 +614,7 @@ special_init_02 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}						
 					}
@@ -665,7 +665,7 @@ special_init_02 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}						
 						random_tile = {
@@ -719,8 +719,8 @@ special_init_02 = {
 							PREV = {
 								create_army = {
 									name = "NAME_Primitive_Army"
-									owner = last_created
-									species = last_created
+									owner = last_created_country
+									species = last_created_species
 									type = "primitive_army"
 								}
 							}
@@ -731,8 +731,8 @@ special_init_02 = {
 							PREV = {
 								create_army = {
 									name = "NAME_Primitive_Army"
-									owner = last_created
-									species = last_created
+									owner = last_created_country
+									species = last_created_species
 									type = "primitive_army"
 								}
 							}
@@ -745,8 +745,8 @@ special_init_02 = {
 									count = 2
 									create_army = {
 										name = "NAME_Primitive_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "primitive_army"
 									}
 								}
@@ -760,8 +760,8 @@ special_init_02 = {
 									count = 3
 									create_army = {
 										name = "NAME_Primitive_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "primitive_army"
 									}
 								}
@@ -775,8 +775,8 @@ special_init_02 = {
 									count = 4
 									create_army = {
 										name = "NAME_Primitive_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "primitive_army"
 									}
 								}
@@ -790,8 +790,8 @@ special_init_02 = {
 									count = 3
 									create_army = {
 										name = "NAME_Industrial_Army"
-										owner = last_created
-										species = last_created
+										owner = last_created_country
+										species = last_created_species
 										type = "industrial_army"
 									}
 								}
@@ -905,7 +905,7 @@ special_init_03 = {
 							civic = civic_increasing_urbanization
 							civic = civic_atmospheric_pollution
 						}
-						species = last_created
+						species = last_created_species
 						ethos = {
 							ethic = "ethic_xenophile"
 							ethic = "ethic_fanatic_egalitarian"			
@@ -936,7 +936,7 @@ special_init_03 = {
 					}
 					create_colony = {
 						owner = last_created_country
-						species = last_created
+						species = last_created_species
 						ethos = {
 							ethic = "ethic_xenophile"
 							ethic = "ethic_fanatic_egalitarian"			
@@ -973,32 +973,32 @@ special_init_03 = {
 					}					
 					create_army = {
 						name = "US Armed Forces West"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "postatomic_army"
 					}
 					create_army = {
 						name = "US Armed Forces East"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "postatomic_army"
 					}
 					create_army = {
 						name = "Chinese PLA"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "postatomic_army"
 					}
 					create_army = {
 						name = "Russian Armed Forces"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "postatomic_army"
 					}
 					create_army = {
 						name = "EU Combined Forces"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "postatomic_army"
 					}
 					create_fleet = {
@@ -1021,7 +1021,7 @@ special_init_03 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}
 					}
@@ -1074,7 +1074,7 @@ special_init_03 = {
 							civic = civic_increasing_urbanization
 							civic = civic_atmospheric_pollution
 						}
-						species = last_created
+						species = last_created_species
 						ethos = { 
 							ethic = "ethic_materialist"
 							ethic = "ethic_fanatic_militarist"
@@ -1106,7 +1106,7 @@ special_init_03 = {
 					}
 					create_colony = {
 						owner = last_created_country
-						species = last_created
+						species = last_created_species
 						ethos = { 
 							ethic = "ethic_materialist"
 							ethic = "ethic_fanatic_militarist"
@@ -1139,32 +1139,32 @@ special_init_03 = {
 					}					
 					create_army = {
 						name = "NAME_German_Wehrmacht"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "industrial_army"
 					}
 					create_army = {
 						name = "NAME_Soviet_Red_Army"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "industrial_army"
 					}
 					create_army = {
 						name = "NAME_US_Armed_Forces"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "industrial_army"
 					}
 					create_army = {
 						name = "NAME_British_Armed_Forces"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "industrial_army"
 					}
 					create_army = {
 						name = "NAME_Imperial_Japanese_Forces"
-						owner = last_created
-						species = last_created
+						owner = last_created_country
+						species = last_created_species
 						type = "industrial_army"
 					}
 					while = {
@@ -1176,7 +1176,7 @@ special_init_03 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}
 					}
@@ -1233,7 +1233,7 @@ special_init_03 = {
 							civic = civic_landed_nobility
 							civic = civic_flat_world_theory
 						}
-						species = last_created
+						species = last_created_species
 						ethos = random
 						flag = {
 							icon = {
@@ -1262,7 +1262,7 @@ special_init_03 = {
 					}
 					create_colony = {
 						owner = last_created_country
-						species = last_created
+						species = last_created_species
 						ethos = { 
 							ethic = "ethic_xenophobe"
 							ethic = "ethic_spiritualist"
@@ -1273,8 +1273,8 @@ special_init_03 = {
 						count = 3
 						create_army = {
 							name = "NAME_Feudal_Levies"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -1291,7 +1291,7 @@ special_init_03 = {
 								has_growing_pop = no
 							}
 							create_pop = {
-								species = last_created
+								species = last_created_species
 							}
 						}
 					}
@@ -2357,7 +2357,7 @@ sanctuary_system = {
 					civic = civic_landed_nobility
 					civic = civic_flat_world_theory
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -2510,7 +2510,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -2532,7 +2532,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -2561,7 +2561,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -2587,7 +2587,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}		
 				random_tile = {
@@ -2656,8 +2656,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -2668,8 +2668,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -2682,8 +2682,8 @@ sanctuary_system = {
 							count = 2
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -2697,8 +2697,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -2712,8 +2712,8 @@ sanctuary_system = {
 							count = 4
 							create_army = {
 								name = "Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -2727,8 +2727,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Industrial_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "industrial_army"
 							}
 						}
@@ -2831,7 +2831,7 @@ sanctuary_system = {
 					civic = civic_landed_nobility
 					civic = civic_flat_world_theory
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -2984,7 +2984,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -3006,7 +3006,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3035,7 +3035,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3061,7 +3061,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}		
 				random_tile = {
@@ -3130,8 +3130,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -3142,8 +3142,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -3156,8 +3156,8 @@ sanctuary_system = {
 							count = 2
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3171,8 +3171,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3186,8 +3186,8 @@ sanctuary_system = {
 							count = 4
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3201,8 +3201,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Industrial_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "industrial_army"
 							}
 						}
@@ -3305,7 +3305,7 @@ sanctuary_system = {
 					civic = civic_landed_nobility
 					civic = civic_flat_world_theory
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -3458,7 +3458,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -3480,7 +3480,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3509,7 +3509,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3535,7 +3535,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}		
 				random_tile = {
@@ -3604,8 +3604,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -3616,8 +3616,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -3630,8 +3630,8 @@ sanctuary_system = {
 							count = 2
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3645,8 +3645,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3660,8 +3660,8 @@ sanctuary_system = {
 							count = 4
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -3675,8 +3675,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Industrial_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "industrial_army"
 							}
 						}
@@ -3769,7 +3769,7 @@ sanctuary_system = {
 					civic = civic_landed_nobility
 					civic = civic_flat_world_theory
 				}
-				species = last_created
+				species = last_created_species
 				ethos = random
 				flag = {
 					icon = {
@@ -3922,7 +3922,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 			}
@@ -3944,7 +3944,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3973,7 +3973,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}
 				random_tile = {
@@ -3999,7 +3999,7 @@ sanctuary_system = {
 						has_growing_pop = no
 					}
 					create_pop = {
-						species = last_created
+						species = last_created_species
 					}
 				}		
 				random_tile = {
@@ -4068,8 +4068,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -4080,8 +4080,8 @@ sanctuary_system = {
 					PREV = {
 						create_army = {
 							name = "NAME_Primitive_Army"
-							owner = last_created
-							species = last_created
+							owner = last_created_country
+							species = last_created_species
 							type = "primitive_army"
 						}
 					}
@@ -4094,8 +4094,8 @@ sanctuary_system = {
 							count = 2
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -4109,8 +4109,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -4124,8 +4124,8 @@ sanctuary_system = {
 							count = 4
 							create_army = {
 								name = "NAME_Primitive_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "primitive_army"
 							}
 						}
@@ -4139,8 +4139,8 @@ sanctuary_system = {
 							count = 3
 							create_army = {
 								name = "NAME_Industrial_Army"
-								owner = last_created
-								species = last_created
+								owner = last_created_country
+								species = last_created_species
 								type = "industrial_army"
 							}
 						}
@@ -4402,7 +4402,7 @@ com_sol_system = {
 				}
 			}
 			set_owner = last_created_country
-			last_created_country = { add_minerals = 300 add_energy = 1000 } # enough energy to cover initial leaders
+			last_created_country = { add_resource = { minerals = 300 } add_resource = { energy = 1000 } } # enough energy to cover initial leaders
 		}
 		
 		moon = {

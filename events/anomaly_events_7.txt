@@ -46,8 +46,7 @@ ship_event = {
 			hidden:owner = {
 				OR = {
 					has_policy_flag = ai_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 					NOT = {
 						has_technology = tech_synthetic_workers 
 					}
@@ -79,8 +78,7 @@ ship_event = {
 				has_technology = tech_synthetic_workers
 				NOR = {
 					has_policy_flag = ai_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}
 			}
 		}
@@ -135,8 +133,7 @@ ship_event = {
 				has_technology = tech_synthetic_workers
 				NOR = {
 					has_policy_flag = ai_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}	
 			}
 		}
@@ -164,8 +161,7 @@ ship_event = {
 						has_technology = tech_synthetic_workers
 					}
 					has_policy_flag = ai_outlawed
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
+					is_spiritualist = yes
 				}
 			}
 		}
@@ -245,7 +241,7 @@ ship_event = {
 #		name = anomaly.189.c
 #		custom_tooltip = anomaly.186.a.alt.tooltip
 #		trigger = { has_policy_flag = ai_servitude }
-#		add_minerals = 200
+#		add_resource = { minerals = 200 }
 #	}
 #}
 
@@ -365,7 +361,7 @@ country_event = {
 					has_star_flag = guardian
 					has_star_flag = enclave
 				}
-				any_planet = {
+				any_system_planet = {
 					habitable_planet = yes 
 					has_anomaly = no
 					is_colony = no
@@ -383,7 +379,7 @@ country_event = {
 					has_star_flag = guardian
 					has_star_flag = enclave
 				}
-				any_planet = {
+				any_system_planet = {
 					habitable_planet = yes 
 					has_anomaly = no
 					is_colony = no
@@ -402,7 +398,7 @@ country_event = {
 		name = anomaly.189.c
 		custom_tooltip = anomaly.186.a.alt.tooltip
 		trigger = { has_policy_flag = ai_servitude }
-		add_minerals = 200
+		add_resource = { minerals = 200 }
 	}
 }
 
@@ -424,13 +420,13 @@ country_event = {
 						has_star_flag = enclave
 						has_star_flag = primitive_system
 					}
-					any_planet = {
+					any_system_planet = {
 						habitable_planet = yes 
 						has_anomaly = no
 						is_colony = no
 						is_capital = no
-						NOT = { has_modifier = holy_planet }
 						NOR = {
+							has_modifier = holy_planet
 							exists = owner
 							exists = controller
 						}
@@ -446,13 +442,13 @@ country_event = {
 						has_star_flag = enclave
 						has_star_flag = primitive_system
 					}
-					any_planet = {
+					any_system_planet = {
 						habitable_planet = yes
 						has_anomaly = no
 						is_colony = no
 						is_capital = no
-						NOT = { has_modifier = holy_planet }
 						NOR = {
+							has_modifier = holy_planet
 							exists = owner
 							exists = controller
 						}
@@ -499,8 +495,8 @@ country_event = {
 						set_building = building_colony_shelter	
 					}
 	
-    				surveyed = {
-    					set_surveyed = yes
+    				set_surveyed = {
+    					surveyed = yes
     					surveyor = root
     				}
 
@@ -544,7 +540,7 @@ country_event = {
 								}
 							}
 							create_leader = {
-								type = ruler
+								class = ruler
 								species = owner_main_species
 								name = random
 								skill = 5
@@ -835,8 +831,8 @@ country_event = {
 					is_colony = no 
 					has_anomaly = no
 					is_capital = no
-					NOT = { has_modifier = holy_planet }
 					NOR = {
+						has_modifier = holy_planet
 						exists = owner
 						exists = controller
 					}
@@ -848,8 +844,8 @@ country_event = {
 					is_colony = no	
 					has_anomaly = no
 					is_capital = no
-					NOT = { has_modifier = holy_planet }
 					NOR = {
+						has_modifier = holy_planet
 						exists = owner
 						exists = controller
 					}
@@ -873,8 +869,8 @@ country_event = {
 				is_colony = no 
 				has_anomaly = no
 				is_capital = no
-				NOT = { has_modifier = holy_planet }
 				NOR = {
+					has_modifier = holy_planet
 					exists = owner
 					exists = controller
 				}
@@ -892,8 +888,8 @@ country_event = {
 				is_colony = no 
 				has_anomaly = no
 				is_capital = no
-				NOT = { has_modifier = holy_planet }
 				NOR = {
+					has_modifier = holy_planet
 					exists = owner
 					exists = controller
 				}
@@ -912,8 +908,8 @@ country_event = {
 						is_colony = no	
 						has_anomaly = no
 						is_capital = no
-						NOT = { has_modifier = holy_planet }
 						NOR = {
+							has_modifier = holy_planet
 							exists = owner
 							exists = controller
 						}
@@ -953,7 +949,7 @@ country_event = {
 		name = anomaly.189.c
 		custom_tooltip = anomaly.186.a.alt.tooltip
 		trigger = { has_policy_flag = ai_servitude }
-		add_minerals = 200
+		add_resource = { minerals = 200 }
 	}
 }
 
@@ -973,7 +969,7 @@ country_event = {
 		name = anomaly.189.c
 		custom_tooltip = anomaly.186.a.alt.tooltip
 		trigger = { has_policy_flag = ai_servitude }
-		add_minerals = 200
+		add_resource = { minerals = 200 }
 	}
 
 	option = {
@@ -991,7 +987,7 @@ country_event = {
 					has_star_flag = enclave
 					has_star_flag = primitive_system
 				}
-				any_planet = {
+				any_system_planet = {
 					habitable_planet = yes
 					has_anomaly = no
 					#is_colony = no
@@ -1016,7 +1012,7 @@ country_event = {
 					has_star_flag = enclave
 					has_star_flag = primitive_system
 				}
-				any_planet = {
+				any_system_planet = {
 					habitable_planet = yes 
 					has_anomaly = no
 					#is_colony = no
@@ -1039,13 +1035,13 @@ country_event = {
 						has_star_flag = enclave
 						has_star_flag = primitive_system
 					}
-					any_planet = {
+					any_system_planet = {
 						habitable_planet = yes
 						has_anomaly = no
 						is_colony = no
 						is_capital = no
-						NOT = { has_modifier = holy_planet }
 						NOR = {
+							has_modifier = holy_planet
 							exists = owner
 							exists = controller
 						}
@@ -1095,8 +1091,8 @@ country_event = {
 						set_building = building_colony_shelter	
 					}
 
-	    			surveyed = {
-	    				set_surveyed = yes
+	    			set_surveyed = {
+	    				surveyed = yes
 	    				surveyor = root
 	    			}	
 	    			prevent_anomaly = yes 
@@ -1144,7 +1140,7 @@ country_event = {
 								}
 							}
 							create_leader = {
-								type = ruler
+								class = ruler
 								species = owner_main_species
 								name = random
 								skill = 5

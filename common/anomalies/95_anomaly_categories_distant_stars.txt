@@ -15,7 +15,7 @@ DISTAR_WRECK_CAT = {
 					has_communications = from.owner
 					NOR = {
 						is_at_war_with = from.owner
-						is_same_value = from.owner
+						is_same_empire = from.owner
 					}
 				}
 			}
@@ -31,7 +31,7 @@ DISTAR_WRECK_CAT = {
 					has_communications = from.owner
 					NOR = {
 						is_at_war_with = from.owner
-						is_same_value = from.owner
+						is_same_empire = from.owner
 					}
 				}
 				set_country_flag = wreckage_owner@from.owner
@@ -261,7 +261,7 @@ DISTAR_DEAD_GOD_CAT = {
 			has_distar = yes
 			is_moon = yes
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					exists = owner
 					owner = {
 						is_primitive = yes
@@ -345,7 +345,7 @@ DISTAR_RUM_CAT = {
 						NOR = {
 							has_ethic = ethic_gestalt_consciousness
 							is_at_war_with = from.owner
-							is_same_value = from.owner
+							is_same_empire = from.owner
 						}
 					}
 				}
@@ -854,7 +854,7 @@ DISTAR_PHASE_CAT = {
 						AND = {
 							exists = space_owner
 							space_owner = {
-								NOT = { is_same_value = root.owner }
+								NOT = { is_same_empire = root.owner }
 							}
 						}
 					}
@@ -870,7 +870,7 @@ DISTAR_PHASE_CAT = {
 					has_modifier = phaseshifted
 					exists = space_owner
 					space_owner = {
-						is_same_value = root.owner
+						is_same_empire = root.owner
 					}
 				}
 			}
@@ -1223,10 +1223,10 @@ ast_debris_field_1_cat_2 = {
 			modifier = {
 				factor = 0
 				NOT = {	# rewrite event's trigger block here
-					any_country = {
+					any_playable_country = {
 						is_country_type = default
 						NOT = {
-							is_same_value = prev.owner
+							is_same_empire = prev.owner
 						}
 					}
 				}
@@ -1437,7 +1437,7 @@ moon_cat = {
 			habitable_planet = no
 			has_any_strategic_resource = no
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					habitable_planet = yes
 					has_moon = yes
 					any_moon = {
@@ -1573,8 +1573,7 @@ disco_impossible_organism_cat = {
 				from.owner = {
 					OR = { 
 						has_ethic = ethic_gestalt_consciousness
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
+						is_xenophobe = yes
 					}
 				}
 			}

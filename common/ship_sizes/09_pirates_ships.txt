@@ -42,7 +42,7 @@ pirate_corvette = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 	
 	has_mineral_upkeep = yes
 	class = shipclass_military
@@ -117,7 +117,7 @@ pirate_station = {
 	modifier = {
 		ship_evasion_mult = -1
 		ship_armor_add = 700	#35
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20

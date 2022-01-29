@@ -153,7 +153,7 @@ ship_event = {
 	option = {
 		name = NOTIME
 		owner = {
-			add_influence = 50
+			add_resource = { influence = 50 }
 		}
 	}
 }
@@ -365,7 +365,7 @@ country_event = {
 	immediate = {
 		set_country_flag = me
 		FROM = { solar_system = { save_event_target_as = anomaly_planet } }
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				distance = {
 					source = event_target:anomaly_planet
@@ -594,7 +594,7 @@ ship_event = {
 #					max_distance <= 120
 #					min_distance >= 1
 #				}
-#				any_planet = {
+#				any_system_planet = {
 #					is_surveyed = { who = root.owner status = no }
 #					has_owner = no
 #				}
@@ -612,8 +612,8 @@ ship_event = {
 #				save_event_target_as = target_location
 #			}
 #			every_system_planet = {
-#				surveyed = {
-#					set_surveyed = yes
+#				set_surveyed = {
+#					surveyed = yes
 #					surveyor = root.owner
 #				}
 #			}
@@ -702,8 +702,8 @@ ship_event = {
 				traits = random
 			}
 			create_leader = {
-				type = admiral
-				species = last_created
+				class = admiral
+				species = last_created_species
 				name = "NAME_0101010111"
 				skill = 3
 				#traits = {	# Conflicted with traits granted by on_leader_spawned events
@@ -758,10 +758,7 @@ ship_event = {
 		hidden_effect = {
 			solar_system = {
 				set_star_flag = current_system
-				random_system_planet = {
-					limit = {
-						is_star = yes
-					}
+				star = {
 					save_event_target_as = anomaly_star
 				}
 			}
@@ -859,7 +856,7 @@ ship_event = {
 	option = {
 		name = NOTIME
 		owner = {
-			add_influence = 50
+			add_resource = { influence = 50 }
 		}
 	}
 }
@@ -1162,10 +1159,7 @@ ship_event = {
 
 	immediate = {
 		solar_system = {
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_event_target_as = planet_1
 			}
 		}
@@ -2035,7 +2029,7 @@ ship_event = {
 		hidden_effect = {
 			owner = {
 				create_leader = {
-					type = scientist
+					class = scientist
 					species = owner_main_species
 					name = random
 				}
@@ -2103,10 +2097,7 @@ ship_event = {
 		name = anomaly.4060.b
 		trigger = {
 			owner = {
-				NOR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_spiritualist
-				}
+				is_spiritualist = no
 			}
 		}
 		owner = {
@@ -2216,10 +2207,7 @@ ship_event = {
 		name = BREAKTHROUGH
 		trigger = {
 			owner = {
-				NOR = {
-					has_ethic = ethic_fanatic_spiritualist
-					has_ethic = ethic_spiritualist
-				}
+				is_spiritualist = no
 			}
 		}
 		owner = { 
@@ -2640,10 +2628,7 @@ ship_event = {
 					has_ethic = ethic_fanatic_authoritarian
 					has_ethic = ethic_authoritarian
 				}
-				NOR = {
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophobe
-				}
+				is_xenophobe = no
 			}
 		}
 		owner = {
@@ -2908,14 +2893,14 @@ ship_event = {
 #			exists = event_target:refugee_planet_1
 #			event_target:refugee_planet_1 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		allow = {
 #			exists = event_target:refugee_planet_1
 #			event_target:refugee_planet_1 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		event_target:refugee_planet_1 = {
@@ -2951,14 +2936,14 @@ ship_event = {
 #			exists = event_target:refugee_planet_2
 #			event_target:refugee_planet_2 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		allow = {
 #			exists = event_target:refugee_planet_2
 #			event_target:refugee_planet_2 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		event_target:refugee_planet_2 = {
@@ -2994,14 +2979,14 @@ ship_event = {
 #			exists = event_target:refugee_planet_3
 #			event_target:refugee_planet_3 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		allow = {
 #			exists = event_target:refugee_planet_3
 #			event_target:refugee_planet_3 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		event_target:refugee_planet_3 = {
@@ -3037,14 +3022,14 @@ ship_event = {
 #			exists = event_target:refugee_planet_4
 #			event_target:refugee_planet_4 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		allow = {
 #			exists = event_target:refugee_planet_4
 #			event_target:refugee_planet_4 = {
 #				exists = owner
-#				owner = { is_same_value = root.owner }
+#				is_owned_by = root.owner
 #			}
 #		}
 #		event_target:refugee_planet_4 = {
@@ -3156,13 +3141,13 @@ ship_event = {
 #					NOT = {
 #						any_country = { intel_level = { level > low system = prev } }
 #					}
-#					any_planet = {
+#					any_system_planet = {
 #						habitable_planet = yes
 #					}
 #				}
 #				min_steps = 0
 #				max_steps = 15
-#				random_planet = {
+#				random_system_planet = {
 #					limit = {
 #						has_owner = no
 #						habitable_planet = yes
@@ -3272,7 +3257,7 @@ ship_event = {
 #	is_triggered_only = yes
 #	
 #	immediate = {
-#		random_planet = {
+#		random_system_planet = {
 #			limit = {
 #				has_planet_flag = refugee_planet
 #			}
@@ -3381,7 +3366,7 @@ ship_event = {
 #	is_triggered_only = yes
 #	
 #	immediate = {
-#		random_planet = {
+#		random_system_planet = {
 #			limit = {
 #				has_planet_flag = refugee_planet
 #			}
@@ -3979,8 +3964,10 @@ ship_event = {
 	option = {
 		trigger = {
 			owner = {
-				NOT = { has_country_flag = edict_renewable_energy }
-				NOT = { has_authority = auth_machine_intelligence }
+				NOR = {
+					has_country_flag = edict_renewable_energy
+					has_authority = auth_machine_intelligence
+				}
 			}
 		}
 		name = anomaly.4105.a
@@ -5089,7 +5076,7 @@ country_event = {
 				save_event_target_as = HomeCountry
 			}
 		}
-		random_planet ={
+		random_system_planet ={
 			limit = {
 				has_planet_flag = cryo_pod_planet
 			}
@@ -5251,10 +5238,7 @@ country_event = {
 		response_text = anomaly.4158.c.response
 		is_dialog_only = yes
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_xenophobe = no
 		}
 	}
 	option = { # Rejecting
@@ -5423,10 +5407,7 @@ country_event = {
 		response_text = anomaly.4158.c.response
 		is_dialog_only = yes
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_xenophobe = no
 		}
 	}
 	option = { # Rejecting
@@ -5536,7 +5517,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			random_planet ={
+			random_system_planet ={
 				limit = {
 					has_planet_flag = cryo_pod_planet
 				}
@@ -5550,7 +5531,7 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		create_leader = {
-			type = general
+			class = general
 			species = event_target:AlienWarriorSpecies
 			name = "NAME_Majula_the_Bearer"
 			skill = 5
@@ -5582,7 +5563,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			random_planet ={
+			random_system_planet ={
 				limit = {
 					has_planet_flag = cryo_pod_planet
 				}
@@ -5641,7 +5622,7 @@ country_event = {
 			}
 		}
 		hidden_effect = {
-			random_planet ={
+			random_system_planet ={
 				limit = {
 					has_planet_flag = cryo_pod_planet
 				}
@@ -5676,7 +5657,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			random_planet ={
+			random_system_planet ={
 				limit = {
 					has_planet_flag = cryo_pod_planet
 				}
@@ -5690,10 +5671,7 @@ country_event = {
 	option = {
 		name = anomaly.4163.a
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_xenophobe = no
 		}
 	}
 	option = {
@@ -5804,10 +5782,7 @@ country_event = {
 	}
 	option = {
 		trigger = {
-			NOR = {
-				has_ethic = "ethic_fanatic_militarist"
-				has_ethic = "ethic_militarist"
-			}
+			is_militarist = no
 		}
 		name = anomaly.4166.a
 		custom_tooltip = "anomaly.4166.a.tooltip"
@@ -5826,10 +5801,7 @@ ship_event = {
 		trigger = {
 			root = {
 				owner = {
-					OR = {
-						has_ethic = ethic_materialist
-						has_ethic = ethic_fanatic_materialist
-					}
+					is_materialist = yes
 				}
 			}
 		}
@@ -5839,10 +5811,7 @@ ship_event = {
 		trigger = {
 			root = {
 				owner = {
-					NOR = {
-						has_ethic = ethic_materialist
-						has_ethic = ethic_fanatic_materialist
-					}
+					is_materialist = no
 				}
 			}
 		}

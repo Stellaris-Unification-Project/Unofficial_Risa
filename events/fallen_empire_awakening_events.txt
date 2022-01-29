@@ -21,14 +21,16 @@ country_event = {
 			has_country_flag = holy_world_killed
 			# Original trigger
 			AND = {
-				NOT = { has_global_flag = sleepers_awake_happened }
-				NOT = { has_global_flag = guardians_of_the_galaxy_happened }			
+				NOR = {
+					has_global_flag = sleepers_awake_happened
+					has_global_flag = guardians_of_the_galaxy_happened
+				}			
 				end_game_years_passed >= 0
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				is_at_war = no
 				fleet_power > 40000
 				# Wake up if regular empire is growing too strong or has started to conquer other fallen 		empires
-				any_country = {
+				any_playable_country = {
 					is_country_type = default
 					OR = {
 						fleet_power > 50000
@@ -45,7 +47,7 @@ country_event = {
 		years = 50
 		modifier = {
 			factor = 0.5
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				fleet_power > 75000
 			}
@@ -66,7 +68,7 @@ country_event = {
 		}
 		modifier = {
 			factor = 0.1
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				any_owned_planet = {
 					has_planet_flag = fallen_empire_world
@@ -82,7 +84,7 @@ country_event = {
 		country_event = { id = fallen_empires_awakening.3 }
 
 		# Notify players
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 			}
@@ -131,7 +133,7 @@ country_event = {
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
 						set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						root = { set_timed_country_flag = { flag = ai_no_wars days = 3650 } }
-						every_country = {
+						every_playable_country = {
 							limit = { is_country_type = default }
 							set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						}	
@@ -148,7 +150,7 @@ country_event = {
 						set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
 						set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 						root = { set_timed_country_flag = { flag = ai_no_wars days = 3650 } }
-						every_country = {
+						every_playable_country = {
 							limit = {
 								is_country_type = default
 							}
@@ -196,16 +198,16 @@ country_event = {
 		}
 
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 50000
-		add_energy = 50000
-		add_food = 5000
-		add_influence = 1000
+		add_resource = { minerals = 50000 }
+		add_resource = { energy = 50000 }
+		add_resource = { food = 5000 }
+		add_resource = { influence = 1000 }
 
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
 		if = {
 			limit = {
-				any_country = {
+				any_playable_country = {
 					is_country_type = default
 					fleet_power > 50000
 				}
@@ -218,8 +220,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 				NOT = { has_communications = root }
 			}
@@ -242,8 +243,10 @@ country_event = {
 	trigger = {
 		has_global_flag = galactic_crisis_happened
 		has_country_flag = guardians_of_the_galaxy
-		NOT = { has_global_flag = guardians_of_the_galaxy_happened }
-		NOT = { has_country_flag = timed_guardians_of_the_galaxy }
+		NOR = {
+			has_global_flag = guardians_of_the_galaxy_happened
+			has_country_flag = timed_guardians_of_the_galaxy
+		}
 	}
 
 	mean_time_to_happen = {
@@ -258,7 +261,7 @@ country_event = {
 		set_global_flag = guardians_of_the_galaxy_happened
 		country_event = { id = fallen_empires_awakening.3 }
 
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 			}
@@ -270,7 +273,7 @@ country_event = {
 		}
 
 		# Notify
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 			}

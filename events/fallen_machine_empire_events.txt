@@ -47,9 +47,9 @@ country_event = {
 		}		
 
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 20000
-		add_energy = 5000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 5000 }
+		add_resource = { influence = 1000 }
 
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
@@ -59,8 +59,7 @@ country_event = {
 			limit = {
 				OR = {
 					is_country_type = default
-					is_country_type = fallen_empire
-					is_country_type = awakened_fallen_empire
+					is_fallen_empire = yes
 				}
 				NOT = { has_communications = root }
 			}
@@ -71,7 +70,7 @@ country_event = {
 		root = { save_event_target_as = awakened_machine_empire }
 		
 		# Notify players
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 			}
@@ -176,7 +175,7 @@ country_event = {
 		}
 		
 		# Notify players
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 			}
@@ -292,19 +291,13 @@ country_event = {
 		
 		if = {
 			limit = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}				
+				is_xenophobe = yes				
 			}
 			add_modifier = { modifier = machine_empire_inoculations_xenophobe days = -1 }
 		}		
 		if = {
 			limit = {
-				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}				
+				is_xenophobe = no				
 			}
 			add_modifier = { modifier = machine_empire_inoculations days = -1 }
 		}	
@@ -314,10 +307,7 @@ country_event = {
 	option = {
 		name = fallen_machine_empire.11.b
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -328,10 +318,7 @@ country_event = {
 	option = {
 		name = fallen_machine_empire.11.c
 		trigger = {
-			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe					
-			}
+			is_xenophobe = no
 		}
 		ai_chance = {
 			factor = 10
@@ -697,7 +684,7 @@ country_event = {
 	
 		hidden_effect = {
 			event_target:FallenEmpireTaskPlanetTarget = {
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						has_trait = trait_machine_unit
 						is_growing = no
@@ -706,7 +693,7 @@ country_event = {
 				}
 			}
 			event_target:FallenEmpireTaskPlanet = {
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						has_trait = trait_machine_unit
 						is_growing = no
@@ -750,11 +737,7 @@ country_event = {
 		is_ai = no
 		is_country_type = default	
 		is_subject = no	
-		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}	
+		is_homicidal = no	
 		#NOT = { has_authority = auth_machine_intelligence }
 		NOT = { has_country_flag = fe_task_given }
 		NOT = { has_global_flag = fe_task_attack_empire_active }	
@@ -773,7 +756,7 @@ country_event = {
 				has_opinion_modifier = { who = prev modifier = opinion_failed_fallen_empire_task }
 			}
 			
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				root = { is_rival = prev }
 				OR = {
@@ -800,7 +783,7 @@ country_event = {
 					has_opinion_modifier = { who = prev modifier = opinion_failed_fallen_empire_task }
 				}
 				
-				any_country = {
+				any_playable_country = {
 					is_country_type = default
 					root = { is_rival = prev }
 					OR = {
@@ -1058,11 +1041,7 @@ country_event = {
 		is_ai = no
 		is_country_type = default	
 		is_subject = no	
-		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}	
+		is_homicidal = no	
 		#NOT = { has_authority = auth_machine_intelligence }
 		NOT = { has_country_flag = fe_task_given }
 		NOT = { has_global_flag = fe_task_colonize_planet_active }	
@@ -1085,7 +1064,7 @@ country_event = {
 				is_within_borders_of = root
 				is_neighbor_of = root
 			}
-			any_planet = {
+			any_system_planet = {
 				is_colony = no
 				can_colonize = { who = root status = yes }
 			}
@@ -1095,7 +1074,7 @@ country_event = {
 	immediate = {
 		set_country_flag = fe_task_given
 	
-		random_planet = {	
+		random_system_planet = {	
 			limit = {
 				is_colony = no
 				can_colonize = { who = root status = yes }				
@@ -1185,7 +1164,7 @@ country_event = {
 		has_global_flag = fe_task_colonize_planet_active
 		has_country_flag = fe_task_colonize_planet
 		any_system = {
-			any_planet = {
+			any_system_planet = {
 				has_planet_flag = fe_task_colonize_planet_target
 				is_colony = yes
 				is_owned_by = root
@@ -1204,7 +1183,7 @@ country_event = {
 			limit = { has_country_flag = fe_task_colonize_planet_origin }
 			save_event_target_as = FallenEmpireTaskOrigin
 		}
-		every_planet = {
+		every_system_planet = {
 			limit = { has_planet_flag = fe_task_colonize_planet_target }
 			save_event_target_as = FallenEmpireTaskTarget
 		}
@@ -1230,7 +1209,7 @@ country_event = {
 				remove_country_flag = fe_task_colonize_planet
 				remove_country_flag = fe_task_colonize_planet_origin
 			}
-			every_planet = {
+			every_system_planet = {
 				remove_planet_flag = fe_task_colonize_planet_target		
 			}	
 		}
@@ -1248,7 +1227,7 @@ country_event = {
 		has_country_flag = fe_task_colonize_planet
 		NOT = {
 			any_system = {
-				any_planet = {
+				any_system_planet = {
 					is_colony = yes
 					has_planet_flag = fe_task_colonize_planet_target
 					is_owned_by = root
@@ -1258,7 +1237,7 @@ country_event = {
 		OR = {
 			NOT = { has_country_flag = fe_task_colonize_planet_timer }
 			any_system = {
-				any_planet = {
+				any_system_planet = {
 					is_colony = yes
 					has_planet_flag = fe_task_colonize_planet_target
 					NOT = { is_owned_by = root }
@@ -1277,7 +1256,7 @@ country_event = {
 			limit = { has_country_flag = fe_task_colonize_planet_origin }
 			save_event_target_as = FallenEmpireTaskOrigin
 		}
-		every_planet = {
+		every_system_planet = {
 			limit = { has_planet_flag = fe_task_colonize_planet_target }
 			save_event_target_as = FallenEmpireTaskTarget
 		}	
@@ -1304,7 +1283,7 @@ country_event = {
 				remove_country_flag = fe_task_colonize_planet
 				remove_country_flag = fe_task_colonize_planet_origin
 			}
-			every_planet = {
+			every_system_planet = {
 				remove_planet_flag = fe_task_colonize_planet_target		
 			}	
 		}
@@ -1353,7 +1332,7 @@ country_event = {
 				remove_country_flag = fe_task_colonize_planet
 				remove_country_flag = fe_task_colonize_planet_origin
 			}
-			every_planet = {
+			every_system_planet = {
 				remove_planet_flag = fe_task_colonize_planet_target		
 			}	
 		}
@@ -1378,11 +1357,7 @@ country_event = {
 		
 		modifier = {
 			factor = 3.0
-			OR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_fanatic_purifiers				
-			}
+			is_homicidal = yes
 		}
 		
 		modifier = {
@@ -1654,11 +1629,7 @@ country_event = {
 		
 		modifier = {
 			factor = 3.0
-			OR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_fanatic_purifiers				
-			}
+			is_homicidal = yes
 		}
 		
 		modifier = {

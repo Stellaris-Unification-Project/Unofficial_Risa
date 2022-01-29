@@ -900,16 +900,20 @@ country_event = {
 				any_planet_within_border = {
 					is_planet_class = pc_gaia
 					is_colony = no
-					NOT = { has_modifier = "holy_planet" }
-					NOT = { has_colony_progress > 0 }
+					NOR = {
+						has_modifier = "holy_planet"
+						has_colony_progress > 0
+					}
 				}
 			}
 			random_planet_within_border = {
 				limit = {
 					is_planet_class = pc_gaia
 					is_colony = no
-					NOT = { has_modifier = "holy_planet" }
-					NOT = { has_colony_progress > 0 }
+					NOR = {
+						has_modifier = "holy_planet"
+						has_colony_progress > 0
+					}
 				}
 				save_event_target_as = holy_target
 			}
@@ -1017,7 +1021,7 @@ country_event = {
 		name = UNFORTUNATE
 		custom_tooltip = apoc.201.a.tooltip
 		hidden_effect = {
-			add_influence = 300
+			add_resource = { influence = 300 }
 		}
 	}
 	
@@ -1115,7 +1119,7 @@ ship_event = {
 	is_triggered_only = yes
 	trigger = {
 		solar_system = {
-			any_planet = {
+			any_system_planet = {
 				has_modifier = holy_player_planet
 				has_planet_flag = holy_player_planet@from
 			}

@@ -109,8 +109,8 @@ ship_event = {
 	#	owner = { save_event_target_as = ship_owner }
 	#	solar_system = {
 	#		every_system_planet = {
-	#			surveyed = {
-	#				set_surveyed = yes
+	#			set_surveyed = {
+	#				surveyed = yes
 	#				surveyor = event_target:ship_owner
 	#			}
 	#		}
@@ -196,10 +196,7 @@ ship_event = {
 		name = anomaly.95.a
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -225,7 +222,7 @@ ship_event = {
 					# Early Space Age Humans
 					AND = {
 						has_star_flag = primitive_sol
-						any_planet = {
+						any_system_planet = {
 							exists = owner
 							owner = {
 								has_country_flag = humans_early_space_age
@@ -261,7 +258,7 @@ ship_event = {
 						# Early Space Age Humans
 						AND = {
 							has_star_flag = primitive_sol
-							any_planet = {
+							any_system_planet = {
 								exists = owner
 								owner = {
 									has_country_flag = humans_early_space_age
@@ -312,10 +309,8 @@ ship_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophobe = yes
+					is_xenophile = yes
 				}
 			}
 		}
@@ -324,10 +319,7 @@ ship_event = {
 	desc = {
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		text = anomaly.96.desc.phobe
@@ -336,8 +328,7 @@ ship_event = {
 		trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -371,10 +362,8 @@ ship_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophobe = yes
+					is_xenophile = yes
 				}
 			}
 		}
@@ -393,10 +382,7 @@ ship_event = {
 		name = anomaly.96.a.phobe
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -415,8 +401,7 @@ ship_event = {
 		trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -439,10 +424,8 @@ fleet_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophobe = yes
+					is_xenophile = yes
 				}
 			}
 		}
@@ -451,10 +434,7 @@ fleet_event = {
 	desc = {
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		text = anomaly.96.desc.phobe
@@ -463,8 +443,7 @@ fleet_event = {
 		trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -498,10 +477,8 @@ fleet_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophobe = yes
+					is_xenophile = yes
 				}
 			}
 		}
@@ -520,10 +497,7 @@ fleet_event = {
 		name = anomaly.96.a.phobe
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -542,8 +516,7 @@ fleet_event = {
 		trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -611,10 +584,7 @@ ship_event = {
 		name = anomaly.105.a
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -640,7 +610,7 @@ ship_event = {
 					# Early Space Age Humans
 					AND = {
 						has_star_flag = primitive_sol
-						any_planet = {
+						any_system_planet = {
 							exists = owner
 							owner = {
 								has_country_flag = humans_early_space_age
@@ -676,7 +646,7 @@ ship_event = {
 						# Early Space Age Humans
 						AND = {
 							has_star_flag = primitive_sol
-							any_planet = {
+							any_system_planet = {
 								exists = owner
 								owner = {
 									has_country_flag = humans_early_space_age
@@ -728,10 +698,7 @@ ship_event = {
 	desc = {
 		exclusive_trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		text = anomaly.106.desc.phobe
@@ -740,8 +707,7 @@ ship_event = {
 		exclusive_trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -787,10 +753,7 @@ ship_event = {
 		name = anomaly.106.a.phobe
 		exclusive_trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -809,8 +772,7 @@ ship_event = {
 		exclusive_trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -836,10 +798,7 @@ fleet_event = {
 	desc = {
 		exclusive_trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		text = anomaly.106.desc.phobe
@@ -848,8 +807,7 @@ fleet_event = {
 		exclusive_trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -895,10 +853,7 @@ fleet_event = {
 		name = anomaly.106.a.phobe
 		exclusive_trigger = {
 			owner = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		owner = {
@@ -917,8 +872,7 @@ fleet_event = {
 		exclusive_trigger = {
 			owner = {
 				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
+					is_xenophile = yes
 				}
 			}
 		}
@@ -1028,10 +982,8 @@ ship_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-					has_ethic = "ethic_xenophile"
-					has_ethic = "ethic_fanatic_xenophile"
+					is_xenophobe = yes
+					is_xenophile = yes
 					has_ethic = "ethic_gestalt_consciousness"
 				}
 			}
@@ -1041,7 +993,7 @@ ship_event = {
 				country_event = { id = story.5 days = 2 }
 				if = {
 					limit = {
-						count_owned_pops = {
+						count_owned_pop = {
 							limit = {
 								NOT = { pop_has_ethic = ethic_xenophile }
 							}
@@ -1137,7 +1089,7 @@ ship_event = {
 				}
 				else_if = {
 					limit = {
-						count_owned_pops = {
+						count_owned_pop = {
 							limit = {
 								NOT = { pop_has_ethic = ethic_xenophile }
 							}
@@ -1233,8 +1185,8 @@ country_event = {
 #		name = anomaly.125.a
 #		solar_system = {
 #			every_system_planet = {
-#				surveyed = {
-#					set_surveyed = yes
+#				set_surveyed = {
+#					surveyed = yes
 #					surveyor = root.owner
 #				}
 #			}
@@ -1333,7 +1285,7 @@ ship_event = {
 					has_star_flag = hostile_system
 					is_same_value = root.solar_system
 					is_pirate_system = yes
-					any_planet = { is_colony = yes }
+					any_system_planet = { is_colony = yes }
 				}
 				has_access_fleet = root.owner
 			}
@@ -1348,7 +1300,7 @@ ship_event = {
 					has_star_flag = hostile_system
 					is_same_value = root.solar_system
 					is_pirate_system = yes
-					any_planet = { is_colony = yes }
+					any_system_planet = { is_colony = yes }
 				}
 				has_access_fleet = root.owner
 			}
@@ -1364,7 +1316,7 @@ ship_event = {
 					is_same_value = root.solar_system
 					has_star_flag = hostile_system
 					is_pirate_system = yes
-					any_planet = { is_colony = yes }
+					any_system_planet = { is_colony = yes }
 				}
 				has_access_fleet = root.owner
 			}
@@ -2111,7 +2063,7 @@ ship_event = {
 		hidden_effect = {
 			owner = {
 				create_leader = {
-					type = scientist
+					class = scientist
 					species = owner_main_species
 					name = "NAME_The_Exile"
 					skill = 3
@@ -2372,8 +2324,8 @@ ship_event = {
 				#	add_deposit = d_rich_engineering_deposit
 					add_deposit = d_enormous1_engineering_deposit	# eng +6, as indicated in event text
 				}
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = root.owner
 				}
 				remove_planet_flag = projecting_moon

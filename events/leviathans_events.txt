@@ -18,8 +18,7 @@ country_event = {
 		}
 		OR = {
 			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
+			is_fallen_empire = yes
 		}
 	}
 
@@ -259,10 +258,7 @@ country_event = {
 	after = {
 		if = {
 			limit = {
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = yes
 			}
 			add_monthly_resource_mult = {
 				resource = influence
@@ -324,11 +320,7 @@ country_event = {
 	option = {
 		name = leviathans.98.a
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 	}
 }
@@ -348,10 +340,7 @@ country_event = {
 	after = {
 		if = {
 			limit = {
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = yes
 			}
 			add_monthly_resource_mult = {
 				resource = influence
@@ -426,11 +415,7 @@ country_event = {
 	option = {
 		name = "leviathans.98.a"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 	}
 }
@@ -514,9 +499,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_xuracorp_trade = yes
 			}
 		}
@@ -530,9 +513,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_xuracorp_trade = yes
 			}
 		}
@@ -546,9 +527,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_xuracorp_trade = yes
 			}
 		}
@@ -561,11 +540,7 @@ country_event = {
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		allow = {
 			custom_tooltip = {
@@ -605,11 +580,7 @@ country_event = {
 		name = leviathans.105.d
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		default_hide_option = yes
 		hidden_effect = {
@@ -688,9 +659,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_riggan_trade = yes
 			}
 		}
@@ -704,9 +673,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_riggan_trade = yes
 			}
 		}
@@ -720,9 +687,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_riggan_trade = yes
 			}
 		}
@@ -735,11 +700,7 @@ country_event = {
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		allow = {
 			custom_tooltip = {
@@ -779,11 +740,7 @@ country_event = {
 		name = leviathans.105.d
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		default_hide_option = yes
 	}
@@ -859,9 +816,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_muutagan_trade = yes
 			}
 		}
@@ -875,9 +830,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_muutagan_trade = yes
 			}
 		}
@@ -891,9 +844,7 @@ country_event = {
 		custom_gui = "enclave_trader_option"
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_active_muutagan_trade = yes
 			}
 		}
@@ -906,11 +857,7 @@ country_event = {
 		name = leviathans.105.c
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		allow = {
 			custom_tooltip = {
@@ -950,11 +897,7 @@ country_event = {
 		name = leviathans.105.d
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		default_hide_option = yes
 	}
@@ -3447,11 +3390,7 @@ country_event = {
 	option = {
 		name = leviathans.502.a
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		custom_gui = "enclave_trader_option"
 	}
@@ -3480,7 +3419,7 @@ country_event = {
 			country_event = { id = leviathans.141 }
 			save_event_target_as = trader_destroyer
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_communications = ROOT
@@ -3521,14 +3460,12 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = destroyed_trader
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				NOR = {
 					is_same_value = root
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_machine_terminator
+					is_homicidal = yes
 				}
 			}
 			add_opinion_modifier = {
@@ -3569,8 +3506,8 @@ country_event = {
 	
 	option = {
 		name = EXCELLENT
-		add_minerals = 2000
-		add_energy = 2000
+		add_resource = { minerals = 2000 }
+		add_resource = { energy = 2000 }
 	}
 }
 
@@ -4107,11 +4044,7 @@ country_event = {
 		name = leviathans.156.a
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		default_hide_option = yes
 	}
@@ -4242,11 +4175,7 @@ country_event = {
 		name = leviathans.156.a
 		custom_gui = "enclave_trader_option"
 		trigger = {
-			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
-			}
+			is_homicidal = no
 		}
 		default_hide_option = yes
 	}
@@ -4376,7 +4305,7 @@ country_event = {
 	option = {
 		name = leviathans.156.a
 		custom_gui = "enclave_trader_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		default_hide_option = yes
 	}
 }
@@ -4389,7 +4318,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			energy <= 0
 			OR = {
@@ -4416,7 +4345,7 @@ event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				energy <= 0
@@ -4491,7 +4420,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			minerals <= 0
 			OR = {
@@ -4518,7 +4447,7 @@ event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				minerals <= 0
@@ -4593,7 +4522,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			food <= 0
 			OR = {
@@ -4620,7 +4549,7 @@ event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				food <= 0
@@ -4750,7 +4679,7 @@ country_event = {
 				which = artist_monument_purchased
 				value < 5
 			}
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.302 }
@@ -4765,14 +4694,16 @@ country_event = {
 				which = artist_monument_purchased
 				value = 5
 			}
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 		}
 	}
 	option = {
 		name = leviathans.300.b
 		trigger = {
-			NOT = { has_modifier = enclave_artist_patron }
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			NOR = {
+				has_modifier = enclave_artist_patron
+				is_homicidal = yes
+			}
 		}
 		hidden_effect = {
 			country_event = { id = leviathans.304 }
@@ -4804,9 +4735,7 @@ country_event = {
 		name = leviathans.300.c
 		trigger = {
 			NOR = {
-				has_valid_civic = civic_fanatic_purifiers
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_machine_terminator
+				is_homicidal = yes
 				has_country_flag = artist_festival_purchased
 				has_ethic = ethic_gestalt_consciousness
 			}
@@ -4862,7 +4791,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.300.d
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		is_dialog_only = yes
 		response_text = leviathans.300.d.reply
 	}
@@ -4872,9 +4801,7 @@ country_event = {
 		trigger = {
 			has_country_flag = enclave_artist_patron_event_1
 			NOR = { 
-				has_valid_civic = civic_fanatic_purifiers 
-				has_valid_civic = civic_hive_devouring_swarm 
-				has_valid_civic = civic_machine_terminator 
+				is_homicidal = yes 
 				has_country_flag = artist_building_patron
 			}
 			# former .316 trigger
@@ -4894,7 +4821,7 @@ country_event = {
 	option = { # Art College
 		name = leviathans.300.g
 		trigger = {
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 			NOT = {
 				event_target:artist_enclave_country = {
 					has_country_flag = art_college@root
@@ -4927,7 +4854,7 @@ country_event = {
 	}
 	option = {
 		name = GOODBYE
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		default_hide_option = yes
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
@@ -5028,7 +4955,7 @@ country_event = {
 		name = INTERESTING
 		custom_gui = "enclave_artist_option"
 		trigger = {
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 		}
 	}
 
@@ -5587,7 +5514,7 @@ planet_event = {
 #	is_triggered_only = yes
 #
 #	immediate = {
-#		random_planet = {
+#		random_system_planet = {
 #			limit = {
 #				has_planet_flag = guardians_artists_planet
 #			}
@@ -5728,7 +5655,7 @@ country_event = {
 
 	after = {
 		event_target:this_planet = {
-			random_pop = {
+			random_owned_pop = {
 				kill_pop = yes
 			}
 		}
@@ -5817,7 +5744,7 @@ country_event = {
 	
 	immediate = {
 		set_timed_country_flag = { flag = enclave_artist_ignores days = 3600 }
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				has_planet_flag = guardians_artists_planet
 			}
@@ -5868,7 +5795,7 @@ country_event = {
 	}
 
 	immediate = {
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				has_planet_flag = guardians_artists_planet
 			}
@@ -5915,7 +5842,7 @@ country_event = {
 		default_hide_option = yes
 		trigger = {
 			has_country_flag = enclave_artist_encountered
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 		}
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
@@ -5924,8 +5851,10 @@ country_event = {
 	option = {
 		name = PECULIAR
 		trigger = {
-			NOT = { has_country_flag = enclave_artist_encountered }
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			NOR = {
+				has_country_flag = enclave_artist_encountered
+				is_homicidal = yes
+			}
 		}
 		hidden_effect = {
 			remove_country_flag = artist_enclave_diplomacy_engaged
@@ -6346,7 +6275,7 @@ country_event = {
 		}
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6364,7 +6293,7 @@ country_event = {
 		name = leviathans.321.a
 		response_text = leviathans.321.a.reply
 		add_energy = -500
-		add_influence = 50
+		add_resource = { influence = 50 }
 		allow = {
 			energy >= 500
 		}
@@ -6432,7 +6361,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_1
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6517,7 +6446,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_2
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6546,7 +6475,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.323.b
-		add_energy = 1000
+		add_resource = { energy = 1000 }
 		custom_tooltip = opinion-3
 		remove_modifier = enclave_artist_patron
 		hidden_effect = {
@@ -6591,7 +6520,7 @@ country_event = {
 		set_country_flag = enclave_artist_patron_event_3
 		random_system = {
 			limit = {
-				any_planet = {
+				any_system_planet = {
 					has_planet_flag = guardians_artists_planet
 				}
 				root = {
@@ -6606,7 +6535,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.324.a
-		add_minerals = 500
+		add_resource = { minerals = 500 }
 		response_text = leviathans.324.a.reply
 		hidden_effect = {
 			country_event = { id = leviathans.320 days = 100 random = 25 }
@@ -6614,7 +6543,7 @@ country_event = {
 	}
 	option = {
 		name = leviathans.324.b
-		add_influence = 50
+		add_resource = { influence = 50 }
 		response_text = leviathans.324.b.reply
 		hidden_effect = {
 			country_event = { id = leviathans.320 days = 100 random = 25 }
@@ -6823,8 +6752,8 @@ country_event = {
 
 	option = {
 		name = EXCELLENT
-		add_energy = 2000
-		add_minerals = 2000
+		add_resource = { energy = 2000 }
+		add_resource = { minerals = 2000 }
 	}
 }
 
@@ -6964,7 +6893,7 @@ country_event = {
 	option = { # Research
 		name = leviathans.500.b
 		custom_gui = "enclave_curator_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.500.b.alreadyaided
@@ -6979,7 +6908,7 @@ country_event = {
 	option = { # Guardians
 		name = leviathans.500.c
 		custom_gui = "enclave_curator_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		hidden_effect = {
 			country_event = { id = leviathans.508 }
 		}
@@ -6988,7 +6917,7 @@ country_event = {
 	option = { # Hire Scientist
 		name = leviathans.500.d
 		custom_gui = "enclave_curator_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		allow = {
 			custom_tooltip = {
 				fail_text = leviathans.500.d.opinion
@@ -7015,7 +6944,7 @@ country_event = {
 		name = leviathans.500.f
 		custom_gui = "enclave_curator_option"
 		trigger = { 
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 			NOT = {
 				event_target:curators = { has_country_flag = think_tank@root }
 			}
@@ -7049,7 +6978,7 @@ country_event = {
 		name = leviathans.500.e
 		default_hide_option = yes
 		custom_gui = "enclave_curator_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		hidden_effect = {
 			remove_country_flag = curator_enclave_diplomacy_engaged
 		}
@@ -7113,7 +7042,7 @@ country_event = {
 		set_country_flag = curator_enclave_diplomacy_engaged
 		if = {
 			limit = {
-					any_country = {
+					any_playable_country = {
 						is_country_type = default
 						NOT = {
 							is_same_value = root
@@ -7134,7 +7063,7 @@ country_event = {
 			}
 			random_country = {
 				limit = {
-					any_country = {
+					any_playable_country = {
 						is_country_type = default
 						NOT = {
 							is_same_value = root
@@ -7157,7 +7086,7 @@ country_event = {
 			}	 
 		}
 		else_if = {
-			random_country = {
+			random_playable_country = {
 				limit = {
 					is_country_type = default
 					NOT = {
@@ -9945,7 +9874,7 @@ country_event = {
 			random_list = {
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Professor_Zarg"
 						skill = 5
@@ -9960,7 +9889,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Doctor_Xib"
 						skill = 5
@@ -9975,7 +9904,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_The_Mentat"
 						skill = 5
@@ -9990,7 +9919,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Kix_the_Brilliant"
 						skill = 5
@@ -10005,7 +9934,7 @@ country_event = {
 				}
 				20 = {
 					create_leader = {
-						type = scientist
+						class = scientist
 						species = event_target:curator_species
 						name = "NAME_Sensei_Borkaz"
 						skill = 5
@@ -10086,7 +10015,7 @@ country_event = {
 		name = leviathans.502.a
 		custom_gui = "enclave_curator_option"
 		trigger = {
-			NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator }
+			is_homicidal = no
 		}
 	}
 
@@ -10262,7 +10191,7 @@ country_event = {
 				flag = curator_trade 
 			}
 			FROM = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = enclave_station }
 					count < 1
 				}
@@ -10278,7 +10207,7 @@ country_event = {
 				flag = curator_trade 
 			}
 			FROM = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = enclave_station }
 					count < 1
 				}
@@ -10301,7 +10230,7 @@ country_event = {
 					flag = curator_trade 
 				}
 				FROM = {
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = enclave_station }
 						count < 1
 					}
@@ -10316,7 +10245,7 @@ country_event = {
 					flag = curator_trade 
 				}
 				FROM = {
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = enclave_station }
 						count < 1
 					}
@@ -10356,7 +10285,7 @@ country_event = {
 					}
 				}
 				FROM = {
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = enclave_station }
 						count > 0
 					}
@@ -10372,7 +10301,7 @@ country_event = {
 				flag = curator_trade 
 			}
 			FROM = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = enclave_station }
 					count < 1
 				}
@@ -10498,7 +10427,7 @@ country_event = {
 	option = {
 		name = leviathans.156.a
 		custom_gui = "enclave_curator_option"
-		trigger = { NOR = { has_valid_civic = civic_fanatic_purifiers has_valid_civic = civic_hive_devouring_swarm has_valid_civic = civic_machine_terminator } }
+		trigger = { is_homicidal = no }
 		default_hide_option = yes
 	}
 }
@@ -10539,8 +10468,7 @@ fleet_event = {
 			}
 			OR = {
 				is_country_type = default
-				is_country_type = fallen_empire
-				is_country_type = awakened_fallen_empire
+				is_fallen_empire = yes
 			}
 		}
 	}
@@ -10979,7 +10907,7 @@ fleet_event = {
 					}
 					exists = owner
 					owner = {
-						is_same_value = from.owner
+						is_same_empire = from.owner
 					}
 				}
 			}
@@ -11428,7 +11356,7 @@ country_event = {
 	option = {
 		name = leviathans.661.b
 		custom_tooltip = leviathans.661.b.tooltip
-		add_influence = 300
+		add_resource = { influence = 300 }
 	}
 }
 
@@ -11545,7 +11473,7 @@ country_event = {
 	}
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_modifier = draconic_beats
@@ -11555,7 +11483,7 @@ country_event = {
 		fromfrom.solar_system = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -11591,7 +11519,7 @@ country_event = {
 				add_trait = leader_trait_dragonslayer
 			}
 		}
-		add_influence = 300
+		add_resource = { influence = 300 }
 		custom_tooltip = leviathans.670.spiritphile.tooltip
 		hidden_effect = {
 			set_country_flag = dragon_slayer
@@ -11614,7 +11542,7 @@ country_event = {
 			}
 			NOT = { has_ethic = ethic_gestalt_consciousness }
 		}
-		add_influence = 300
+		add_resource = { influence = 300 }
 		custom_tooltip = leviathans.670.spiritphile.tooltip
 		hidden_effect = {
 			set_country_flag = dragon_slayer
@@ -11640,7 +11568,7 @@ country_event = {
 				add_trait = leader_trait_dragonslayer
 			}
 		}
-		add_influence = 300
+		add_resource = { influence = 300 }
 		custom_tooltip = leviathans.670.tooltip
 		hidden_effect = {
 			set_country_flag = dragon_slayer
@@ -11667,7 +11595,7 @@ country_event = {
 				has_ethic = ethic_gestalt_consciousness
 			}
 		}
-		add_influence = 300
+		add_resource = { influence = 300 }
 		custom_tooltip = leviathans.670.tooltip
 		hidden_effect = {
 			set_country_flag = dragon_slayer
@@ -11807,10 +11735,7 @@ country_event = {
 			set_country_flag = guardians_stellarite_encountered
 			country_event = { id = story.8 days = 15 }
 			event_target:stellarite_system = {
-				random_system_planet = {
-					limit = {
-						is_star = yes
-					}
+				star = {
 					change_planet_size = -5
 					spawn_sun_temperature_effect = yes
 					create_country = {
@@ -12452,7 +12377,7 @@ country_event = {
 							id = leviathans.1012.trigger.2
 							exists = space_owner
 							space_owner = { has_country_flag = stellarite_in_pursuit }
-							any_planet = {
+							any_system_planet = {
 								OR = {
 									has_mining_station = yes
 									has_research_station = yes
@@ -12608,7 +12533,7 @@ country_event = {
 	immediate = {
 		random_owned_fleet = {
 			limit = {
-				any_ship = { has_ship_flag = stellarite_ship }
+				any_fleet_in_system = { has_ship_flag = stellarite_ship }
 			}
 			clear_fleet_actions = this
 			queue_actions = {
@@ -12701,7 +12626,7 @@ country_event = {
 				location = this
 			}
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -12753,14 +12678,12 @@ country_event = {
 		name = leviathans.1016.b
 		trigger = {
 			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_militarist = yes
+				is_xenophobe = yes
 			} 
 		}
 		custom_tooltip = leviathans.1016.b.tooltip
-		add_influence = 500
+		add_resource = { influence = 500 }
 		hidden_effect = {
 			set_country_flag = stellarite_trophy_allowed
 			random_ambient_object = {
@@ -12828,10 +12751,7 @@ ship_event = {
 			limit = {
 				has_star_flag = guardians_stellarite_system
 			}
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				enable_special_project = {
 					name = "STELLARITE_STAR_PROJECT"
 		 			location = this
@@ -12926,10 +12846,7 @@ ship_event = {
 				limit = {
 					has_star_flag = guardians_stellarite_system
 				}
-				random_system_planet = {
-					limit = {
-						is_star = yes
-					}
+				star = {
 					change_planet_size = 12
 					spawn_sun_temperature_effect = yes
 				}
@@ -12985,10 +12902,7 @@ ship_event = {
 				limit = {
 					has_star_flag = guardians_stellarite_system
 				}
-				random_system_planet = {
-					limit = {
-						is_star = yes
-					}
+				star = {
 					change_planet_size = 8
 					planet_event = { id = leviathans.1019 }
 				}
@@ -13231,7 +13145,7 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -13246,7 +13160,7 @@ country_event = {
 			remove_point_of_interest = curator_poi_technosphere
 			end_curator_chain = yes
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = technosphere_chain
@@ -13326,7 +13240,7 @@ country_event = {
 				save_event_target_as = slain_guardian_system
 			}
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -13341,7 +13255,7 @@ country_event = {
 			remove_point_of_interest = curator_poi_technosphere
 			end_curator_chain = yes
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = technosphere_chain
@@ -13569,7 +13483,7 @@ country_event = {
 	}
 	option = {
 		name = NOTIME
-		add_influence = 50
+		add_resource = { influence = 50 }
 	}
 }
 
@@ -13852,7 +13766,7 @@ country_event = {
 		name = leviathans.1056.e
 		response_text = leviathans.1056.e.reply
 		default_hide_option = yes
-		add_influence = 100
+		add_resource = { influence = 100 }
 	}
 }
 
@@ -13876,10 +13790,7 @@ country_event = {
 			limit = {
 				has_star_flag = guardians_technosphere_system
 			}
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_event_target_as = technosphere_blackhole
 			}
 		}
@@ -13897,7 +13808,7 @@ country_event = {
 	option = {
 		name = leviathans.1056.e #GOODBYE
 		response_text = leviathans.1056.e.reply
-		add_influence = 100
+		add_resource = { influence = 100 }
 	}
 }
 
@@ -13920,10 +13831,7 @@ country_event = {
 			limit = {
 				has_star_flag = guardians_technosphere_system
 			}
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_event_target_as = technosphere_blackhole
 			}
 		}
@@ -13933,7 +13841,7 @@ country_event = {
 		name = leviathans.1061.a
 		response_text = leviathans.1061.a.reply
 		give_technology = { tech = tech_sapient_ai }
-		add_influence = 150
+		add_resource = { influence = 150 }
 		trigger = {
 			NOT = {
 				has_technology = tech_sapient_ai
@@ -13944,7 +13852,7 @@ country_event = {
 		name = leviathans.1061.a
 		response_text = leviathans.1061.a.reply
 		give_technology = { tech = tech_zero_point_power }
-		add_influence = 150
+		add_resource = { influence = 150 }
 		trigger = {
 			has_technology = tech_sapient_ai
 			NOT = {
@@ -14012,10 +13920,7 @@ country_event = {
 			limit = {
 				has_star_flag = guardians_technosphere_system
 			}
-			random_system_planet = {
-				limit = {
-					is_star = yes
-				}
+			star = {
 				save_event_target_as = technosphere_blackhole
 			}
 		}
@@ -14082,7 +13987,7 @@ country_event = {
 	option = {
 		name = PECULIAR
 		custom_tooltip = leviathans.1063.a.tooltip
-		add_influence = 150
+		add_resource = { influence = 150 }
 		if = {
 			limit = {
 				NOT = {
@@ -14098,13 +14003,12 @@ country_event = {
 			give_technology = { tech = tech_zero_point_power }
 		}
 		else = {
-			add_influence = 150
+			add_resource = { influence = 150 }
 		}
 		hidden_effect = {
 			event_target:technosphere_ship = {
 				solar_system = {
-					random_system_planet = {
-						limit = { is_star = yes }
+					star = {
 						orbital_deposit_tile = {
 							add_deposit =  d_immense_physics_deposit
 							add_deposit =  d_immense_engineering_deposit
@@ -14149,10 +14053,9 @@ country_event = {
 			days = -1
 		}		
 		hidden_effect = {
-			add_influence = 200
+			add_resource = { influence = 200 }
 			event_target:technosphere_ship.solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					solar_system = {
 						set_name = "NAME_Pantagruel"
 					}
@@ -14208,8 +14111,8 @@ country_event = {
 								status = no
 							}
 						}
-						surveyed = {
-							set_surveyed = yes
+						set_surveyed = {
+							surveyed = yes
 							surveyor = root
 						}
 					}
@@ -14239,12 +14142,12 @@ event = {
 
 	trigger = {
 		any_system = {
-			any_planet = { has_planet_flag = guardians_wraith_pulsar }
+			any_system_planet = { has_planet_flag = guardians_wraith_pulsar }
 		}
 	}
 
 	immediate = {
-		random_planet = {
+		random_system_planet = {
 			limit = { has_planet_flag = guardians_wraith_pulsar }
 			remove_planet_flag = guardians_wraith_pulsar
 		}
@@ -14302,12 +14205,12 @@ event = {
 
 	trigger = {
 		any_system = {
-			any_planet = { has_modifier = germinating_wraith }
+			any_system_planet = { has_modifier = germinating_wraith }
 		}
 	}
 
 	immediate = {
-		random_planet = {
+		random_system_planet = {
 			limit = { has_modifier = germinating_wraith }
 			save_event_target_as = wraith_star
 			remove_modifier = germinating_wraith
@@ -14421,7 +14324,7 @@ event = {
 													}
 													has_star_flag = guardians_wraith_visited
 													has_star_flag = empire_cluster
-													any_planet = { is_colony = yes }
+													any_system_planet = { is_colony = yes }
 												}
 											}
 											found_system = {
@@ -14549,7 +14452,7 @@ country_event = {
 		fromfrom.solar_system = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -14713,7 +14616,7 @@ country_event = {
 		from = { is_same_value = event_target:fortress_country }
 		exists = event_target:fortress_vault_core
 		event_target:fortress_country = {
-			count_owned_ships = { # Check that all ships are disabled
+			count_owned_ship = { # Check that all ships are disabled
 				limit = { is_disabled = no }
 				count < 1
 			}
@@ -14790,7 +14693,7 @@ country_event = {
 				}
 			}
 			# remove PoI in curator chain
-			every_country = {
+			every_playable_country = {
 				limit = {
 					is_country_type = default
 					has_event_chain = curator_poi_chain
@@ -14832,7 +14735,7 @@ country_event = {
 	trigger = {
 		from.owner = { is_same_value = event_target:fortress_country }
 		event_target:fortress_country = {
-			count_owned_ships = { # Check that all ships are disabled
+			count_owned_ship = { # Check that all ships are disabled
 				limit = { is_disabled = no }
 				count < 1
 			}
@@ -14915,7 +14818,7 @@ country_event = {
 				}
 			}
 			# remove PoI in curator chain
-			every_country = {
+			every_playable_country = {
 				limit = {
 					is_country_type = default
 					has_event_chain = curator_poi_chain
@@ -14948,7 +14851,7 @@ ship_event = {
 	trigger = {
 		FROM = {
 			has_star_flag = guardians_fortress_system
-			any_ship = { 
+			any_fleet_in_system = { 
 				AND = {
 					is_ship_size = station_xl
 					is_disabled = no
@@ -15183,8 +15086,7 @@ country_event = {
 		name = "leviathans.2150.a"
 		event_target:disabled_enigmatic_fortress = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					enable_special_project = {
 						name = "ENIGMATIC_FORTRESS_5B"
 						location = this
@@ -15248,7 +15150,7 @@ country_event = {
 		event_target:disabled_enigmatic_fortress = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -15265,8 +15167,7 @@ country_event = {
 		}
 		event_target:disabled_enigmatic_fortress = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					create_ambient_object = {
 						type = "dead_enigmatic_fortress_object"
 						location = solar_system
@@ -15386,7 +15287,7 @@ country_event = {
 		event_target:disabled_enigmatic_fortress = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -15403,8 +15304,7 @@ country_event = {
 		}
 		event_target:disabled_enigmatic_fortress = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					create_ambient_object = {
 						type = "dead_enigmatic_fortress_object"
 						location = solar_system
@@ -15512,7 +15412,7 @@ country_event = {
 		event_target:disabled_enigmatic_fortress = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -15529,8 +15429,7 @@ country_event = {
 		}
 		event_target:disabled_enigmatic_fortress = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					create_ambient_object = {
 						type = "dead_enigmatic_fortress_object"
 						location = solar_system
@@ -15601,7 +15500,7 @@ country_event = {
 		event_target:disabled_enigmatic_fortress = {
 			save_event_target_as = slain_guardian_system
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -15618,8 +15517,7 @@ country_event = {
 		}
 		event_target:disabled_enigmatic_fortress = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					create_ambient_object = {
 						type = "large_debris_object" # Actually explosion
 						location = solar_system
@@ -15658,10 +15556,7 @@ country_event = {
 					every_system_planet = {
 						limit = {
 							habitable_planet = yes
-							NOR = {
-								is_planet_class = pc_ringworld_habitable
-								is_planet_class = pc_habitat
-							}
+							is_artificial = no
 						}
 						create_ambient_object = {
 							type = explosion_particle_object
@@ -15742,7 +15637,7 @@ ship_event = {
 			has_star_flag = guardians_horror_system
 			OR = {
 				NOT = { has_star_flag = horror_spawned }
-				any_ship = { is_ship_size = dimensional_horror }
+				any_fleet_in_system = { is_ship_size = dimensional_horror }
 			}
 		}
 	}
@@ -15872,14 +15767,14 @@ country_event = {
 			country_event = { id = leviathans.3003 days = 6 }
 		}
 		destroy_country = yes
-		every_country = {
+		every_playable_country = {
 			limit = { 
 				is_country_type = default
 				has_modifier = dimensional_horror_weak_points
 			}
 			remove_modifier = "dimensional_horror_weak_points"
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -16045,7 +15940,7 @@ ship_event = {
 		}
 		FROM = {
 			has_star_flag = guardians_dreadnought_system
-			any_ship = { 
+			any_fleet_in_system = { 
 				AND = {
 					is_ship_size = npc_warship_01
 					owner = { is_country_type = guardian_dreadnought }
@@ -16099,14 +15994,14 @@ country_event = {
 			country_event = { id = leviathans.3102 }
 		}
 		destroy_country = yes
-		every_country = {
+		every_playable_country = {
 			limit = { 
 				is_country_type = default
 				has_modifier = automated_dreadnought_weak_points
 			}
 			remove_modifier = "automated_dreadnought_weak_points"
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -16148,8 +16043,8 @@ country_event = {
 	}
 	option = {
 		name = "leviathans.3102.b"
-		add_minerals = 5000
-		add_energy = 5000
+		add_resource = { minerals = 5000 }
+		add_resource = { energy = 5000 }
 		add_monthly_resource_mult = {
 			resource = engineering_research
 			value = 30
@@ -16578,9 +16473,9 @@ country_event = {
 	trigger = {
 		is_country_type = guardian_hiver
 		has_country_flag = hive_country
-		count_owned_ships = {
+		count_owned_ship = {
 			limit = { is_ship_size = hive_asteroid }
-			count < 1 # count_owned_ships no longer counts dead ships
+			count < 1 # count_owned_ship no longer counts dead ships
 		}
 		FROM = { 
 			has_country_flag = provoked_hivers 
@@ -16605,14 +16500,14 @@ country_event = {
 		FROM = {
 			country_event = { id = leviathans.3204 }
 		}
-		every_country = {
+		every_playable_country = {
 			limit = { 
 				is_country_type = default
 				has_modifier = asteroid_hive_weak_points
 			}
 			remove_modifier = "asteroid_hive_weak_points"
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default
 				has_event_chain = curator_poi_chain
@@ -16669,7 +16564,7 @@ ship_event = {
 		name = "EXCELLENT"
 		owner = {
 			add_society_research = 2000
-			add_energy = 500
+			add_resource = { energy = 500 }
 		}
 		hidden_effect = {
 			random_ambient_object = {

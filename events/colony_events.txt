@@ -210,20 +210,20 @@ planet_event = {
 		}
 		create_army = {
 			name = "NAME_Rampaging_Forest"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "tree_army"
 		}
 		create_army = {
 			name = "NAME_Rampaging_Forest"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "tree_army"
 		}
 		create_army = {
 			name = "NAME_Rampaging_Forest"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "tree_army"
 		}
 	}
@@ -565,8 +565,7 @@ planet_event = {
 			has_global_flag = seismic_disturbance_global
 			has_planet_flag = colony_event
 			is_planet_class = pc_nuked
-			is_planet_class = pc_ringworld_habitable
-			is_planet_class = pc_habitat
+			is_artificial = yes
 		}
 	}
 	
@@ -588,7 +587,7 @@ planet_event = {
 		}
 		create_country = {
 			name = "NAME_Subterranean_Nation"
-			species = last_created
+			species = last_created_species
 			type = adversary
 			ethos = random
 			auto_delete = no
@@ -662,7 +661,7 @@ planet_event = {
 #		}
 #		create_country = {
 #			name = "Subterranean Nation"
-#			species = last_created
+#			species = last_created_species
 #			type = adversary
 #			ethos = random
 #			auto_delete = no
@@ -793,7 +792,7 @@ planet_event = {
 		set_planet_flag = subterranean_invasion_planet
 		event_target:subterranean_nation = {
 			create_leader = {
-				type = general
+				class = general
 				species = owner_main_species
 				name = random
 				skill = 3
@@ -1011,8 +1010,8 @@ country_event = {
 			remove_planet_flag = subterranean_invasion_planet
 			save_event_target_as = conquered_planet
 			set_owner = event_target:subterranean_empire
-			random_pop = { kill_pop = yes }
-			random_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
+			random_owned_pop = { kill_pop = yes }
 			best_tile_for_pop = {
 				create_pop = { species = owner_main_species }
 			}
@@ -1135,7 +1134,7 @@ planet_event = {
 			save_event_target_as = subterranean_nation
 			owner_species = { save_event_target_as = subterranean_species }
 			create_leader = {
-				type = general
+				class = general
 				species = event_target:subterranean_species
 				name = random
 				skill = 3
@@ -2094,8 +2093,7 @@ planet_event = {
 			has_planet_flag = terraformed
 			is_planet_class = pc_nuked
 			is_planet_class = pc_gaia
-			is_planet_class = pc_ringworld_habitable
-			is_planet_class = pc_habitat
+			is_artificial = yes
 			owner = { has_country_flag = abandoned_terraforming_country }
 			owner = { has_authority = auth_machine_intelligence }
 			AND = {
@@ -2300,7 +2298,7 @@ planet_event = {
 	option = {
 		name = colony.103.b
 		trigger = {
-			count_pops = {
+			count_owned_pop = {
 				limit = { is_robot_pop = no }
 				count < 9
 			}
@@ -2313,11 +2311,11 @@ planet_event = {
 	option = {
 		name = colony.103.b
 		trigger = {
-			count_pops = {
+			count_owned_pop = {
 				limit = { is_robot_pop = no }
 				count > 8
 			}
-			count_pops = {
+			count_owned_pop = {
 				limit = { is_robot_pop = no }
 				count < 17
 			}
@@ -2330,7 +2328,7 @@ planet_event = {
 	option = {
 		name = colony.103.b
 		trigger = {
-			count_pops = {
+			count_owned_pop = {
 				limit = { is_robot_pop = no }
 				count > 16
 			}
@@ -2609,17 +2607,17 @@ planet_event = {
 			}
 			create_army = {
 				name = "NAME_Deformed_Creatures"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Twisted_Beasts"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 			create_army = {
 				name = "NAME_Mutated_Horrors"
-				owner = last_created
+				owner = last_created_country
 				type = "mutant_army"
 			}
 		}
@@ -2832,12 +2830,12 @@ planet_event = {
 		}
 		create_army = {
 			name = "NAME_Marauding_Swarms"
-			owner = last_created
+			owner = last_created_country
 			type = "mutant_army"
 		}
 		create_army = {
 			name = "NAME_Marauding_Swarms"
-			owner = last_created
+			owner = last_created_country
 			type = "mutant_army"
 		}
 	}
@@ -2953,14 +2951,16 @@ planet_event = {
 	trackable = yes
 	
 	trigger = {
-		NOT = { has_global_flag = underground_vault_global }
-		NOT = { has_planet_flag = armageddon_nuked }
+		NOR = {
+			has_global_flag = underground_vault_global
+			has_planet_flag = armageddon_nuked
+		}
 		is_planet_class = pc_nuked
 		NOT = { has_planet_flag = event_converted }
 		NOR = {
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3058,7 +3058,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 		random_tile = {
@@ -3068,7 +3068,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 		random_tile = {
@@ -3078,7 +3078,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 	}
@@ -3110,7 +3110,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 		random_tile = {
@@ -3120,7 +3120,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 		random_tile = {
@@ -3130,7 +3130,7 @@ planet_event = {
 				has_growing_pop = no
 			}
 			create_pop = {
-				species = last_created
+				species = last_created_species
 			}
 		}
 		last_created_pop = { set_citizenship_type = { type = citizenship_slavery cooldown = yes } }
@@ -3139,10 +3139,7 @@ planet_event = {
 		name = colony.152.c
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = "ethic_xenophobe"
-					has_ethic = "ethic_fanatic_xenophobe"
-				}
+				is_xenophobe = yes
 			}
 		}
 	}
@@ -3168,17 +3165,17 @@ planet_event = {
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = last_created_country
 			type = "mutant_army"
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = last_created_country
 			type = "mutant_army"
 		}
 		create_army = {
 			name = "NAME_Mutant_Horrors"
-			owner = last_created
+			owner = last_created_country
 			type = "mutant_army"
 		}
 	}
@@ -3271,7 +3268,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_nuclear_bomb
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3360,7 +3357,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_particle_accelerator
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3419,7 +3416,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_infrastructure
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3468,7 +3465,7 @@ planet_event = {
 			has_planet_flag = wasteland_space_station
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3520,7 +3517,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_radiation
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3569,7 +3566,7 @@ planet_event = {
 		NOR = {
 			has_planet_flag = wasteland_pacifist_movement
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3583,15 +3580,11 @@ planet_event = {
 		is_occupied_flag = no
 		num_pops > 0
 		is_capital = no
-		any_pop = {
+		any_owned_pop = {
 			species = {
-				pops_have_happiness = yes
 			}
 			NOT = {
-				OR = {
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
-				}
+				is_pacifist = yes
 			}
 			is_enslaved = no
 			is_being_purged = no
@@ -3615,14 +3608,12 @@ planet_event = {
 		trigger = {
 			owner = {
 				NOR = {
-					has_ethic = "ethic_militarist"
-					has_ethic = "ethic_fanatic_militarist"
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
+					is_militarist = yes
+					is_pacifist = yes
 				}
 			}
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3632,7 +3623,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3642,7 +3633,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3658,13 +3649,10 @@ planet_event = {
 		custom_tooltip = colony.164.a.tooltip
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = "ethic_militarist"
-					has_ethic = "ethic_fanatic_militarist"
-				}
+				is_militarist = yes
 			}
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3674,7 +3662,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3684,7 +3672,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3700,13 +3688,10 @@ planet_event = {
 		custom_tooltip = colony.164.a.tooltip
 		trigger = {
 			owner = {
-				OR = {
-					has_ethic = "ethic_pacifist"
-					has_ethic = "ethic_fanatic_pacifist"
-				}
+				is_pacifist = yes
 			}
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3716,7 +3701,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3726,7 +3711,7 @@ planet_event = {
 			}
 			pop_change_ethic = ethic_pacifist
 		}
-		random_pop = {
+		random_owned_pop = {
 			limit = {
 				NOR = {
 					has_ethic = "ethic_pacifist"
@@ -3757,7 +3742,7 @@ planet_event = {
 			has_planet_flag = wasteland_orbital_debris
 			has_planet_flag = primitives_nuked_themselves
 			solar_system = {
-				any_planet = {
+				any_system_planet = {
 					is_capital = yes
 				}
 			}
@@ -3860,7 +3845,7 @@ planet_event = {
 	
 	option = {
 		name = colony.172.a
-		random_pop = {
+		random_owned_pop = {
 			kill_pop = yes
 		}
 	}
@@ -3932,8 +3917,7 @@ planet_event = {
 		is_capital = no
 		years_passed < 50
 		NOR = {
-			is_planet_class = pc_habitat
-			is_planet_class = pc_ringworld_habitable
+			is_artificial = yes
 			has_planet_flag = asteroid_sighted
 			has_planet_flag = asteroid_collision
 			has_global_flag = asteroid_sighted_global

@@ -57,7 +57,7 @@ corvette = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 2
 	is_space_station = no
-	icon_frame = 2
+	icon = ship_size_military_1
 	base_buildtime = 60
 	can_have_federation_design = yes
 	enable_default_design = yes	#if yes, countries will have an auto-generated design at start	
@@ -129,7 +129,7 @@ cruiser = {
 	section_slots = { "bow" = { locator = "part1" } "mid" = { locator = "part2" } "stern" = { locator = "part3" } }
 	num_target_locators = 4
 	is_space_station = no
-	icon_frame = 4
+	icon = ship_size_military_4
 	base_buildtime = 240
 	can_have_federation_design = yes
 	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
@@ -165,7 +165,7 @@ battleship = {
 	section_slots = { "bow" = { locator = "part1" } "mid" = { locator = "part2" } "stern" = { locator = "part3" } }
 	num_target_locators = 4
 	is_space_station = no
-	icon_frame = 5
+	icon = ship_size_military_8
 	base_buildtime = 480
 	can_have_federation_design = yes
 	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
@@ -201,7 +201,7 @@ titan = {
 	section_slots = { "bow" = { locator = "part1" } "mid" = { locator = "part2" } "stern" = { locator = "part3" } }
 	num_target_locators = 4
 	is_space_station = no
-	icon_frame = 6
+	icon = ship_size_military_16
 	base_buildtime = 1800
 	can_have_federation_design = yes
 	enable_default_design = yes	#if yes, countries will have an auto-generated design at start
@@ -247,7 +247,7 @@ constructor = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 9
+	icon = ship_size_constructor
 	base_buildtime = 60
 	cost = 100
 	
@@ -286,7 +286,7 @@ colonizer = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 10
+	icon = ship_size_colonizer
 	base_buildtime = 360
 	cost = 300
 	
@@ -328,7 +328,7 @@ science = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 8
+	icon = ship_size_science
 	base_buildtime = 60	
 	cost = 100
 	
@@ -369,7 +369,7 @@ transport = {
 	section_slots = { "mid" = { locator = "part1" } }
 	num_target_locators = 0
 	is_space_station = no
-	icon_frame = 11
+	icon = ship_size_transport
 	
 	combat_disengage_chance = 1.5
 
@@ -395,7 +395,7 @@ military_station_small = {
 	max_hitpoints = 1000
 	modifier = {
 		ship_evasion_mult = -1
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20
@@ -434,7 +434,7 @@ military_station_medium = {
 		ship_evasion_mult = -1
 		ship_armor_add = 700	#30
 		ship_shield_mult = 1
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20	
@@ -474,7 +474,7 @@ military_station_large = {
 		ship_evasion_mult = -1
 		ship_armor_add = 2300	#44
 		ship_shield_mult = 1
-		ship_upkeep_mult = -0.25
+		ships_upkeep_mult = -0.25
 	}
 	ship_modifier = {
 		ship_weapon_range_mult = 0.20	

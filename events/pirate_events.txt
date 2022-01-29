@@ -170,7 +170,7 @@ country_event = {
 							}
 						}
 						create_leader = {
-							type = admiral
+							class = admiral
 							species = owner_main_species
 							name = random
 							skill = 1
@@ -208,7 +208,7 @@ country_event = {
 													has_star_flag = hostile_system
 													is_same_value = event_target:capital_system
 												}
-												any_planet = {
+												any_system_planet = {
 													OR = {
 														has_mining_station = yes
 														has_research_station = yes
@@ -244,7 +244,7 @@ country_event = {
 										find_random_system = {
 											trigger = {
 												id = "pirate.1.trigger.3"
-												any_planet = {
+												any_system_planet = {
 													is_planet = event_target:pirate_home
 												}
 											}
@@ -342,7 +342,7 @@ country_event = {
 		any_owned_ship = {
 			is_ship_size = pirate_station
 		}
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			has_country_flag = spawner_of@root
 			exists = capital_scope
@@ -363,7 +363,7 @@ country_event = {
 	}
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				has_country_flag = spawner_of@root
@@ -395,7 +395,7 @@ ship_event = {
 		from = {
 			solar_system = {
 				NOT = {
-					any_planet = {
+					any_system_planet = {
 						is_homeworld = yes
 					}
 				}
@@ -608,7 +608,7 @@ country_event = {
 							}
 						}
 						create_leader = {
-							type = admiral
+							class = admiral
 							species = owner_main_species
 							name = random
 							skill = 1
@@ -646,7 +646,7 @@ country_event = {
 													has_star_flag = hostile_system
 													is_same_value = event_target:capital_system
 												}
-												any_planet = {
+												any_system_planet = {
 													OR = {
 														has_mining_station = yes
 														has_research_station = yes
@@ -682,7 +682,7 @@ country_event = {
 										find_random_system = {
 											trigger = {
 												id = "pirate.6.trigger.3"
-												any_planet = {
+												any_system_planet = {
 													is_planet = event_target:pirate_home
 												}
 											}
@@ -821,7 +821,7 @@ country_event = {
 							}
 						}
 						create_leader = {
-							type = admiral
+							class = admiral
 							species = owner_main_species
 							name = random
 							skill = 1
@@ -859,7 +859,7 @@ country_event = {
 													has_star_flag = hostile_system
 													is_same_value = event_target:capital_system
 												}
-												any_planet = {
+												any_system_planet = {
 													OR = {
 														has_mining_station = yes
 														has_research_station = yes
@@ -895,7 +895,7 @@ country_event = {
 										find_random_system = {
 											trigger = {
 												id = "pirate.7.trigger.3"
-												any_planet = {
+												any_system_planet = {
 													is_planet = event_target:pirate_home
 												}
 											}
@@ -1076,7 +1076,7 @@ fleet_event = {
 	mean_time_to_happen = { months = 600 }
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				fleet_power > 1800 # at least slightly more than the raiding party
@@ -1096,7 +1096,7 @@ fleet_event = {
 				find_closest_system = {
 					trigger = {
 						id = pirate.20.a
-						any_planet = {
+						any_system_planet = {
 							is_same_value = event_target:target_capital
 						}
 					}
@@ -1183,22 +1183,22 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = big_loot }
-		add_minerals = 300
-		add_energy = 150
+		add_resource = { minerals = 300 }
+		add_resource = { energy = 150 }
 		hidden_effect = { remove_country_flag = big_loot }
 	}
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = medium_loot }
-		add_minerals = 180
-		add_energy = 100
+		add_resource = { minerals = 180 }
+		add_resource = { energy = 100 }
 		hidden_effect = { remove_country_flag = medium_loot }
 	}
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = small_loot }
-		add_minerals = 80
-		add_energy = 50
+		add_resource = { minerals = 80 }
+		add_resource = { energy = 50 }
 		hidden_effect = { remove_country_flag = small_loot }
 	}
 	option = {
@@ -1210,8 +1210,8 @@ country_event = {
 				has_country_flag = small_loot
 			}
 		}
-		add_minerals = 200
-		add_energy = 200
+		add_resource = { minerals = 200 }
+		add_resource = { energy = 200 }
 	}
 }
 
@@ -1236,24 +1236,24 @@ country_event = {
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = big_loot }
-		add_minerals = 300
-		add_energy = 150
+		add_resource = { minerals = 300 }
+		add_resource = { energy = 150 }
 		generate_lcluster_clue = yes
 		hidden_effect = { remove_country_flag = big_loot }
 	}
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = medium_loot }
-		add_minerals = 180
-		add_energy = 100
+		add_resource = { minerals = 180 }
+		add_resource = { energy = 100 }
 		generate_lcluster_clue = yes
 		hidden_effect = { remove_country_flag = medium_loot }
 	}
 	option = {
 		name = EXCELLENT
 		trigger = { has_country_flag = small_loot }
-		add_minerals = 80
-		add_energy = 50
+		add_resource = { minerals = 80 }
+		add_resource = { energy = 50 }
 		generate_lcluster_clue = yes
 		hidden_effect = { remove_country_flag = small_loot }
 	}
@@ -1266,8 +1266,8 @@ country_event = {
 				has_country_flag = small_loot
 			}
 		}
-		add_minerals = 200
-		add_energy = 200
+		add_resource = { minerals = 200 }
+		add_resource = { energy = 200 }
 		generate_lcluster_clue = yes
 	}
 }
@@ -1572,7 +1572,7 @@ country_event = {
 	}
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				has_country_flag = spawner_of@root

@@ -135,13 +135,13 @@ ship_event = {
 		}
 		FROM = {
 			best_tile_for_pop = {
-				create_pop = { species = last_created }
+				create_pop = { species = last_created_species }
 			}
 			best_tile_for_pop = {
-				create_pop = { species = last_created }
+				create_pop = { species = last_created_species }
 			}
 			best_tile_for_pop = {
-				create_pop = { species = last_created }
+				create_pop = { species = last_created_species }
 			}
 		}
 		owner = { set_country_flag = found_presapients }
@@ -346,7 +346,7 @@ country_event = {
 		default_hide_option = yes
 		hidden_effect = {
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = event_target:fallen_4_species
 				name = "NAME_Tuborek"
 				skill = 10
@@ -606,7 +606,7 @@ ship_event = {
 			any_ship_in_system = {
 				fleet = { has_fleet_flag = sanctuary_core }
 			}
-			any_planet = {
+			any_system_planet = {
 				exists = owner
 				owner = { is_country_type = primitive }
 			}
@@ -680,8 +680,7 @@ country_event = {
 		from = { save_event_target_as = notify_country }
 		fromfrom = {
 			solar_system = {
-				random_system_planet = {
-					limit = { is_star = yes }
+				star = {
 					save_event_target_as = parent_cloud
 				}
 			}
@@ -1698,8 +1697,7 @@ event = {
 				}
 			}
 			
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				create_crystal_country = yes
 				event_target:crystal_country = {
 					save_event_target_as = elite1_owner
@@ -1866,8 +1864,7 @@ event = {
 				}
 			}
 
-			random_system_planet = {
-				limit = { is_star = yes }
+			star = {
 				save_event_target_as = voidhome_star
 				create_cloud_country = yes
 				event_target:cloud_country = {
@@ -2029,7 +2026,7 @@ event = {
 								#		find_random_system = {
 								#			trigger = {
 								#				id = amoeba.x3.trigger.1
-								#				any_planet = { is_capital = yes }
+								#				is_capital_system = yes
 								#			}
 								#			found_system = {
 								#				move_to = this
@@ -2052,7 +2049,7 @@ event = {
 								#			trigger = {
 								#				id = amoeba.x3.trigger.3
 								#				closest_system = {
-								#					any_planet = {
+								#					any_system_planet = {
 								#						is_planet = event_target:grazing_grounds
 								#					}
 								#				}
@@ -2114,7 +2111,7 @@ event = {
 								#					trigger = {
 								#						id = amoeba.x2.trigger.3
 								#						closest_system = {
-								#							any_planet = {
+								#							any_system_planet = {
 								#								is_planet = event_target:grazing_grounds
 								#							}
 								#						}
@@ -2173,7 +2170,7 @@ event = {
 								#						trigger = {
 								#							id = amoeba.x1.trigger.3
 								#							closest_system = {
-								#								any_planet = {
+								#								any_system_planet = {
 								#									is_planet = event_target:grazing_grounds
 								#								}
 								#							}

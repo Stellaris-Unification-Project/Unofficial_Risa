@@ -1146,8 +1146,7 @@ hostile_init_07 = {
 	
 	init_effect = {
 		create_crystal_country = yes
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			event_target:crystal_country = {
 				save_event_target_as = elite1_owner
 				create_fleet = {
@@ -1396,8 +1395,7 @@ hostile_init_08 = {
 	
 	init_effect = {
 		create_cloud_country = yes
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			orbital_deposit_tile = {
 				clear_deposits = yes
 				add_deposit = d_rich_energy_deposit
@@ -1483,8 +1481,7 @@ hostile_init_09 = {
 
 	init_effect = {
 		create_cloud_country = yes
-		random_system_planet = {
-			limit = { is_star = yes }
+		star = {
 			save_event_target_as = voidhome_star
 			orbital_deposit_tile = {
 				clear_deposits = yes

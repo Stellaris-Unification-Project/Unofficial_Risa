@@ -60,20 +60,14 @@ ethic_authoritarian = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_AUTHORITARIAN_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = yes
 		}
 	}
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = no
 			has_faction = totalitarian
 		}		
 	}
@@ -141,8 +135,7 @@ ethic_authoritarian = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
+				is_authoritarian = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -185,10 +178,7 @@ ethic_authoritarian = {
 		}	
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = no
 			has_faction = totalitarian	
 		}	
 		modifier = {
@@ -318,20 +308,14 @@ ethic_egalitarian = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_EGALITARIAN_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = yes
 		}
 	}	
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = no
 			has_faction = progressive
 		}		
 	}
@@ -370,10 +354,7 @@ ethic_egalitarian = {
 					is_in_federation_with = root
 					has_defensive_pact = root
 				}
-				OR = {
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
-				}				
+				is_egalitarian = yes				
 			}
 		}
 	}	
@@ -421,8 +402,7 @@ ethic_egalitarian = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
+				is_egalitarian = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -465,10 +445,7 @@ ethic_egalitarian = {
 		}	
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = no
 			has_faction = progressive	
 		}	
 		modifier = {
@@ -501,10 +478,7 @@ ethic_egalitarian = {
 					is_in_federation_with = root
 					has_defensive_pact = root
 				}
-				OR = {
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
-				}				
+				is_egalitarian = yes				
 			}
 		}
 		modifier = {
@@ -512,10 +486,7 @@ ethic_egalitarian = {
 			any_relation = {
 				is_subject = no
 				has_migration_access = root
-				OR = {
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
-				}
+				is_egalitarian = yes
 			}
 		}		
 	}
@@ -615,10 +586,7 @@ ethic_xenophobe = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_XENOPHOBE_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 	}
 
@@ -626,10 +594,7 @@ ethic_xenophobe = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = no
 			OR = {
 				has_faction = supremacist
 				has_faction = isolationist
@@ -771,8 +736,7 @@ ethic_xenophobe = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -792,10 +756,7 @@ ethic_xenophobe = {
 		}
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = no
 			OR = {
 				has_faction = supremacist
 				has_faction = isolationist
@@ -936,7 +897,7 @@ ethic_xenophobe = {
 		modifier = {
 			factor = 1.5
 			from = {
-				any_pop = {
+				any_owned_pop = {
 					NOT = { is_same_species = root }
 					has_trait = "trait_repugnant"
 				}
@@ -1001,20 +962,14 @@ ethic_xenophile = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_XENOPHILE_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = no
 			has_faction = xenoist
 		}		
 	}	
@@ -1128,8 +1083,7 @@ ethic_xenophile = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
+				is_xenophile = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -1149,10 +1103,7 @@ ethic_xenophile = {
 		}
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = no
 			has_faction = xenoist	
 		}	
 		modifier = {
@@ -1278,7 +1229,7 @@ ethic_xenophile = {
 		modifier = {
 			factor = 1.5
 			from = {
-				any_pop = {
+				any_owned_pop = {
 					NOT = { is_same_species = root }
 					has_trait = "trait_charismatic"
 				}
@@ -1335,20 +1286,14 @@ ethic_militarist = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_MILITARIST_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = yes
 		}
 	}	
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = no
 			has_faction = imperialist
 		}		
 	}	
@@ -1457,8 +1402,7 @@ ethic_militarist = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
+				is_militarist = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -1479,10 +1423,7 @@ ethic_militarist = {
 			
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = no
 			has_faction = imperialist	
 		}
 			
@@ -1697,20 +1638,14 @@ ethic_pacifist = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_PACIFIST_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = yes
 		}
 	}	
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = no
 			has_faction = prosperity
 		}		
 	}
@@ -1766,8 +1701,7 @@ ethic_pacifist = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
+				is_pacifist = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -1787,10 +1721,7 @@ ethic_pacifist = {
 		}
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = no
 			has_faction = prosperity
 		}
 		modifier = {
@@ -1960,20 +1891,14 @@ ethic_spiritualist = {
 	pop_attraction_tag = {
 		desc = 	POP_ATTRACTION_SPIRITUALIST_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = yes
 		}
 	}
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = no
 			has_faction = traditionalist
 		}		
 	}	
@@ -2008,10 +1933,7 @@ ethic_spiritualist = {
 						has_migration_access = root
 					}
 				}
-				OR = {
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
-				}				
+				is_spiritualist = yes				
 			}
 		}
 	}
@@ -2021,10 +1943,7 @@ ethic_spiritualist = {
 		trigger = {
 			is_subject = yes
 			overlord = {
-				OR = {
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
-				}				
+				is_spiritualist = yes				
 			}
 		}
 	}		
@@ -2053,8 +1972,7 @@ ethic_spiritualist = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -2097,10 +2015,7 @@ ethic_spiritualist = {
 		}	
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}
+			is_spiritualist = no
 			has_faction = traditionalist	
 		}	
 		modifier = {
@@ -2141,10 +2056,7 @@ ethic_spiritualist = {
 			factor = 2.0
 			is_subject = yes
 			overlord = {
-				OR = {
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
-				}
+				is_spiritualist = yes
 			}
 		}		
 		modifier = {
@@ -2154,10 +2066,7 @@ ethic_spiritualist = {
 					is_in_federation_with = root
 					has_defensive_pact = root
 				}
-				OR = {
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
-				}				
+				is_spiritualist = yes				
 			}
 		}
 		modifier = {
@@ -2165,10 +2074,7 @@ ethic_spiritualist = {
 			any_relation = {
 				is_subject = no
 				has_migration_access = root
-				OR = {
-					has_ethic = ethic_spiritualist
-					has_ethic = ethic_fanatic_spiritualist
-				}
+				is_spiritualist = yes
 			}
 		}	
 	}
@@ -2242,20 +2148,14 @@ ethic_materialist = {
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_MATERIALIST_POS
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 	}
 	
 	pop_attraction_tag = {
 		desc = POP_ATTRACTION_FACTION_POS
 		trigger = {
-			NOR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = no
 			has_faction = technologist
 		}		
 	}	
@@ -2309,10 +2209,7 @@ ethic_materialist = {
 		trigger = {
 			any_relation = {
 				root = { has_research_agreement = prev }
-				OR = {
-					has_ethic = ethic_materialist
-					has_ethic = ethic_fanatic_materialist
-				}				
+				is_materialist = yes				
 			}
 		}
 	}	
@@ -2338,8 +2235,7 @@ ethic_materialist = {
 			factor = 0
 			NOR = {
 				is_country_type = default
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
+				is_materialist = yes
 				AND = {
 					is_country_type = primitive
 					capital_scope = {
@@ -2382,10 +2278,7 @@ ethic_materialist = {
 		}			
 		modifier = {
 			factor = 2
-			NOR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = no
 			has_faction = technologist
 		}
 		modifier = {
@@ -2415,10 +2308,7 @@ ethic_materialist = {
 			factor = 1.33
 			any_relation = {
 				root = { has_research_agreement = prev }
-				OR = {
-					has_ethic = ethic_materialist
-					has_ethic = ethic_fanatic_materialist
-				}				
+				is_materialist = yes				
 			}
 		}		
 	}

@@ -38,8 +38,10 @@ country_event = {
 		random_country = {
 			limit = {
 				is_country_type = fallen_empire
-				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = { has_country_flag = sleepers_awake_first }
+				NOR = {
+					has_ethic = ethic_gestalt_consciousness
+					has_country_flag = sleepers_awake_first
+				}
 			}
 			set_country_flag = sleepers_awake_ancient_rival
 			set_timed_country_flag = { flag = timed_ancient_rival days = 3650 }
@@ -81,7 +83,7 @@ country_event = {
 	}
 
 	immediate = {	
-		every_country = {
+		every_playable_country = {
 			limit = { is_country_type = default }
 			set_timed_country_flag = { flag = ai_no_wars days = 3650 }
 		}
@@ -105,14 +107,14 @@ country_event = {
 			}
 		}
 		# Changing country type resets resources, so give them full stores
-		add_minerals = 20000
-		add_energy = 5000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 5000 }
+		add_resource = { influence = 1000 }
 		# Add some more fleet
 		country_event = { id = fallen_empires.13 }
 		if = {
 			limit = { 
-				any_country = {
+				any_playable_country = {
 					is_country_type = default	
 					fleet_power > 50000
 				}
@@ -198,7 +200,7 @@ country_event = {
 		country_event = { id = fallen_empires.13 }
 		if = {
 			limit = { 
-				any_country = {
+				any_playable_country = {
 					is_country_type = default	
 					fleet_power > 50000
 				}
@@ -216,7 +218,7 @@ country_event = {
 			country_event = { id = fallen_empires.13 }
 			if = {
 				limit = { 
-					any_country = {
+					any_playable_country = {
 						is_country_type = default	
 						fleet_power > 50000
 					}
@@ -231,7 +233,7 @@ country_event = {
 			name = "NAME_The_War_in_Heaven"
 			attacker_war_goal = "wg_war_in_heaven"
 		}
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_country_type = default			
 			}		
@@ -266,28 +268,18 @@ country_event = {
 			factor = 100
 			modifier = {
 				factor = 0
-				OR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 			}
 			modifier = {
 				factor = 0.5
 				OR = {
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_spiritualist
-						NOR = {
-							has_ethic = ethic_spiritualist
-							has_ethic = ethic_fanatic_spiritualist
-						}
+						is_spiritualist = no
 					}
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_materialist
-						NOR = {
-							has_ethic = ethic_materialist
-							has_ethic = ethic_fanatic_materialist
-						}
+						is_materialist = no
 					}						
 				}
 			}			
@@ -297,19 +289,15 @@ country_event = {
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_xenophobe
 						NOR = {
-							has_ethic = ethic_militarist
-							has_ethic = ethic_fanatic_militarist
-							has_ethic = ethic_xenophobe
-							has_ethic = ethic_fanatic_xenophobe
+							is_militarist = yes
+							is_xenophobe = yes
 						}
 					}
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_xenophile
 						NOR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-							has_ethic = ethic_xenophile
-							has_ethic = ethic_fanatic_xenophile
+							is_pacifist = yes
+							is_xenophile = yes
 						}
 					}						
 				}
@@ -320,34 +308,24 @@ country_event = {
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_xenophobe
 						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-							has_ethic = ethic_xenophile
-							has_ethic = ethic_fanatic_xenophile
+							is_pacifist = yes
+							is_xenophile = yes
 						}						
 					}
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_xenophile
 						OR = {
-							has_ethic = ethic_militarist
-							has_ethic = ethic_fanatic_militarist
-							has_ethic = ethic_xenophobe
-							has_ethic = ethic_fanatic_xenophobe
+							is_militarist = yes
+							is_xenophobe = yes
 						}						
 					}
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_materialist
-						OR = {
-							has_ethic = ethic_spiritualist
-							has_ethic = ethic_fanatic_spiritualist
-						}
+						is_spiritualist = yes
 					}
 					event_target:FirstSleeper = { 
 						has_ethic = ethic_fanatic_spiritualist
-						OR = {
-							has_ethic = ethic_materialist
-							has_ethic = ethic_fanatic_materialist
-						}
+						is_materialist = yes
 					}					
 				}
 			}			
@@ -421,28 +399,18 @@ country_event = {
 			factor = 100
 			modifier = {
 				factor = 0
-				OR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 			}			
 			modifier = {
 				factor = 0.2
 				OR = {
 					from = { 
 						has_ethic = ethic_fanatic_spiritualist
-						NOR = {
-							has_ethic = ethic_spiritualist
-							has_ethic = ethic_fanatic_spiritualist
-						}
+						is_spiritualist = no
 					}
 					from = { 
 						has_ethic = ethic_fanatic_materialist
-						NOR = {
-							has_ethic = ethic_materialist
-							has_ethic = ethic_fanatic_materialist
-						}
+						is_materialist = no
 					}						
 				}
 			}			
@@ -452,19 +420,15 @@ country_event = {
 					from = { 
 						has_ethic = ethic_fanatic_xenophobe
 						NOR = {
-							has_ethic = ethic_militarist
-							has_ethic = ethic_fanatic_militarist
-							has_ethic = ethic_xenophobe
-							has_ethic = ethic_fanatic_xenophobe
+							is_militarist = yes
+							is_xenophobe = yes
 						}
 					}
 					from = { 
 						has_ethic = ethic_fanatic_xenophile
 						NOR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-							has_ethic = ethic_xenophile
-							has_ethic = ethic_fanatic_xenophile
+							is_pacifist = yes
+							is_xenophile = yes
 						}
 					}						
 				}
@@ -475,34 +439,24 @@ country_event = {
 					from = { 
 						has_ethic = ethic_fanatic_xenophobe
 						OR = {
-							has_ethic = ethic_pacifist
-							has_ethic = ethic_fanatic_pacifist
-							has_ethic = ethic_xenophile
-							has_ethic = ethic_fanatic_xenophile
+							is_pacifist = yes
+							is_xenophile = yes
 						}						
 					}
 					from = { 
 						has_ethic = ethic_fanatic_xenophile
 						OR = {
-							has_ethic = ethic_militarist
-							has_ethic = ethic_fanatic_militarist
-							has_ethic = ethic_xenophobe
-							has_ethic = ethic_fanatic_xenophobe
+							is_militarist = yes
+							is_xenophobe = yes
 						}						
 					}
 					from = { 
 						has_ethic = ethic_fanatic_materialist
-						OR = {
-							has_ethic = ethic_spiritualist
-							has_ethic = ethic_fanatic_spiritualist
-						}
+						is_spiritualist = yes
 					}
 					from = { 
 						has_ethic = ethic_fanatic_spiritualist
-						OR = {
-							has_ethic = ethic_materialist
-							has_ethic = ethic_fanatic_materialist
-						}
+						is_materialist = yes
 					}					
 				}
 			}			
@@ -593,7 +547,7 @@ country_event = {
 			}
 			modifier = {
 				factor = 2
-				any_country = {
+				any_playable_country = {
 					is_ai = no
 					is_in_federation_with = root
 				}
@@ -706,7 +660,7 @@ country_event = {
 			save_event_target_as = RemainingAwakened
 		}	
 		
-		every_country = {
+		every_playable_country = {
 			limit = { is_ai = no }		
 			country_event = { id = war_in_heaven.11 }
 		}		
@@ -740,8 +694,10 @@ country_event = {
 		is_country_type = awakened_fallen_empire
 		has_country_flag = sleepers_awake_first_sleeper	
 		has_global_flag = war_in_heaven_ongoing
-		NOT = { has_global_flag = war_in_heaven_nonaligned_league }
-		NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
+		NOR = {
+			has_global_flag = war_in_heaven_nonaligned_league
+			has_global_flag = war_in_heaven_seeking_league_leader
+		}
 		any_country = {
 			is_subject = no
 			NOT = {
@@ -761,11 +717,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = no
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }	
 				NOT = { is_same_value = prev }
 			}
@@ -788,11 +740,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -814,11 +762,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -840,11 +784,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -866,11 +806,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -892,11 +828,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -918,11 +850,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -944,11 +872,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -970,11 +894,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -996,11 +916,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -1022,11 +938,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -1048,11 +960,7 @@ country_event = {
 					}
 				}
 				is_country_type = default
-				NOR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}				
+				is_homicidal = no				
 				NOT = { has_global_flag = war_in_heaven_seeking_league_leader }
 				NOT = { has_global_flag = stop_further_leader_seek }
 				NOT = { has_country_flag = war_in_heaven_league_leader_declined }
@@ -1087,11 +995,7 @@ country_event = {
 			factor = 100
 			modifier = {
 				factor = 0
-				OR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}	
+				is_homicidal = yes	
 			}
 		}
 		hidden_effect = { 
@@ -1111,21 +1015,25 @@ country_event = {
 				root = { add_opinion_modifier = { who = prev modifier = opinion_non_aligned_league_fe } } 
 			}	
 
-			every_country = {
+			every_playable_country = {
 				limit = { 
 					is_ai = no 
 					is_subject = no 
-					not = { is_same_value = root }
-					NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }
+					NOR = {
+						is_same_value = root
+						has_country_flag = war_in_heaven_nonaligned_league_check
+					}
 				}		
 				country_event = { id = war_in_heaven.19 }
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { 
 					is_ai = no 
 					is_subject = yes
-					not = { is_same_value = root }
-					NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }
+					NOR = {
+						is_same_value = root
+						has_country_flag = war_in_heaven_nonaligned_league_check
+					}
 				}		
 				country_event = { id = war_in_heaven.22 }
 			}					
@@ -1155,11 +1063,7 @@ country_event = {
 		is_subject = no
 		is_at_war = no
 		is_country_type = default
-		NOR = {
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-			has_valid_civic = civic_machine_terminator
-		}	
+		is_homicidal = no	
 		NOT = { has_country_flag = war_in_heaven_nonaligned_league_check }	
 		is_ai = yes
 		any_country = {
@@ -1190,9 +1094,7 @@ country_event = {
 				modifier = {
 					factor = 0
 					OR = {
-						has_valid_civic = civic_hive_devouring_swarm
-						has_valid_civic = civic_fanatic_purifiers
-						has_valid_civic = civic_machine_terminator
+						is_homicidal = yes
 						is_rival = event_target:LNAP_Leader
 					}
 				}
@@ -1436,7 +1338,7 @@ country_event = {
 				}
 				set_country_flag = last_best_hope
 			}
-			every_country = {
+			every_playable_country = {
 				limit = { is_ai = no }		
 				country_event = { id = war_in_heaven.18 }
 			}			
@@ -1553,8 +1455,10 @@ country_event = {
 		random_country = {
 			limit = {
 				is_in_federation_with = event_target:LNAP_Leader
-				NOT = { is_same_value = root }
-				NOT = { is_same_value = event_target:LNAP_Leader }
+				NOR = {
+					is_same_value = root
+					is_same_value = event_target:LNAP_Leader
+				}
 			}
 			set_country_flag = LNAP_indicator_member
 		}
@@ -1721,8 +1625,10 @@ country_event = {
 			random_country = {
 				limit = {
 					is_in_federation_with = prev
-					NOT = { is_same_value = prev }
-					NOT = { is_same_value = root }
+					NOR = {
+						is_same_value = prev
+						is_same_value = root
+					}
 				}
 				set_country_flag = LNAP_indicator_member
 			}

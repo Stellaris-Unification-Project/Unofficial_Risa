@@ -44,7 +44,7 @@ pop_event = {
 					}
 				}
 			}
-			count_pops = {
+			count_owned_pop = {
 				limit = { 
 					is_same_species = ROOT 
 					is_enslaved = no
@@ -81,14 +81,14 @@ pop_event = {
 			set_planet_flag = pop_modification
 			if = {
 				limit = {
-					count_pops = {
+					count_owned_pop = {
 						limit = {
 							is_same_species = ROOT
 						}
 						count < 6
 					}
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -96,10 +96,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -107,10 +107,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -130,20 +130,20 @@ pop_event = {
 					}
 					set_pop_flag = non_modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						is_pop = ROOT
 						is_enslaved = no
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					save_event_target_as = modified_pop_1
 					set_pop_flag = modified_pop_1
 				}
 			}
 			else = {
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -151,10 +151,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -162,10 +162,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -173,10 +173,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -184,10 +184,10 @@ pop_event = {
 						is_being_purged = no
 						is_robot_pop = no
 					}
-					change_species = last_created
+					change_species = last_created_species
 					set_pop_flag = modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						NOT = { is_pop = ROOT }
 						is_same_species = ROOT
@@ -207,7 +207,7 @@ pop_event = {
 					}
 					set_pop_flag = non_modified_pop_1
 				}
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						is_pop = ROOT
 						is_enslaved = no
@@ -216,7 +216,7 @@ pop_event = {
 					}
 					save_event_target_as = modified_pop_1
 					set_pop_flag = modified_pop_1
-					change_species = last_created
+					change_species = last_created_species
 				}
 			}
 		}
@@ -246,11 +246,10 @@ pop_event = {
 		NOR = {
 			has_ethic = ethic_fanatic_pacifist
 			has_ethic = ethic_pacifist
-			has_ethic = ethic_xenophile
-			has_ethic = ethic_fanatic_xenophile
+			is_xenophile = yes
 		}
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				NOT = { is_pop = ROOT }
 				is_same_species = owner
 				is_enslaved = no
@@ -268,7 +267,7 @@ pop_event = {
 		save_event_target_as = modified_pop_1
 		planet = {
 			set_planet_flag = popmod_rising_tensions
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					NOT = { is_pop = ROOT }
 					is_same_species = owner
@@ -333,7 +332,7 @@ pop_event = {
 		is_enslaved = no
 		is_being_purged = no
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				NOT = { is_pop = ROOT }
 				is_same_species = owner
 				is_enslaved = no
@@ -351,7 +350,7 @@ pop_event = {
 		save_event_target_as = modified_pop_1
 		planet = {
 			set_planet_flag = popmod_fertility
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					NOT = { is_pop = ROOT }
 					is_same_species = owner
@@ -406,7 +405,7 @@ pop_event = {
 		is_enslaved = no
 		is_being_purged = no
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				NOT = { is_pop = ROOT }
 				is_same_species = owner
 				is_enslaved = no
@@ -423,7 +422,7 @@ pop_event = {
 	immediate = {
 		save_event_target_as = modified_pop_1
 		planet = {
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					NOT = { is_pop = ROOT }
 					is_same_species = owner
@@ -473,7 +472,7 @@ pop_event = {
 		is_enslaved = no
 		is_being_purged = no
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				has_pop_flag = modified_pop_1
 				is_enslaved = no
 				is_being_purged = no
@@ -489,7 +488,7 @@ pop_event = {
 	immediate = {
 		save_event_target_as = non_modified_pop_1
 		planet = {
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					has_pop_flag = modified_pop_1
 					is_enslaved = no
@@ -539,7 +538,7 @@ pop_event = {
 		is_enslaved = no
 		is_being_purged = no
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				NOT = { is_pop = ROOT }
 				is_same_species = owner
 				is_enslaved = no
@@ -556,7 +555,7 @@ pop_event = {
 	immediate = {
 		save_event_target_as = modified_pop_1
 		planet = {
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					NOT = { is_pop = ROOT }
 					is_same_species = owner
@@ -606,7 +605,7 @@ pop_event = {
 		is_enslaved = no
 		is_being_purged = no
 		planet = {
-			any_pop = {
+			any_owned_pop = {
 				NOR = {
 					is_pop = ROOT
 					has_trait = trait_strong
@@ -627,7 +626,7 @@ pop_event = {
 		save_event_target_as = modified_pop_1
 		planet = {
 			set_planet_flag = popmod_strength
-			random_pop = {
+			random_owned_pop = {
 				limit = {
 					NOR = {
 						is_pop = ROOT

@@ -44,8 +44,7 @@ country_event = {
 						space_owner = {
 							OR = {
 								is_country_type = default
-								is_country_type = fallen_empire
-								is_country_type = awakened_fallen_empire
+								is_fallen_empire = yes
 							}
 						}
 					}
@@ -72,8 +71,7 @@ country_event = {
 							space_owner = {
 								OR = {
 									is_country_type = default
-									is_country_type = fallen_empire
-									is_country_type = awakened_fallen_empire
+									is_fallen_empire = yes
 								}
 							}
 						}
@@ -93,8 +91,7 @@ country_event = {
 						space_owner = {
 							OR = {
 								is_country_type = default
-								is_country_type = fallen_empire
-								is_country_type = awakened_fallen_empire
+								is_fallen_empire = yes
 							}
 						}
 					}
@@ -123,8 +120,7 @@ country_event = {
 							space_owner = {
 								OR = {
 									is_country_type = default
-									is_country_type = fallen_empire
-									is_country_type = awakened_fallen_empire
+									is_fallen_empire = yes
 								}
 							}
 						}
@@ -159,7 +155,7 @@ country_event = {
 			create_country = {
 				name = "NAME_Galactic_Nomads"
 				type = nomad
-				species = last_created
+				species = last_created_species
 				flag = {
 					icon = {
 						category = "spherical"
@@ -191,7 +187,7 @@ country_event = {
 			}
 			event_target:nomad01_country = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -328,8 +324,7 @@ fleet_event = {
 					space_owner = {
 						OR = {
 							is_country_type = default
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
+							is_fallen_empire = yes
 						}
 						NOR = {
 							is_hostile = event_target:nomad_owner
@@ -439,8 +434,7 @@ fleet_event = {
 					space_owner = {
 						OR = {
 							is_country_type = default
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
+							is_fallen_empire = yes
 						}
 						is_hostile = event_target:nomad_owner
 					}
@@ -459,8 +453,7 @@ fleet_event = {
 					space_owner = {
 						OR = {
 							is_country_type = default
-							is_country_type = fallen_empire
-							is_country_type = awakened_fallen_empire
+							is_fallen_empire = yes
 						}
 					}
 				}
@@ -614,7 +607,7 @@ fleet_event = {
 									NOT = { has_modifier = holy_planet }
 									NOT = {
 										solar_system = {
-											any_planet = {
+											any_system_planet = {
 												is_colony = yes
 											}
 										}
@@ -626,9 +619,7 @@ fleet_event = {
 							#	has_authority = auth_machine_intelligence
 							#	NOT = { has_valid_civic = civic_machine_servitor }
 							#}
-							has_valid_civic = civic_fanatic_purifiers
-							has_valid_civic = civic_hive_devouring_swarm
-							has_valid_civic = civic_machine_terminator
+							is_homicidal = yes
 						}
 					}
 				}
@@ -664,9 +655,7 @@ fleet_event = {
 					event_target:nomad_contact_country = {
 						OR = {
 							has_country_flag = nomad_ship_trade
-							has_valid_civic = civic_fanatic_purifiers
-							has_valid_civic = civic_hive_devouring_swarm
-							has_valid_civic = civic_machine_terminator
+							is_homicidal = yes
 						}
 					}
 				}
@@ -778,12 +767,9 @@ fleet_event = {
 					}
 					else_if = {
 						limit = {
-							NOT = { 
-								check_variable = {
+							check_variable = {
 									which = nomads_built_ships
-									value = 0
-								}
-							}
+									value != 0 }
 						}
 						set_variable = {
 							which = nomads_built_ships
@@ -1085,10 +1071,8 @@ country_event = {
 		name = "nomad.9.a"
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophile = yes
+				is_xenophobe = yes
 			}
 		}
 	}
@@ -1096,18 +1080,14 @@ country_event = {
 		name = "nomad.9.a.phobe"
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
 		}
 	}
 	option = {
 		name = "nomad.9.c.phile"
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
+			is_xenophile = yes
 		}
 	}
 }
@@ -1156,22 +1136,14 @@ country_event = {
 		default_hide_option = yes
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_xenophobe = yes
+				is_xenophile = yes
+				is_egalitarian = yes
+				is_authoritarian = yes
+				is_militarist = yes
+				is_pacifist = yes
+				is_materialist = yes
+				is_spiritualist = yes
 			}
 		}
 	}
@@ -1291,25 +1263,19 @@ country_event = {
 		name = action.1.aa
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 	}
 	option = {
 		name = action.1.ab
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
 			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
 		}
 	}
@@ -1317,286 +1283,172 @@ country_event = {
 		name = action.1.ac
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = yes
 		}
 	}
 	option = {
 		name = action.1.ad
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = yes
 		}
 	}
 	option = {
 		name = action.1.ae
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.af
 		trigger = {
 			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_xenophobe = yes
 			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = yes
 		}
 	}
 	option = {
 		name = action.1.ag
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_xenophile = yes
+			is_materialist = yes
 		}
 	}
 	option = {
 		name = action.1.ah
 		trigger = {
+			is_xenophile = yes
 			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
 		}
 	}
 	option = {
 		name = action.1.ai
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_xenophile = yes
+			is_egalitarian = yes
 		}
 	}
 	option = {
 		name = action.1.aj
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_xenophile = yes
+			is_authoritarian = yes
 		}
 	}
 	option = {
 		name = action.1.ak
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_xenophile = yes
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.al
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
-			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_xenophile = yes
+			is_pacifist = yes
 		}
 	}
 	option = {
 		name = action.1.am
 		trigger = {
+			is_authoritarian = yes
 			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
 		}
 	}
 	option = {
 		name = action.1.an
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_authoritarian = yes
+			is_materialist = yes
 		}
 	}
 	option = {
 		name = action.1.ao
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_authoritarian = yes
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.ap
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_authoritarian = yes
+			is_pacifist = yes
 		}
 	}
 	option = {
 		name = action.1.aq
 		trigger = {
+			is_egalitarian = yes
 			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
 		}
 	}
 	option = {
 		name = action.1.ar
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_egalitarian = yes
+			is_materialist = yes
 		}
 	}
 	option = {
 		name = action.1.as
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_egalitarian = yes
+			is_pacifist = yes
 		}
 	}
 	option = {
 		name = action.1.at
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_egalitarian = yes
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.au
 		trigger = {
 			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.av
 		trigger = {
 			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
+				is_spiritualist = yes
 			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = yes
 		}
 	}
 	option = {
 		name = action.1.aw
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
-			OR = {
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_militarist
-			}
+			is_materialist = yes
+			is_militarist = yes
 		}
 	}
 	option = {
 		name = action.1.ax
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
-			OR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_materialist = yes
+			is_pacifist = yes
 		}
 	}
 	option = {
@@ -1683,12 +1535,9 @@ fleet_event = {
 			}
 			else_if = {
 				limit = {
-					NOT = { 
-						check_variable = {
+					check_variable = {
 							which = nomads_attacked_systems
-							value = 0
-						}
-					}
+							value != 0 }
 				}
 				set_variable = {
 					which = nomads_attacked_systems
@@ -2190,7 +2039,7 @@ fleet_event = {
 					NOT = { has_modifier = holy_planet }
 					solar_system = {
 						NOT = {
-							any_planet = {
+							any_system_planet = {
 								is_colony = yes
 							}
 						}
@@ -2291,7 +2140,7 @@ country_event = {
 			}
 			owner_species = { save_event_target_as = nomad_fleet_species }
 		}
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				has_planet_flag = nomad_mission_location
 			}
@@ -2353,10 +2202,7 @@ country_event = {
 				has_ethic = ethic_fanatic_spiritualist
 				has_ethic = ethic_spiritualist
 			}
-			NOR = {
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_xenophobe = no
 		}
 		add_influence = -50
 		hidden_effect = {
@@ -2416,9 +2262,9 @@ country_event = {
 					establish_communications_no_message = event_target:planet_owners
 					set_graphical_culture = mammalian_01
 					set_country_flag = nomad02_country_flag
-					add_energy = 1000
-					add_minerals = 1000
-					add_influence = 500
+					add_resource = { energy = 1000 }
+					add_resource = { minerals = 1000 }
+					add_resource = { influence = 500 }
 					#add_opinion_modifier = {
 					#	who = event_target:planet_owners
 					#	modifier = opinion_liberated_us
@@ -2486,8 +2332,8 @@ country_event = {
 						}
 					}
 				}
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = root
 				}
 				solar_system = {
@@ -2645,11 +2491,7 @@ country_event = {
 			if = {
 				limit = {
 					has_fleet_flag = nomad_on_mission
-					solar_system = {
-						space_owner = {
-							is_same_value = event_target:attacker_country
-						}
-					}
+					solar_system = { is_owned_by = event_target:attacker_country }
 				}
 				remove_fleet_flag = nomad_on_mission
 			}
@@ -2777,11 +2619,7 @@ country_event = {
 			if = {
 				limit = {
 					has_fleet_flag = nomad_on_mission
-					solar_system = {
-						space_owner = {
-							is_same_value = event_target:attacker_country
-						}
-					}
+					solar_system = { is_owned_by = event_target:attacker_country }
 				}
 				remove_fleet_flag = nomad_on_mission
 			}

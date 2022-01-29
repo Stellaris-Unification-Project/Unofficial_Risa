@@ -56,7 +56,7 @@ country_event = {
 		random_list = {
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -78,7 +78,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -100,7 +100,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -122,7 +122,7 @@ country_event = {
 			}
 			25 = {
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -897,8 +897,10 @@ fleet_event = {
 		leader = {
 			leader_class = admiral
 			num_traits < 3
-			NOT = { has_trait = leader_trait_fleet_logistician }
-			NOT = { has_trait = leader_trait_maintenance_loop }
+			NOR = {
+				has_trait = leader_trait_fleet_logistician
+				has_trait = leader_trait_maintenance_loop
+			}
 		}
 	}
 	

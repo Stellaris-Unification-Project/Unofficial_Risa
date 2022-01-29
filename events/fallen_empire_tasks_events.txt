@@ -261,10 +261,7 @@ country_event = {
 				has_country_flag = fe_gift_resources_small
 				has_country_flag = fe_gift_resources_large
 			}
-			NOR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}
+			is_synthetic_empire = no
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}
 	}	
@@ -275,10 +272,7 @@ country_event = {
 				has_country_flag = fe_gift_resources_small
 				has_country_flag = fe_gift_resources_large
 			}
-			OR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}			
+			is_synthetic_empire = yes			
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}
 	}		
@@ -319,10 +313,7 @@ country_event = {
 				has_country_flag = fe_gift_databanks
 				has_country_flag = fe_gift_rare_tech
 			}
-			NOR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}			
+			is_synthetic_empire = no			
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}
 	}
@@ -333,10 +324,7 @@ country_event = {
 				has_country_flag = fe_gift_databanks
 				has_country_flag = fe_gift_rare_tech
 			}
-			OR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}			
+			is_synthetic_empire = yes			
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}
 	}		
@@ -368,10 +356,7 @@ country_event = {
 				has_country_flag = fe_gift_escorts
 				has_country_flag = fe_gift_battlecruiser
 			}
-			NOR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}			
+			is_synthetic_empire = no			
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}			
 	}
@@ -382,10 +367,7 @@ country_event = {
 				has_country_flag = fe_gift_escorts
 				has_country_flag = fe_gift_battlecruiser
 			}
-			OR = {
-				has_authority = auth_machine_intelligence 
-				has_country_flag = synthetic_empire				
-			}				
+			is_synthetic_empire = yes				
 			event_target:FallenEmpireTaskOrigin = { has_authority = auth_machine_intelligence }
 		}		
 	}	
@@ -416,13 +398,13 @@ country_event = {
 		hidden_effect = { set_country_flag = fe_gift_received }
 		if = {
 			limit = { has_country_flag = fe_gift_resources_small }
-			add_minerals = 1500
-			add_energy = 500
+			add_resource = { minerals = 1500 }
+			add_resource = { energy = 500 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_resources_large }
-			add_minerals = 3000
-			add_energy = 1000
+			add_resource = { minerals = 3000 }
+			add_resource = { energy = 1000 }
 		}
 		if = {
 			limit = { has_country_flag = fe_gift_databanks }
@@ -451,8 +433,10 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = { has_technology = tech_selected_lineages }
-					NOT = { has_authority = auth_machine_intelligence }
+					NOR = {
+						has_technology = tech_selected_lineages
+						has_authority = auth_machine_intelligence
+					}
 				}
 				give_technology = { tech = tech_selected_lineages }
 				hidden_effect = { remove_country_flag = fe_gift_rare_tech }
@@ -739,11 +723,7 @@ country_event = {
 		NOT = { has_authority = auth_machine_intelligence }
 		is_mechanical_empire = no	
 		is_country_type = default
-		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}		
+		is_homicidal = no		
 		NOT = { has_country_flag = fe_xenophile_asked_pop }
 		is_at_war = no
 		
@@ -864,29 +844,21 @@ country_event = {
 		
 		if = {
 			limit = {
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}				
+				is_xenophobe = yes				
 			}
 			add_modifier = { modifier = gave_up_pop_xenophobe days = 3600 }
 		}		
 		if = {
 			limit = {
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}				
+				is_xenophile = yes				
 			}
 			add_modifier = { modifier = gave_up_pop_xenophile days = 3600 }
 		}		
 		if = {
 			limit = {
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile					
+					is_xenophobe = yes
+					is_xenophile = yes					
 				}				
 			}
 			add_modifier = { modifier = gave_up_pop days = 3600 }
@@ -894,7 +866,7 @@ country_event = {
 						
 		hidden_effect = {
 			event_target:FallenEmpireTaskPlanet = {
-				random_pop = {
+				random_owned_pop = {
 					limit = {
 						is_same_species = root
 						is_growing = no
@@ -927,10 +899,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.4.b
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -941,10 +910,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.4.c
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -955,10 +921,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.4.d
 		trigger = {
-			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-			}
+			is_authoritarian = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -970,12 +933,9 @@ country_event = {
 		name = fallen_empires_tasks.4.e
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe			
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian				
+				is_xenophobe = yes			
+				is_egalitarian = yes
+				is_authoritarian = yes				
 			}
 		}
 		ai_chance = {
@@ -999,9 +959,9 @@ country_event = {
 	}
 	
 	trigger = {
-		OR = {	
-			NOT = { is_country_type = fallen_empire }
-			NOT = { has_ethic = ethic_fanatic_xenophile }
+		NAND = {
+			is_country_type = fallen_empire
+			has_ethic = ethic_fanatic_xenophile
 		}
 		any_owned_planet = {
 			has_planet_flag = fe_the_preserve
@@ -1039,19 +999,15 @@ country_event = {
 		modifier = {
 			factor = 2.0
 			OR = {
-				has_ethic = ethic_authoritarian
-				has_ethic = ethic_fanatic_authoritarian
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
+				is_authoritarian = yes
+				is_xenophobe = yes
 			}				
 		}
 		modifier = {
 			factor = 0.5
 			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-				has_ethic = ethic_xenophile
-				has_ethic = ethic_fanatic_xenophile
+				is_egalitarian = yes
+				is_xenophile = yes
 			}				
 		}		
 	}
@@ -1060,13 +1016,13 @@ country_event = {
 		is_ai = no
 		is_country_type = default	
 		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}		
-		NOT = { has_authority = auth_machine_intelligence }
-		NOT = { has_authority = auth_hive_mind }
-		NOT = { has_country_flag = fe_task_given }
+			is_homicidal = yes
+			has_authority = auth_machine_intelligence
+		}
+		NOR = {
+			has_authority = auth_hive_mind
+			has_country_flag = fe_task_given
+		}
 		NOT = { has_global_flag = fe_task_stop_atrocity_active }	
 		is_at_war = no
 		
@@ -1087,7 +1043,7 @@ country_event = {
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_failed_fallen_empire_task } }
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_majorly_failed_fallen_empire_task } }
 			
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				root = { is_rival = prev }
 				allows_purge = yes
@@ -1112,7 +1068,7 @@ country_event = {
 				has_communications = root		
 				NOT = { has_opinion_modifier = { who = prev modifier = opinion_refused_fallen_empire_task } }
 				
-				any_country = {
+				any_playable_country = {
 					is_country_type = default
 					root = { is_rival = prev }
 					allows_purge = yes
@@ -1122,7 +1078,7 @@ country_event = {
 				}
 			}
 			
-			random_country = {	
+			random_playable_country = {	
 				limit = {
 					is_country_type = default
 					root = { is_rival = prev }
@@ -1484,16 +1440,13 @@ country_event = {
 
 		modifier = {
 			factor = 0.5
-			OR = {
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_spiritualist
-			}				
+			is_spiritualist = yes				
 		}
 
 		modifier = {
 			factor = 0.5
 			
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				root = { is_rival = prev }
 				OR = {
@@ -1509,7 +1462,7 @@ country_event = {
 		modifier = {
 			factor = 0.5
 			
-			any_country = {
+			any_playable_country = {
 				is_country_type = default
 				root = { is_rival = prev }
 				OR = {
@@ -1527,13 +1480,13 @@ country_event = {
 		is_ai = no
 		is_country_type = default	
 		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
+			is_homicidal = yes
+			has_authority = auth_machine_intelligence
+		}
+		NOR = {
+			has_country_flag = fe_task_given
+			has_global_flag = fe_task_stop_robots_active
 		}	
-		NOT = { has_authority = auth_machine_intelligence }
-		NOT = { has_country_flag = fe_task_given }
-		NOT = { has_global_flag = fe_task_stop_robots_active }	
 		is_at_war = no
 		
 		NOT = { has_policy_flag = no_wars }
@@ -1555,7 +1508,7 @@ country_event = {
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_failed_fallen_empire_task } }
 			NOT = { has_opinion_modifier = { who = prev modifier = opinion_majorly_failed_fallen_empire_task } }
 			
-			any_country = {
+			any_playable_country = {
 				is_country_type = default	
 				root = { is_rival = prev }
 				OR = {
@@ -1595,7 +1548,7 @@ country_event = {
 				}
 			}
 			
-			random_country = {	
+			random_playable_country = {	
 				limit = {
 					is_country_type = default
 					root = { is_rival = prev }
@@ -1951,11 +1904,7 @@ country_event = {
 		num_pops > 10
 		is_country_type = default
 		NOT = { has_authority = auth_machine_intelligence }
-		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}		
+		is_homicidal = no		
 		NOT = { has_country_flag = fe_materialist_asked_scientist }	
 		is_at_war = no
 		
@@ -2070,10 +2019,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.22.b
 		trigger = {
-			OR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_xenophobe = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -2084,10 +2030,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.22.c
 		trigger = {
-			OR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
+			is_egalitarian = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -2098,10 +2041,7 @@ country_event = {
 	option = {
 		name = fallen_empires_tasks.22.d
 		trigger = {
-			OR = {
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
-			}
+			is_materialist = yes
 		}
 		ai_chance = {
 			factor = 10
@@ -2113,12 +2053,9 @@ country_event = {
 		name = fallen_empires_tasks.22.e
 		trigger = {
 			NOR = {
-				has_ethic = ethic_xenophobe
-				has_ethic = ethic_fanatic_xenophobe			
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-				has_ethic = ethic_materialist
-				has_ethic = ethic_fanatic_materialist
+				is_xenophobe = yes			
+				is_egalitarian = yes
+				is_materialist = yes
 			}
 		}
 		ai_chance = {
@@ -2144,11 +2081,7 @@ country_event = {
 	trigger = {		
 		#is_ai = no
 		is_country_type = default	
-		NOR = {
-			has_valid_civic = civic_machine_terminator
-			has_valid_civic = civic_hive_devouring_swarm
-			has_valid_civic = civic_fanatic_purifiers
-		}		
+		is_homicidal = no		
 		is_at_war = no
 		has_country_flag = limbo_downloaded
 		NOR = { 

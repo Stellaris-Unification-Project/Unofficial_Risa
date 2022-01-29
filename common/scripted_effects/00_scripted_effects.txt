@@ -1155,8 +1155,10 @@ add_random_leader_trait = {
 				5 = {
 					if = {
 						limit = {
-							NOT = { has_trait = leader_trait_butcher }
-							NOT = { has_trait = leader_trait_restrained }
+							NOR = {
+								has_trait = leader_trait_butcher
+								has_trait = leader_trait_restrained
+							}
 						}
 						add_trait = leader_trait_butcher
 						set_timed_leader_flag = { flag = gained_leader_trait_butcher days = 7 }
@@ -2328,7 +2330,7 @@ spawn_vultaum_anomaly = {
 	random_system_within_border = {
 		limit = {
 			has_star_flag = precursor_1
-			any_planet = { 
+			any_system_planet = { 
 				uninhabitable_regular_planet = yes
 				NOT = { has_planet_flag = precursor_world }
 				has_owner = no
@@ -2366,7 +2368,7 @@ spawn_yuht_anomaly = {
 	random_system_within_border = {
 		limit = {
 			has_star_flag = precursor_2
-			any_planet = { 
+			any_system_planet = { 
 				uninhabitable_regular_planet = yes
 				NOT = { has_planet_flag = precursor_world }
 				has_owner = no
@@ -2404,7 +2406,7 @@ spawn_league_anomaly = {
 	random_system_within_border = {
 		limit = {
 			has_star_flag = precursor_3
-			any_planet = { 
+			any_system_planet = { 
 				uninhabitable_regular_planet = yes
 				NOT = { has_planet_flag = precursor_world }
 				has_owner = no
@@ -2442,7 +2444,7 @@ spawn_irassian_anomaly = {
 	random_system_within_border = {
 		limit = {
 			has_star_flag = precursor_4
-			any_planet = { 
+			any_system_planet = { 
 				uninhabitable_regular_planet = yes
 				NOT = { has_planet_flag = precursor_world }
 				has_owner = no
@@ -2480,7 +2482,7 @@ spawn_cybrex_anomaly = {
 	random_system_within_border = {
 		limit = {
 			has_star_flag = precursor_5
-			any_planet = { 
+			any_system_planet = { 
 				uninhabitable_regular_planet = yes
 				NOT = { has_planet_flag = precursor_world }
 				has_owner = no
@@ -2668,7 +2670,7 @@ randomize_shroud_flags = {
 		25 = { 
 			if = {
 				limit = {
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = psionic_avatar }
 						count < 1
 					}
@@ -2793,7 +2795,7 @@ randomize_shroud_flags = {
 			if = {
 				limit = { 
 					NOT = { has_country_flag = high.16 } 
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = psionic_avatar }
 						count < 1
 					}
@@ -3140,7 +3142,7 @@ randomize_shroud_flags = {
 						has_country_flag = high.1 
 						has_country_flag = medium.1 
 					}
-					count_owned_ships = {
+					count_owned_ship = {
 						limit = { is_ship_size = psionic_avatar }
 						count < 1
 					}
@@ -3724,29 +3726,29 @@ create_cybernetic_species_mod = {
 	owner = {
 		every_owned_pop = {
 			limit = { is_same_species = event_target:changing_species }
-			change_species = last_created
+			change_species = last_created_species
 		}
 		every_owned_leader = {
 			limit = { is_same_species = event_target:changing_species }
-			change_species = last_created
+			change_species = last_created_species
 		}
 		every_pool_leader = {
 			limit = { is_same_species = event_target:changing_species }
-			change_species = last_created
+			change_species = last_created_species
 		}
 		every_owned_army = {
 			limit = {
 				exists = species
 				is_same_species = event_target:changing_species
 			}
-			change_species = last_created
+			change_species = last_created_species
 		}
 		every_owned_ship = {
 			limit = {
 				is_ship_class = shipclass_colonizer
 				is_same_species = event_target:changing_species
 			}
-			change_species = last_created
+			change_species = last_created_species
 		}
 	}
 }
@@ -3757,8 +3759,8 @@ set_all_comms_surveyed = {
 			has_communications = from
 		}
 		prev = {
-			surveyed = {
-  				set_surveyed = yes
+			set_surveyed = {
+  				surveyed = yes
    				surveyor = Prev
    			}
     	}
@@ -3785,7 +3787,7 @@ create_ai_planet_defense = {
 	}
 	owner = {
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -3927,7 +3929,7 @@ create_ai_constructors = {
 	if = {
 		limit = {
 			event_target:AI_crisis = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = construction_ship_ai }
 					count < 5
 				}
@@ -3954,7 +3956,7 @@ create_ai_constructors = {
 create_ai_fleet = {
 	owner = {
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -4529,31 +4531,31 @@ create_fallen_empire_starting_navy = {
 add_100_unity_per_year_passed = {
 	switch = {
 		trigger = years_passed
-		400 > { add_unity = 40000 }
-		350 > { add_unity = 35000 }
-		300 > { add_unity = 30000 }
-		250 > { add_unity = 25000 }
-		200 > { add_unity = 20000 }
-		190 > { add_unity = 19000 }
-		180 > { add_unity = 18000 }
-		170 > { add_unity = 17000 }
-		160 > { add_unity = 16000 }
-		150 > { add_unity = 15000 }
-		140 > { add_unity = 14000 }
-		130 > { add_unity = 13000 }
-		120 > { add_unity = 12000 }
-		110 > { add_unity = 11000 }
-		100 > { add_unity = 10000 }
-		90 > { add_unity = 9000 }
-		80 > { add_unity = 8000 }
-		70 > { add_unity = 7000 }
-		60 > { add_unity = 6000 }
-		50 > { add_unity = 5000 }
-		40 > { add_unity = 4000 }
-		30 > { add_unity = 3000 }
-		20 > { add_unity = 2000 }
-		10 > { add_unity = 1000 }
-		0 > { add_unity = 500 }
+		400 > { add_resource = { unity = 40000 } }
+		350 > { add_resource = { unity = 35000 } }
+		300 > { add_resource = { unity = 30000 } }
+		250 > { add_resource = { unity = 25000 } }
+		200 > { add_resource = { unity = 20000 } }
+		190 > { add_resource = { unity = 19000 } }
+		180 > { add_resource = { unity = 18000 } }
+		170 > { add_resource = { unity = 17000 } }
+		160 > { add_resource = { unity = 16000 } }
+		150 > { add_resource = { unity = 15000 } }
+		140 > { add_resource = { unity = 14000 } }
+		130 > { add_resource = { unity = 13000 } }
+		120 > { add_resource = { unity = 12000 } }
+		110 > { add_resource = { unity = 11000 } }
+		100 > { add_resource = { unity = 10000 } }
+		90 > { add_resource = { unity = 9000 } }
+		80 > { add_resource = { unity = 8000 } }
+		70 > { add_resource = { unity = 7000 } }
+		60 > { add_resource = { unity = 6000 } }
+		50 > { add_resource = { unity = 5000 } }
+		40 > { add_resource = { unity = 4000 } }
+		30 > { add_resource = { unity = 3000 } }
+		20 > { add_resource = { unity = 2000 } }
+		10 > { add_resource = { unity = 1000 } }
+		0 > { add_resource = { unity = 500 } }
 	}
 }
 
@@ -4625,12 +4627,6 @@ remove_self_modified = {
 apply_robotic_pop_growth_behavior = {
 	change_species_characteristics = {
 		pop_maintenance = 1
-
-		pops_can_reproduce = no
-		new_pop_resource_requirement = {
-			type = robot_food
-			value = 30.0
-		}
 		pops_auto_growth = 1.0
 	}
 }
@@ -4770,7 +4766,7 @@ add_organic_sanctuaries = {
 			}
 			if = {
 				limit = {
-					root.owner = { has_swapped_tradition = tr_synchronicity_organic_paradise }
+					root.owner = { has_active_tradition = tr_synchronicity_organic_paradise }
 				}
 				set_building = "building_organic_paradise"
 			}
@@ -4786,7 +4782,7 @@ upgrade_organic_sanctuaries = {
 		limit = {
 			owner = { 
 				has_valid_civic = civic_machine_servitor 
-				has_swapped_tradition = tr_synchronicity_organic_paradise
+				has_active_tradition = tr_synchronicity_organic_paradise
 			}
 		}
 		every_tile = {
@@ -4960,7 +4956,7 @@ reset_start_buildings_and_blockers_post_apoc = { #Selectively resets necessary t
 		
 		save_event_target_as = needs_worker	
 		planet = {
-			random_pop = {
+			random_owned_pop = {
 				limit = { tile = { has_building = no } }
 
 				resettle_pop = {
@@ -5124,7 +5120,7 @@ reset_start_buildings_and_blockers_life_seeded = { #Selectively resets necessary
 		
 		save_event_target_as = needs_worker	
 		planet = {
-			random_pop = {
+			random_owned_pop = {
 				limit = { tile = { has_building = no } }
 
 				resettle_pop = {
@@ -5693,7 +5689,7 @@ create_marauder_starbase = {
 
 create_marauder_fleet = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = owner_main_species
 		name = random
 		skill = 3
@@ -5760,7 +5756,7 @@ create_marauder_fleet = {
 
 create_marauder_armies = {
 	create_leader = {
-		type = general
+		class = general
 		species = owner_main_species
 		name = random
 		skill = 3
@@ -5794,7 +5790,7 @@ create_marauder_constructors = {
 	if = {
 		limit = {
 			event_target:raider_khanate = {
-				count_owned_ships = {
+				count_owned_ship = {
 					limit = { is_ship_size = constructor }
 					count < 5
 				}
@@ -5819,7 +5815,7 @@ create_marauder_constructors = {
 
 create_small_marauder_auxiliaries = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = event_target:satrapy_species
 		name = random
 		leader_age_min = 34
@@ -5877,7 +5873,7 @@ create_small_marauder_auxiliaries = {
 
 create_medium_marauder_auxiliaries = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = event_target:satrapy_species
 		name = random
 		leader_age_min = 34
@@ -5944,7 +5940,7 @@ create_medium_marauder_auxiliaries = {
 
 create_large_marauder_auxiliaries = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = event_target:satrapy_species
 		name = random
 		leader_age_min = 34
@@ -6011,7 +6007,7 @@ create_large_marauder_auxiliaries = {
 
 create_very_large_marauder_auxiliaries = {
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = event_target:satrapy_species
 		name = random
 		traits = { trait = random_trait }
@@ -6078,7 +6074,7 @@ create_very_large_marauder_auxiliaries = {
 create_marauder_successor_fleet = {
 	random_owned_planet = { save_event_target_as = fleet_position }
 	create_leader = {
-		type = admiral
+		class = admiral
 		species = owner_main_species
 		name = random
 		skill = 3
@@ -6369,10 +6365,10 @@ create_first_diadochi = {
 		set_controller = event_target:first_diadochi
 	}
 	event_target:first_diadochi = {
-		add_minerals = 20000
-		add_energy = 20000
-		add_food = 2000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 20000 }
+		add_resource = { food = 2000 }
+		add_resource = { influence = 1000 }
 		copy_techs_from = { target = root }
 		every_owned_starbase = {
 			set_starbase_size = starbase_outpost
@@ -6418,16 +6414,16 @@ create_first_diadochi = {
 		}
 		# Survey Own Space
 		every_planet_within_border = {
-			surveyed = {
-				set_surveyed = yes
+			set_surveyed = {
+				surveyed = yes
 				surveyor = event_target:first_diadochi
 			}
 		}
 		# Survey Rest of Marauder's Space
 		root = {
 			every_planet_within_border = {
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = event_target:first_diadochi
 				}
 			}
@@ -6459,7 +6455,7 @@ create_first_diadochi = {
 		random_owned_planet = { save_event_target_as = unit_spawn_point }
 		# Fleet
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -6522,7 +6518,7 @@ create_first_diadochi = {
 		}
 		# Armies
 		create_leader = {
-			type = general
+			class = general
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -6643,10 +6639,10 @@ create_second_diadochi = {
 		set_controller = event_target:second_diadochi
 	}
 	event_target:second_diadochi = {
-		add_minerals = 20000
-		add_energy = 20000
-		add_food = 2000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 20000 }
+		add_resource = { food = 2000 }
+		add_resource = { influence = 1000 }
 		copy_techs_from = { target = root }
 		every_owned_starbase = {
 			set_starbase_size = starbase_outpost
@@ -6692,16 +6688,16 @@ create_second_diadochi = {
 		}
 		# Survey Own Space
 		every_planet_within_border = {
-			surveyed = {
-				set_surveyed = yes
+			set_surveyed = {
+				surveyed = yes
 				surveyor = event_target:second_diadochi
 			}
 		}
 		# Survey Rest of Marauder's Space
 		root = {
 			every_planet_within_border = {
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = event_target:second_diadochi
 				}
 			}
@@ -6733,7 +6729,7 @@ create_second_diadochi = {
 		random_owned_planet = { save_event_target_as = unit_spawn_point }
 		# Fleet
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -6796,7 +6792,7 @@ create_second_diadochi = {
 		}
 		# Armies
 		create_leader = {
-			type = general
+			class = general
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -6917,10 +6913,10 @@ create_third_diadochi = {
 		set_controller = event_target:third_diadochi
 	}
 	event_target:third_diadochi = {
-		add_minerals = 20000
-		add_energy = 20000
-		add_food = 2000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 20000 }
+		add_resource = { food = 2000 }
+		add_resource = { influence = 1000 }
 		copy_techs_from = { target = root }
 		every_owned_starbase = {
 			set_starbase_size = starbase_outpost
@@ -6966,16 +6962,16 @@ create_third_diadochi = {
 		}
 		# Survey Own Space
 		every_planet_within_border = {
-			surveyed = {
-				set_surveyed = yes
+			set_surveyed = {
+				surveyed = yes
 				surveyor = event_target:third_diadochi
 			}
 		}
 		# Survey Rest of Marauder's Space
 		root = {
 			every_planet_within_border = {
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = event_target:third_diadochi
 				}
 			}
@@ -7007,7 +7003,7 @@ create_third_diadochi = {
 		random_owned_planet = { save_event_target_as = unit_spawn_point }
 		# Fleet
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -7070,7 +7066,7 @@ create_third_diadochi = {
 		}
 		# Armies
 		create_leader = {
-			type = general
+			class = general
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -7191,10 +7187,10 @@ create_fourth_diadochi = {
 		set_controller = event_target:fourth_diadochi
 	}
 	event_target:fourth_diadochi = {
-		add_minerals = 20000
-		add_energy = 20000
-		add_food = 2000
-		add_influence = 1000
+		add_resource = { minerals = 20000 }
+		add_resource = { energy = 20000 }
+		add_resource = { food = 2000 }
+		add_resource = { influence = 1000 }
 		copy_techs_from = { target = root }
 		every_owned_starbase = {
 			set_starbase_size = starbase_outpost
@@ -7240,16 +7236,16 @@ create_fourth_diadochi = {
 		}
 		# Survey Own Space
 		every_planet_within_border = {
-			surveyed = {
-				set_surveyed = yes
+			set_surveyed = {
+				surveyed = yes
 				surveyor = event_target:fourth_diadochi
 			}
 		}
 		# Survey Rest of Marauder's Space
 		root = {
 			every_planet_within_border = {
-				surveyed = {
-					set_surveyed = yes
+				set_surveyed = {
+					surveyed = yes
 					surveyor = event_target:fourth_diadochi
 				}
 			}
@@ -7281,7 +7277,7 @@ create_fourth_diadochi = {
 		random_owned_planet = { save_event_target_as = unit_spawn_point }
 		# Fleet
 		create_leader = {
-			type = admiral
+			class = admiral
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -7344,7 +7340,7 @@ create_fourth_diadochi = {
 		}
 		# Armies
 		create_leader = {
-			type = general
+			class = general
 			species = owner_main_species
 			name = random
 			skill = 3
@@ -7624,7 +7620,7 @@ fire_warning_sign = {
 							has_technology = tech_combat_computers_1
 							any_owned_fleet = {
 								is_in_combat = no
-								count_fleet_ships = {
+								count_owned_ship = {
 									count > 1
 									limit = {
 										OR = {
@@ -7878,7 +7874,7 @@ fallen_empire_cleanse_border_worlds_effect = {
 generate_home_system_resources = {
 	every_system_planet = {	
 		limit = {
-			colonizeable_planet = no
+			colonizable_planet = no
 		}
 		prevent_anomaly = yes
 		clear_deposits = yes
@@ -9523,7 +9519,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_7
 			add_engineering_research = 3500
-			add_energy = 3500
+			add_resource = { energy = 3500 }
 		}
 		else_if = {
 			limit = {
@@ -9534,7 +9530,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_6
 			add_engineering_research = 3000
-			add_energy = 3000
+			add_resource = { energy = 3000 }
 		}
 		else_if = {
 			limit = {
@@ -9545,7 +9541,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_5
 			add_engineering_research = 2500
-			add_energy = 2500
+			add_resource = { energy = 2500 }
 		}
 		else_if = {
 			limit = {
@@ -9556,7 +9552,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_4
 			add_engineering_research = 2000
-			add_energy = 2000
+			add_resource = { energy = 2000 }
 		}
 		else_if = {
 			limit = {
@@ -9567,7 +9563,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_3
 			add_engineering_research = 1500
-			add_energy = 1500
+			add_resource = { energy = 1500 }
 		}
 		else_if = {
 			limit = {
@@ -9578,7 +9574,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_2
 			add_engineering_research = 1000
-			add_energy = 1000
+			add_resource = { energy = 1000 }
 		}
 		else_if = {
 			limit = {
@@ -9589,7 +9585,7 @@ liquidate_clues = {
 			}
 			custom_tooltip = liquidated_1
 			add_engineering_research = 500
-			add_energy = 500
+			add_resource = { energy = 500 }
 		}
 		else = {
 			custom_tooltip = liquidated_0

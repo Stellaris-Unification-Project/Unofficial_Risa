@@ -30,15 +30,9 @@ supremacist = {
 		is_being_purged = no
 		has_culture_shock = no
 		NOT = { has_trait = trait_nerve_stapled }
-		OR = {
-			has_ethic = ethic_xenophobe
-			has_ethic = ethic_fanatic_xenophobe
-		}
+		is_xenophobe = yes
 		owner = {
-			NOR = {
-				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_pacifist
-			}
+			is_pacifist = no
 		}
 		is_same_species = owner_species
 	}
@@ -216,7 +210,7 @@ supremacist = {
 		trigger = {
 			owner = {
 				NOT = {
-					any_country = {
+					any_playable_country = {
 						is_country_type = default
 						has_communications = root.owner
 						OR = {

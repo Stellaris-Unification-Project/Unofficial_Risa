@@ -272,7 +272,7 @@ uninhabitable_regular_planet = {
 	}
 }
 
-colonizeable_planet = {
+colonizable_planet = {
 	OR = {
 		is_planet_class = pc_nuked
 		is_planet_class = pc_machine
@@ -298,8 +298,7 @@ habitable_planet = {
 
 habitable_structure = {
 	OR = {
-		is_planet_class = pc_ringworld_habitable
-		is_planet_class = pc_habitat
+		is_artificial = yes
 	}
 }
 
@@ -327,8 +326,8 @@ has_encountered_other_species = {
 				has_trait = "trait_robotic_1"
 				has_trait = "trait_robotic_2"
 				has_trait = "trait_robotic_3"
+				is_same_species = prev
 			}
-			NOT = { is_same_species = prev }
 		}
 	}	
 }
@@ -480,10 +479,7 @@ is_lonely_hive_mind_pop = {
 	has_trait = trait_hive_mind
 	NOT = { from = { has_authority = auth_hive_mind } }
 	from = { 
-		NOR = {
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
-		}
+		is_fallen_empire = no
 	}
 }
 
@@ -493,8 +489,7 @@ is_disconnected_machine_pop = {
 	from = {
 		NOR = {
 			has_authority = auth_machine_intelligence
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
+			is_fallen_empire = yes
 		}
 	}
 }
@@ -636,10 +631,7 @@ is_pre_sapient_livestock = {
 }
 
 is_synthetic_empire = {
-	OR = {
-		has_country_flag = synthetic_empire
-		has_authority = auth_machine_intelligence
-	}
+	is_synthetic_empire = yes
 }
 
 is_trinary_star = {
@@ -654,8 +646,7 @@ is_trinary_star = {
 planet_can_be_liberated_from_owner = {
 	owner = {
 		NOR = {
-			is_country_type = awakened_fallen_empire
-			is_country_type = fallen_empire
+			is_fallen_empire = yes
 			has_authority = auth_hive_mind
 			has_authority = auth_machine_intelligence
 		}
@@ -663,9 +654,8 @@ planet_can_be_liberated_from_owner = {
 }
 
 pops_on_planet_can_form_government = {
-	any_pop = {
+	any_owned_pop = {
 		species = {
-			pops_have_happiness = yes
 		}
 	}
 }
@@ -721,10 +711,7 @@ is_mechanical_empire = {
 }
 
 is_country_type_with_subjects = {
-	OR = {
-		is_country_type = default
-		is_country_type = awakened_fallen_empire
-	}
+	is_country_type_with_subjects = yes
 }
 
 is_valid_target_fe_stop_atrocities = {
@@ -733,16 +720,14 @@ is_valid_target_fe_stop_atrocities = {
 		allows_purge = yes
 	}
 	NOT = { has_ethic = ethic_gestalt_consciousness }
-	NOR = {
-		has_valid_civic = civic_machine_terminator
-		has_valid_civic = civic_hive_devouring_swarm
-		has_valid_civic = civic_fanatic_purifiers
-	}
+	is_homicidal = no
 }
 
 is_valid_target_fe_stop_ai = {
-	NOT = { has_policy_flag = ai_outlawed }
-	NOT = { has_ethic = ethic_gestalt_consciousness }
+	NOR = {
+		has_policy_flag = ai_outlawed
+		has_ethic = ethic_gestalt_consciousness
+	}
 	has_technology = tech_synthetic_workers
 	is_mechanical_empire = no
 }
@@ -771,59 +756,35 @@ has_sapient_combat_computer = {
 }
 
 is_pacifist = {
-	OR = {
-		has_ethic = ethic_pacifist
-		has_ethic = ethic_fanatic_pacifist
-	}
+	is_pacifist = yes
 }
 
 is_militarist = {
-	OR = {
-		has_ethic = ethic_militarist
-		has_ethic = ethic_fanatic_militarist
-	}
+	is_militarist = yes
 }
 
 is_materialist = {
-	OR = {
-		has_ethic = ethic_materialist
-		has_ethic = ethic_fanatic_materialist
-	}
+	is_materialist = yes
 }
 
 is_spiritualist = {
-	OR = {
-		has_ethic = ethic_spiritualist
-		has_ethic = ethic_fanatic_spiritualist
-	}
+	is_spiritualist = yes
 }
 
 is_egalitarian = {
-	OR = {
-		has_ethic = ethic_egalitarian
-		has_ethic = ethic_fanatic_egalitarian
-	}
+	is_egalitarian = yes
 }
 
 is_authoritarian = {
-	OR = {
-		has_ethic = ethic_authoritarian
-		has_ethic = ethic_fanatic_authoritarian
-	}
+	is_authoritarian = yes
 }
 
 is_xenophile = {
-	OR = {
-		has_ethic = ethic_xenophile
-		has_ethic = ethic_fanatic_xenophile
-	}
+	is_xenophile = yes
 }
 
 is_xenophobe = {
-	OR = {
-		has_ethic = ethic_xenophobe
-		has_ethic = ethic_fanatic_xenophobe
-	}
+	is_xenophobe = yes
 }
 
 can_set_ai_policy = {
@@ -885,8 +846,7 @@ has_comms_with_alien_empire = {
 		has_communications = root
 		OR = {
 			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
+			is_fallen_empire = yes
 		}
 	}
 }
@@ -896,8 +856,7 @@ has_comms_with_alien_civilization = {
 		has_communications = root
 		OR = {
 			is_country_type = default
-			is_country_type = fallen_empire
-			is_country_type = awakened_fallen_empire
+			is_fallen_empire = yes
 			is_country_type = enclave
 			is_country_type = nomad
 			is_country_type = dormant_marauders
@@ -912,8 +871,7 @@ has_total_war_cb = {
 		AND = {
 			OR = {
 				is_country_type = default
-				is_country_type = awakened_fallen_empire
-				is_country_type = fallen_empire
+				is_fallen_empire = yes
 			}
 			OR = {
 				is_country_type = awakened_fallen_empire
@@ -922,10 +880,7 @@ has_total_war_cb = {
 				AND = {
 					has_valid_civic = civic_machine_terminator
 					from = {
-						NOR = {
-							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
-						}
+						is_synthetic_empire = no
 					}				
 				}
 				AND = {
@@ -956,10 +911,7 @@ has_total_war_cb = {
 					AND = {
 						has_valid_civic = civic_machine_terminator
 						prev = {
-							NOR = {
-								has_country_flag = synthetic_empire
-								has_authority = auth_machine_intelligence
-							}
+							is_synthetic_empire = no
 						}
 					}						
 				}	
@@ -1043,7 +995,7 @@ has_bordering_system = {
 # root: great khan's horde (country)
 is_potential_diadochi_system = {
 	exists = starbase
-	starbase = { owner = { is_same_value = root } }
+	starbase = { is_owned_by = root }
 	NOR = {
 		has_star_flag = first_diadochi_system
 		has_star_flag = second_diadochi_system
@@ -1054,7 +1006,7 @@ is_potential_diadochi_system = {
 
 has_no_non_gate_megastructure = {
 	OR = {
-		NOT = { has_any_megastructure = yes }
+		has_any_megastructure = no
 		any_system_megastructure = { # exclude gateways
 			NOR = {
 				is_megastructure_type = dyson_sphere_0
@@ -1096,11 +1048,7 @@ has_no_non_gate_megastructure = {
 }
 
 is_homicidal = {
-	OR = {
-		has_valid_civic = civic_fanatic_purifiers
-		has_valid_civic = civic_machine_terminator
-		has_valid_civic = civic_hive_devouring_swarm
-	}
+	is_homicidal = yes
 }
 
 has_subjugation_req = {
@@ -1108,9 +1056,7 @@ has_subjugation_req = {
 		NOT = { is_country_type = default }
 		has_tradition = tr_domination_adopt
 		has_valid_civic = civic_inwards_perfection
-		has_valid_civic = civic_machine_terminator
-		has_valid_civic = civic_fanatic_purifiers
-		has_valid_civic = civic_hive_devouring_swarm
+		is_homicidal = yes
 	}
 }
 

@@ -15,9 +15,9 @@ building_hab_capital = {
 	produced_resource_trigger = {
 		modifier = {
 			OR = {
-				has_non_swapped_tradition = tr_expansion_colonization_fever
-				has_swapped_tradition = tr_expansion_colonization_fever_machine
-				has_swapped_tradition = tr_expansion_colonization_fever_hive
+				has_active_tradition = tr_expansion_colonization_fever
+				has_active_tradition = tr_expansion_colonization_fever_machine
+				has_active_tradition = tr_expansion_colonization_fever_hive
 			}
 			resources = {
 				unity = 1

@@ -613,7 +613,7 @@ country_event = {
 				modifier = "ring_world_halted"
 			}
 		}
-		add_minerals = 500
+		add_resource = { minerals = 500 }
 	}
 
 	option = {
@@ -1198,7 +1198,7 @@ country_event = {
 	location = from.capital_scope
 
 	immediate = { event_target:dyson_sphere_neighbor = {
-			add_energy = 1000
+			add_resource = { energy = 1000 }
 		}
 	}
 
@@ -1419,7 +1419,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			any_owned_megastructure = {
 				OR = {
@@ -1436,7 +1436,7 @@ event = {
 	}
 
 	immediate = {
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				any_owned_megastructure = {
@@ -1492,7 +1492,7 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_country = {
+		any_playable_country = {
 			is_country_type = default
 			has_communications = root
 			species = {
@@ -1516,7 +1516,7 @@ country_event = {
 	immediate = {
 		set_country_flag = think_tank_event
 		save_global_event_target_as = fountain_of_youth_country
-		random_country = {
+		random_playable_country = {
 			limit = {
 				is_country_type = default
 				has_communications = root
@@ -2944,7 +2944,7 @@ country_event = {
 	
 	immediate = {
 		FROMFROM = { save_event_target_as = ringworld_system }
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 				NOT = { is_same_value = ROOT }
@@ -3081,7 +3081,7 @@ country_event = {
 	immediate = {
 		set_country_flag = built_ringworld
 		FROMFROM = { save_event_target_as = completed_ringworld_system }
-		every_country = {
+		every_playable_country = {
 			limit = {
 				is_ai = no
 				NOT = { is_same_value = ROOT }
@@ -3138,12 +3138,10 @@ country_event = {
 	option = { # has no Ring World
 		trigger = {
 			any_owned_megastructure = {
-				NOT = {
-					OR = {
+				NOR = {
 						is_megastructure_type = ring_world_1
 						is_megastructure_type = ring_world_2
-					}
-				}
+}
 			}
 			NOT = { has_country_flag = finished_ringworld }
 		}

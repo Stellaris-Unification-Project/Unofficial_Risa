@@ -196,7 +196,7 @@ planet_event = { #titanic life
 	option = {
 		name = colony_mod.2.c
 		trigger = {
-			owner = { OR = { has_ethic = ethic_xenophile has_ethic = ethic_fanatic_xenophile } #nice, for xenophiles
+			owner = { OR = { is_xenophile = yes } #nice, for xenophiles
 			}
 		}
 		# study them, bad outcome less likely but takes longer.
@@ -216,8 +216,7 @@ planet_event = { #titanic life
 		trigger = {
 			owner = { 
 				OR = { 
-					has_ethic = ethic_xenophobe 
-					has_ethic = ethic_fanatic_xenophobe 
+					is_xenophobe = yes 
 					has_authority = auth_hive_mind
 				} #mean, for xenophobe
 			}
@@ -305,20 +304,20 @@ planet_event = {
 		}
 		create_army = {
 			name = "NAME_Enraged_Guardian"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "titanic_guardian_army"
 		}
 		create_army = {
 			name = "NAME_Enraged_Titan"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "titanic_guardian_army"
 		}
 		create_army = {
 			name = "NAME_Enraged_Titan"
-			owner = last_created
-			species = last_created
+			owner = last_created_country
+			species = last_created_species
 			type = "titanic_guardian_army"
 		}
 	}
@@ -628,15 +627,13 @@ planet_event = {
 			limit = {
 				has_building = yes
 				is_ruined = no
-				NOT = {
-					OR = {
+				NOR = {
 						has_building = "building_capital_1"
 						has_building = "building_capital_2"
 						has_building = building_machine_capital_1
 						has_building = building_machine_capital_2
 						has_building = building_machine_capital_3
-					}
-				}
+}
 			}
 			set_ruined = yes #remove_building = yes
 		}
@@ -915,8 +912,10 @@ planet_event = {
 		if = {
 			limit = { 
 				has_modifier = strong_magnetic_field
-				NOT = { has_modifier = "magnetic_research_boost" }
-				NOT = { has_modifier = "magnetic_disruption" }
+				NOR = {
+					has_modifier = "magnetic_research_boost"
+					has_modifier = "magnetic_disruption"
+				}
 				has_ground_combat = no
 				num_pops > 0
 			}

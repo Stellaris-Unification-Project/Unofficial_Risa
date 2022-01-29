@@ -612,8 +612,8 @@ ship_event = {
 		fromfrom = { destroy_ambient_object = this }
 		solar_system = {
 			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes 
+				set_surveyed = {
+					surveyed = yes 
 					surveyor = event_target:ship_owner
 				}
 			}
@@ -924,8 +924,8 @@ country_event = {
 		}
 		event_target:salvager_system = {
 			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes 
+				set_surveyed = {
+					surveyed = yes 
 					surveyor = ROOT
 				}
 			}
@@ -975,8 +975,8 @@ country_event = {
 		}
 		event_target:salvager_system = {
 			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes 
+				set_surveyed = {
+					surveyed = yes 
 					surveyor = ROOT
 				}
 			}
@@ -1161,8 +1161,8 @@ country_event = {
 		}
 		event_target:anomaly_system = {
 			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes 
+				set_surveyed = {
+					surveyed = yes 
 					surveyor = ROOT
 				}
 			}
@@ -1400,8 +1400,8 @@ country_event = {
 		}
 		event_target:modified_probe_system = {
 			every_system_planet = {
-				surveyed = {
-					set_surveyed = yes 
+				set_surveyed = {
+					surveyed = yes 
 					surveyor = ROOT
 				}
 			}
@@ -1515,7 +1515,7 @@ country_event = {
 			min = @tier1materialmin
 			max = @tier1materialmax
 		}
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				distance = {
 					source = event_target:capital
@@ -1529,14 +1529,14 @@ country_event = {
 			}
 			solar_system = {
 				every_system_planet = {
-					surveyed = {
-						set_surveyed = yes 
+					set_surveyed = {
+						surveyed = yes 
 						surveyor = ROOT
 					}
 				}
 			}
 		}
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				distance = {
 					source = event_target:capital
@@ -1550,14 +1550,14 @@ country_event = {
 			}
 			solar_system = {
 				every_system_planet = {
-					surveyed = {
-						set_surveyed = yes 
+					set_surveyed = {
+						surveyed = yes 
 						surveyor = ROOT
 					}
 				}
 			}
 		}
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				distance = {
 					source = event_target:capital
@@ -1571,14 +1571,14 @@ country_event = {
 			}
 			solar_system = {
 				every_system_planet = {
-					surveyed = {
-						set_surveyed = yes 
+					set_surveyed = {
+						surveyed = yes 
 						surveyor = ROOT
 					}
 				}
 			}
 		}
-		random_planet = {
+		random_system_planet = {
 			limit = {
 				distance = {
 					source = event_target:capital
@@ -1592,8 +1592,8 @@ country_event = {
 			}
 			solar_system = {
 				every_system_planet = {
-					surveyed = {
-						set_surveyed = yes 
+					set_surveyed = {
+						surveyed = yes 
 						surveyor = ROOT
 					}
 				}
@@ -1639,7 +1639,7 @@ country_event = {
 	}
 	option = {
 		name = "country.50.b"
-		add_influence = 20
+		add_resource = { influence = 20 }
 	}
 }
 
@@ -1752,12 +1752,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1772,12 +1771,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1792,12 +1790,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1812,12 +1809,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1832,12 +1828,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1852,12 +1847,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1872,12 +1866,11 @@ country_event = {
 				AND = {
 					exists = space_owner 
 					space_owner = {
-						NOT = { is_country_type = fallen_empire }
-						NOT = { is_country_type = awakened_fallen_empire }
+						is_fallen_empire = no
 					}
 				}
 			}
-			any_planet = {
+			any_system_planet = {
 				is_surveyed = {
 					who = ROOT
 					status = yes
@@ -1903,7 +1896,7 @@ country_event = {
 			target = ROOT
 		}
 		hidden_effect = {
-			random_planet = { # TARBLAC
+			random_system_planet = { # TARBLAC
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -1917,8 +1910,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }
+									is_fallen_empire = no
 								}
 							}
 						}
@@ -1930,7 +1922,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # TASSARGOID
+			random_system_planet = { # TASSARGOID
 				limit = { 
 					is_surveyed = {
 						who = ROOT
@@ -1944,8 +1936,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }
+									is_fallen_empire = no
 								}
 							}
 						}
@@ -1957,7 +1948,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # ORINTHI
+			random_system_planet = { # ORINTHI
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -1971,8 +1962,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }
+									is_fallen_empire = no
 								}
 							}
 						}
@@ -1984,7 +1974,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # SNIRAN
+			random_system_planet = { # SNIRAN
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -1998,8 +1988,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }								
+									is_fallen_empire = no								
 								}
 							}
 						}
@@ -2011,7 +2000,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # GOOLANTHA
+			random_system_planet = { # GOOLANTHA
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -2025,8 +2014,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }	
+									is_fallen_empire = no	
 								}
 							}
 						}
@@ -2038,7 +2026,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # UDDLORAN
+			random_system_planet = { # UDDLORAN
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -2052,8 +2040,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }	
+									is_fallen_empire = no	
 								}
 							}
 						}
@@ -2065,7 +2052,7 @@ country_event = {
 					owner = root
 				}
 			}
-			random_planet = { # ZULCOR
+			random_system_planet = { # ZULCOR
 				limit = {
 					is_surveyed = {
 						who = ROOT
@@ -2079,8 +2066,7 @@ country_event = {
 							AND = {
 								exists = space_owner 
 								space_owner = {
-									NOT = { is_country_type = fallen_empire }
-									NOT = { is_country_type = awakened_fallen_empire }	
+									is_fallen_empire = no	
 								}
 							}
 						}
@@ -2487,7 +2473,7 @@ country_event = {
 				establish_communications_no_message = root
 				establish_contact = { who = root location = root.capital_scope }
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -2697,7 +2683,7 @@ ship_event = {
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					any_planet = {
+					any_system_planet = {
 						is_capital = no
 						is_asteroid = no
 						is_star = no
@@ -2723,7 +2709,7 @@ ship_event = {
 							has_star_flag = hostile_system
 							is_star_class = sc_black_hole
 						}
-						any_planet = {
+						any_system_planet = {
 							is_capital = no
 							is_asteroid = no
 							is_star = no
@@ -2747,7 +2733,7 @@ ship_event = {
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					any_planet = {
+					any_system_planet = {
 						is_capital = no
 						is_asteroid = no
 						is_star = no
@@ -2774,7 +2760,7 @@ ship_event = {
 							has_star_flag = hostile_system
 							is_star_class = sc_black_hole
 						}
-						any_planet = {
+						any_system_planet = {
 							is_capital = no
 							is_asteroid = no
 							is_star = no
@@ -2799,7 +2785,7 @@ ship_event = {
 						has_star_flag = hostile_system
 						is_star_class = sc_black_hole
 					}
-					any_planet = {
+					any_system_planet = {
 						is_capital = no
 						is_asteroid = no
 						is_star = no
@@ -2827,7 +2813,7 @@ ship_event = {
 							has_star_flag = hostile_system
 							is_star_class = sc_black_hole
 						}
-						any_planet = {
+						any_system_planet = {
 							is_capital = no
 							is_asteroid = no
 							is_star = no
@@ -2907,7 +2893,7 @@ fleet_event = {
 				limit = { has_country_flag = cultist_rebels_of@root.owner }
 				save_event_target_as = radical_cult
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -3091,7 +3077,7 @@ fleet_event = {
 				limit = { has_country_flag = cultist_rebels_of@root.owner }
 				save_event_target_as = radical_cult
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -3179,7 +3165,7 @@ fleet_event = {
 			limit = { has_country_flag = cultist_rebels_of@root.owner }
 			save_event_target_as = radical_cult
 			create_leader = {
-				type = admiral
+				class = admiral
 				species = owner_main_species
 				name = random
 				skill = 2
@@ -3312,7 +3298,7 @@ country_event = {
 					limit = {
 						NOR = { 
 							has_star_flag = hostile_system
-							any_planet = { has_owner = yes }
+							any_system_planet = { has_owner = yes }
 							root = { intel_level = { level > low system = prev } }
 						}
 						is_surveyed = {
@@ -3343,7 +3329,7 @@ country_event = {
 					}
 				}
 				create_leader = {
-					type = admiral
+					class = admiral
 					species = owner_main_species
 					name = random
 					skill = 2
@@ -3527,7 +3513,7 @@ country_event = {
 						status = no
 					}
 					is_pirate_system = no
-					any_planet = {
+					any_system_planet = {
 						is_asteroid = no
 						is_star = no
 					}
@@ -3987,7 +3973,7 @@ country_event = {
 					has_star_flag = hyacinth_system_3
 				}
 				NOT = {
-					any_planet = {
+					any_system_planet = {
 						is_surveyed = {
 							who = from
 							status = no

@@ -39,10 +39,7 @@ citizenship_full = {
 			OR = {
 				is_same_species = from
 				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_xenophobe = no
 				}
 			}
 		}
@@ -298,11 +295,7 @@ citizenship_assimilation = {
 		modifier = {
 			factor = 0
 			from = { 
-				OR = {
-					has_valid_civic = civic_hive_devouring_swarm
-					has_valid_civic = civic_fanatic_purifiers
-					has_valid_civic = civic_machine_terminator
-				}
+				is_homicidal = yes
 			}
 		}
 	}
@@ -416,10 +409,7 @@ citizenship_limited = {
 			factor = 0
 			from = {
 				has_valid_ai_personality = no
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = yes
 			}
 		}		
 	}
@@ -462,10 +452,7 @@ citizenship_caste_system = {
 			OR = {
 				is_same_species = from
 				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_xenophobe = no
 				}
 			}
 		}
@@ -473,10 +460,7 @@ citizenship_caste_system = {
 			fail_text = does_not_embrace_slavery
 			from = {
 				allows_slavery = yes
-				OR = {
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
-				}
+				is_authoritarian = yes
 			}		
 		}
 		custom_tooltip = {
@@ -493,10 +477,7 @@ citizenship_caste_system = {
 			factor = 0
 			from = {
 				has_valid_civic = civic_syncretic_evolution
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		modifier = {
@@ -557,10 +538,7 @@ citizenship_caste_system_limited = {
 			fail_text = does_not_embrace_slavery
 			from = {
 				allows_slavery = yes
-				OR = {
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
-				}
+				is_authoritarian = yes
 			}		
 		}
 		custom_tooltip = {
@@ -584,20 +562,14 @@ citizenship_caste_system_limited = {
 			factor = 0
 			from = {
 				has_valid_ai_personality = no
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = yes
 			}
 		}	
 		modifier = {
 			factor = 0
 			from = {
 				has_valid_civic = civic_syncretic_evolution
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 			}
 		}
 		modifier = {
@@ -653,10 +625,7 @@ citizenship_slavery = {
 		custom_tooltip = {
 			fail_text = empire_is_xenophile
 			from = {
-				NOR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = no
 			}
 		}		
 		custom_tooltip = {
@@ -671,10 +640,8 @@ citizenship_slavery = {
 			from = {
 				allows_slavery = yes
 				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe				
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
+					is_xenophobe = yes				
+					is_authoritarian = yes
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}		
@@ -912,10 +879,7 @@ military_service_full = {
 			OR = {
 				is_same_species = from
 				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_xenophobe = no
 				}
 			}
 		}
@@ -1149,8 +1113,7 @@ slavery_livestock = {
 			fail_text = empire_not_xenophobe
 			from = {
 				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
+					is_xenophobe = yes
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}
@@ -1288,10 +1251,7 @@ purge_neutering = {
 		modifier = {
 			factor = 0
 			from = { 
-				NOR = {
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
-				}
+				is_egalitarian = no
 			}
 		}
 		modifier = {
@@ -1739,10 +1699,7 @@ living_standard_academic_privilege = {
 		custom_tooltip = {
 			fail_text = empire_not_materialist
 			from = {
-				OR = {
-					has_ethic = ethic_materialist
-					has_ethic = ethic_fanatic_materialist
-				}
+				is_materialist = yes
 			}
 		}
 		NOR = {
@@ -1831,10 +1788,7 @@ living_standard_utopian = {
 		custom_tooltip = {
 			fail_text = empire_not_egalitarian
 			from = {
-				OR = {
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
-				}
+				is_egalitarian = yes
 			}
 		}
 		NOR = {
@@ -1959,10 +1913,8 @@ living_standard_good = {
 			factor = 0
 			from = {
 				NOR = {
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_fanatic_pacifist
-					has_ethic = ethic_egalitarian
-					has_ethic = ethic_fanatic_egalitarian
+					is_pacifist = yes
+					is_egalitarian = yes
 				}
 			}
 		}
@@ -2060,10 +2012,7 @@ living_standard_poor = {
 			custom_tooltip = {
 				fail_text = empire_is_egalitarian
 				from = {
-					NOR = {
-						has_ethic = ethic_egalitarian 
-						has_ethic = ethic_fanatic_egalitarian 
-					}
+					is_egalitarian = no
 				}
 			}
 		}
@@ -2141,10 +2090,7 @@ living_standard_subsistence = {
 				custom_tooltip = {
 					fail_text = empire_not_xenophobe
 					from = {
-						OR = {
-							has_ethic = ethic_xenophobe
-							has_ethic = ethic_fanatic_xenophobe
-						}
+						is_xenophobe = yes
 					}
 				}
 			}
@@ -2282,8 +2228,7 @@ migration_control_yes = {
 			from = {
 				is_country_type = default
 				NOR = {
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
+					is_authoritarian = yes
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}
@@ -2357,10 +2302,7 @@ population_control_yes = {
 				custom_tooltip = {
 					fail_text = empire_is_xenophile
 					from = {
-						NOR = {
-							has_ethic = ethic_xenophile
-							has_ethic = ethic_fanatic_xenophile
-						}
+						is_xenophile = no
 					}
 				}		
 			}				
@@ -2447,8 +2389,7 @@ colonization_control_yes = {
 			factor = 0
 			from = { 
 				NOR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
+					is_xenophobe = yes
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}
