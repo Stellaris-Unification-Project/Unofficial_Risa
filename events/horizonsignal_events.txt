@@ -3011,8 +3011,8 @@ planet_event = {
 				NOR = {
 					is_same_empire = root.owner
 					is_same_species = root.owner
+					has_ai_personality_behaviour = purger
 				}
-				NOT = { has_ai_personality_behaviour = purger }
 				OR = {
 					is_country_type = default
 					has_ai_personality = awakened_fallen_empire_xenophile		

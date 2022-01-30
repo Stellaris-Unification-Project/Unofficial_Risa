@@ -12787,8 +12787,8 @@ country_event = {
 				NOR = {
 					has_technology = tech_lasers_3
 					has_technology = tech_lasers_4
+					has_technology = tech_lasers_5
 				}
-				NOT = { has_technology = tech_lasers_5 }
 			}
 		}
 	}

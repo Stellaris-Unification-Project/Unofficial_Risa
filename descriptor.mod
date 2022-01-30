@@ -7,4 +7,4 @@ tags={
 	"Overhaul"
 }
 picture="thumbnail.png"
-supported_version="2.1.*"
+supported_version="3.2.2"

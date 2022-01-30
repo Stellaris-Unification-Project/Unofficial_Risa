@@ -1070,12 +1070,10 @@ country_event = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
 					has_ethic = ethic_fanatic_xenophobe
-				}
-				NOR = {
 					has_ethic = ethic_fanatic_xenophile
 					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_fanatic_spiritualist
 				}
-				NOT = { has_ethic = ethic_fanatic_spiritualist }
 			}
 		}
 	}
@@ -2478,12 +2476,10 @@ country_event = {
 				NOR = {
 					has_ethic = ethic_fanatic_xenophobe
 					has_ethic = ethic_fanatic_xenophile
-				}
-				NOR = {
 					has_ethic = ethic_fanatic_militarist
 					has_ethic = ethic_fanatic_materialist
+					has_ethic = ethic_fanatic_spiritualist
 				}
-				NOT = { has_ethic = ethic_fanatic_spiritualist }
 			}
 		}
 	}
@@ -4736,8 +4732,8 @@ planet_event = {
 				NOR = {
 					is_country = FROM
 					is_same_species = ROOT
+					has_ai_personality_behaviour = purger
 				}
-				NOT = { has_ai_personality_behaviour = purger }
 				OR = {
 					is_country_type = default
 					has_ai_personality = awakened_fallen_empire_xenophile				

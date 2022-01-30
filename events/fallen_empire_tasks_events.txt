@@ -1018,12 +1018,10 @@ country_event = {
 		NOR = {
 			is_homicidal = yes
 			has_authority = auth_machine_intelligence
-		}
-		NOR = {
 			has_authority = auth_hive_mind
 			has_country_flag = fe_task_given
-		}
-		NOT = { has_global_flag = fe_task_stop_atrocity_active }	
+			has_global_flag = fe_task_stop_atrocity_active
+		}	
 		is_at_war = no
 		
 		NOT = { has_policy_flag = no_wars }
@@ -1482,8 +1480,6 @@ country_event = {
 		NOR = {
 			is_homicidal = yes
 			has_authority = auth_machine_intelligence
-		}
-		NOR = {
 			has_country_flag = fe_task_given
 			has_global_flag = fe_task_stop_robots_active
 		}	

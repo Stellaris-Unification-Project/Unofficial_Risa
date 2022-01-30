@@ -3050,10 +3050,7 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_pacifist" }
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_militarist"
-							has_ethic = "ethic_militarist"
-}
+					is_militarist = no
 				}
 			}
 		}
@@ -3178,10 +3175,7 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_militarist" }
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_pacifist"
-							has_ethic = "ethic_pacifist"
-}
+					is_pacifist = no
 				}
 			}
 		}
@@ -3306,10 +3300,7 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_authoritarian" }
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_egalitarian"
-							has_ethic = "ethic_egalitarian"
-}
+					is_egalitarian = no
 				}
 			}
 		}
@@ -3434,10 +3425,7 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_egalitarian" }
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_authoritarian"
-							has_ethic = "ethic_authoritarian"
-}
+					is_authoritarian = no
 				}
 			}
 		}
@@ -3570,10 +3558,7 @@ planet_event = {
 					}
 				}
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_spiritualist"
-							has_ethic = "ethic_spiritualist"
-}
+					is_spiritualist = no
 				}
 			}
 		}
@@ -3698,10 +3683,7 @@ planet_event = {
 			AND = {
 				observation_outpost_owner = { has_ethic = "ethic_fanatic_spiritualist" }
 				owner = {
-					NOR = { 
-							has_ethic = "ethic_fanatic_materialist"
-							has_ethic = "ethic_materialist"
-}
+					is_materialist = no
 				}
 			}
 		}
